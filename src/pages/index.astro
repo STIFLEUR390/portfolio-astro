@@ -1,9 +1,15 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { site, projects, skills } from '../data/portfolio';
+import { getPosts } from '../lib/ghost';
 
 const featuredProjects = projects.filter((p) => p.featured);
 const techCount = Object.values(skills).flat().length;
+
+let latestPosts: any[] = [];
+try {
+  latestPosts = (await getPosts()).slice(0, 3);
+} catch {}
 ---
 
 <BaseLayout>
@@ -108,6 +114,51 @@ const techCount = Object.values(skills).flat().length;
       ))}
     </div>
   </section>
+
+  <!-- Latest blog posts -->
+  {latestPosts.length > 0 && (
+    <section class="py-12">
+      <div class="mb-6 flex items-center justify-between">
+        <h2 class="text-lg font-semibold">Derniers articles</h2>
+        <a href="/blog" class="text-sm text-primary hover:underline">Tout voir →</a>
+      </div>
+
+      <div class="space-y-4">
+        {latestPosts.map((post) => (
+          <a
+            href={`/blog/${post.slug}`}
+            class="group block rounded-lg border border-border p-5 transition-colors hover:border-primary/50 hover:bg-accent/50"
+          >
+            <div class="flex items-center gap-2 text-xs text-muted-foreground">
+              <time datetime={post.published_at}>
+                {new Date(post.published_at).toLocaleDateString('fr-FR', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric',
+                })}
+              </time>
+              {post.tags?.length > 0 && (
+                <>
+                  <span>·</span>
+                  {post.tags.slice(0, 2).map((tag: any) => (
+                    <span class="rounded border border-border px-1.5 py-0.5">{tag.name}</span>
+                  ))}
+                </>
+              )}
+            </div>
+            <h3 class="mt-2 font-semibold group-hover:text-primary transition-colors">
+              {post.title}
+            </h3>
+            {post.custom_excerpt && (
+              <p class="mt-1 text-sm text-muted-foreground line-clamp-2">
+                {post.custom_excerpt}
+              </p>
+            )}
+          </a>
+        ))}
+      </div>
+    </section>
+  )}
 
   <!-- CTA -->
   <section class="my-16 rounded-lg border border-border bg-accent/30 p-8 text-center">
