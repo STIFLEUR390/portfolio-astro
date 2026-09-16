@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { projects } from '../data/portfolio';
+---
+
+<BaseLayout title="Projets">
+  <section class="py-16">
+    <h1 class="text-3xl font-bold tracking-tight">Projets</h1>
+    <p class="mt-2 text-muted-foreground">
+      Sélection de projets professionnels et personnels.
+    </p>
+
+    <div class="mt-10 grid gap-6 sm:grid-cols-2">
+      {projects.map((project) => (
+        <article class="group rounded-lg border border-border p-6 transition-colors hover:border-primary/50 hover:bg-accent/50">
+          <div class="mb-3 flex items-center justify-between">
+            <h2 class="text-lg font-semibold">{project.name}</h2>
+            <span class="rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
+              {project.status}
+            </span>
+          </div>
+
+          <p class="text-sm text-muted-foreground leading-relaxed">
+            {project.description}
+          </p>
+
+          <div class="mt-4 flex flex-wrap gap-1.5">
+            {project.stack.map((tech) => (
+              <span class="rounded border border-border px-2 py-0.5 text-xs text-muted-foreground">
+                {tech}
+              </span>
+            ))}
+          </div>
+
+          <div class="mt-5 flex gap-3">
+            {project.url && (
+              <a
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex h-8 items-center rounded-md bg-primary px-3 text-xs font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+              >
+                Voir le site ↗
+              </a>
+            )}
+            {project.repo && (
+              <a
+                href={project.repo}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex h-8 items-center rounded-md border border-border px-3 text-xs font-medium transition-colors hover:bg-accent"
+              >
+                Code source ↗
+              </a>
+            )}
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

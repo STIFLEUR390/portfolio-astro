@@ -1,0 +1,122 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site, socials } from '../data/portfolio';
+---
+
+<BaseLayout title="Contact">
+  <section class="py-16">
+    <h1 class="text-3xl font-bold tracking-tight">Contact</h1>
+    <p class="mt-2 text-muted-foreground">
+      Une idée de projet ? Un poste à pourvoir ? Écrivez-moi.
+    </p>
+
+    <div class="mt-10 grid gap-10 lg:grid-cols-2">
+      <!-- Formulaire (FormSubmit) -->
+      <form
+        action="https://formsubmit.co/heroldtamko39@gmail.com"
+        method="POST"
+        class="space-y-4"
+      >
+        <!-- FormSubmit config -->
+        <input type="hidden" name="_subject" value="Nouveau message depuis le portfolio" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off" />
+
+        <div>
+          <label for="name" class="mb-1 block text-sm font-medium">Nom</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            class="h-10 w-full rounded-md border border-border bg-background px-3 text-sm outline-none transition-colors focus:border-primary focus:ring-1 focus:ring-primary"
+            placeholder="Votre nom"
+          />
+        </div>
+
+        <div>
+          <label for="email" class="mb-1 block text-sm font-medium">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            class="h-10 w-full rounded-md border border-border bg-background px-3 text-sm outline-none transition-colors focus:border-primary focus:ring-1 focus:ring-primary"
+            placeholder="vous@exemple.com"
+          />
+        </div>
+
+        <div>
+          <label for="message" class="mb-1 block text-sm font-medium">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            required
+            rows="5"
+            class="w-full rounded-md border border-border bg-background px-3 py-2 text-sm outline-none transition-colors focus:border-primary focus:ring-1 focus:ring-primary"
+            placeholder="Décrivez votre projet ou votre demande..."
+          ></textarea>
+        </div>
+
+        <button
+          type="submit"
+          class="inline-flex h-10 items-center rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+        >
+          Envoyer
+        </button>
+      </form>
+
+      <!-- Infos contact -->
+      <div class="space-y-6">
+        <div>
+          <h2 class="mb-3 text-lg font-semibold">Coordonnées</h2>
+          <ul class="space-y-2 text-sm text-muted-foreground">
+            <li>
+              <span class="font-medium text-foreground">Email :</span>
+              {' '}
+              <a href={`mailto:${site.email}`} class="text-primary hover:underline">
+                {site.email}
+              </a>
+            </li>
+            <li>
+              <span class="font-medium text-foreground">Téléphone :</span>
+              {' '}
+              <a href={`tel:${site.phone}`} class="text-primary hover:underline">
+                {site.phone}
+              </a>
+            </li>
+            <li>
+              <span class="font-medium text-foreground">Localisation :</span>
+              {' '}
+              {site.location}
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="mb-3 text-lg font-semibold">Réseaux</h2>
+          <div class="flex gap-3">
+            {socials.map((s) => (
+              <a
+                href={s.url}
+                target={s.url.startsWith('http') ? '_blank' : undefined}
+                rel={s.url.startsWith('http') ? 'noopener noreferrer' : undefined}
+                class="inline-flex h-9 items-center rounded-md border border-border px-4 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
+              >
+                {s.label}
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div class="rounded-lg border border-border bg-accent/30 p-4">
+          <p class="text-sm text-muted-foreground">
+            <span class="font-medium text-foreground">Disponibilité :</span>
+            {' '}Freelance · Remote ou Douala, Cameroun.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

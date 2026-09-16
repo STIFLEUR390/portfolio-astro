@@ -1,11 +1,125 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site, projects, skills } from '../data/portfolio';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const featuredProjects = projects.filter((p) => p.featured);
+const techCount = Object.values(skills).flat().length;
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<BaseLayout>
+  <!-- Hero -->
+  <section class="flex min-h-[70vh] flex-col justify-center py-16">
+    <p class="mb-3 text-sm font-medium text-primary">Développeur FullStack</p>
+    <h1 class="text-4xl font-bold tracking-tight sm:text-5xl">
+      {site.author}
+    </h1>
+    <p class="mt-4 max-w-xl text-lg text-muted-foreground">
+      {site.description}
+    </p>
+
+    <div class="mt-8 flex flex-wrap gap-3">
+      <a
+        href="/contact"
+        class="inline-flex h-10 items-center rounded-md bg-primary px-5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+      >
+        Discutons de votre projet
+      </a>
+      <a
+        href="/projets"
+        class="inline-flex h-10 items-center rounded-md border border-border px-5 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
+      >
+        Voir les projets
+      </a>
+    </div>
+
+    <!-- Quick stats -->
+    <div class="mt-12 grid grid-cols-3 gap-6 border-t border-border pt-8 text-center">
+      <div>
+        <p class="text-2xl font-bold text-foreground">6+</p>
+        <p class="text-sm text-muted-foreground">Années d'expérience</p>
+      </div>
+      <div>
+        <p class="text-2xl font-bold text-foreground">{featuredProjects.length}+</p>
+        <p class="text-sm text-muted-foreground">Projets livrés</p>
+      </div>
+      <div>
+        <p class="text-2xl font-bold text-foreground">{techCount}</p>
+        <p class="text-sm text-muted-foreground">Technologies</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stack -->
+  <section class="py-12">
+    <h2 class="mb-6 text-lg font-semibold">Stack technique</h2>
+    <div class="grid gap-6 sm:grid-cols-2">
+      {Object.entries(skills).map(([category, items]) => (
+        <div>
+          <h3 class="mb-2 text-sm font-medium text-muted-foreground">{category}</h3>
+          <div class="flex flex-wrap gap-2">
+            {items.map((skill) => (
+              <span class="inline-block rounded-md border border-border px-2.5 py-1 text-xs font-medium">
+                {skill}
+              </span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Featured Projects -->
+  <section class="py-12">
+    <div class="mb-6 flex items-center justify-between">
+      <h2 class="text-lg font-semibold">Projets vedettes</h2>
+      <a href="/projets" class="text-sm text-primary hover:underline">Tout voir →</a>
+    </div>
+
+    <div class="grid gap-4 sm:grid-cols-2">
+      {featuredProjects.map((project) => (
+        <article class="group rounded-lg border border-border p-5 transition-colors hover:border-primary/50 hover:bg-accent/50">
+          <div class="mb-3 flex items-center justify-between">
+            <h3 class="font-semibold">{project.name}</h3>
+            <span class="rounded-full bg-primary/10 px-2 py-0.5 text-xs font-medium text-primary">
+              {project.status}
+            </span>
+          </div>
+          <p class="mb-4 text-sm text-muted-foreground leading-relaxed">
+            {project.description}
+          </p>
+          <div class="flex flex-wrap gap-1.5">
+            {project.stack.map((tech) => (
+              <span class="rounded border border-border px-1.5 py-0.5 text-[11px] text-muted-foreground">
+                {tech}
+              </span>
+            ))}
+          </div>
+          {project.url && (
+            <a
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-4 inline-block text-sm font-medium text-primary hover:underline"
+            >
+              Voir le site →
+            </a>
+          )}
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="my-16 rounded-lg border border-border bg-accent/30 p-8 text-center">
+    <h2 class="text-xl font-semibold">Un projet en tête ?</h2>
+    <p class="mt-2 text-muted-foreground">
+      Disponible pour du freelance et des collaborations remote.
+    </p>
+    <a
+      href="/contact"
+      class="mt-5 inline-flex h-10 items-center rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+    >
+      Me contacter
+    </a>
+  </section>
+</BaseLayout>

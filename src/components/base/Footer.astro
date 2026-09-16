@@ -1,0 +1,24 @@
+---
+import { site, socials } from '../../data/portfolio';
+---
+
+<footer class="mt-20 border-t border-border">
+  <div class="mx-auto flex max-w-4xl flex-col items-center gap-4 px-4 py-8 sm:flex-row sm:justify-between sm:px-6 lg:px-8">
+    <p class="text-sm text-muted-foreground">
+      © {new Date().getFullYear()} {site.author}
+    </p>
+
+    <div class="flex items-center gap-4">
+      {socials.map((s) => (
+        <a
+          href={s.url}
+          target={s.url.startsWith('http') ? '_blank' : undefined}
+          rel={s.url.startsWith('http') ? 'noopener noreferrer' : undefined}
+          class="text-sm text-muted-foreground transition-colors hover:text-foreground"
+        >
+          {s.label}
+        </a>
+      ))}
+    </div>
+  </div>
+</footer>

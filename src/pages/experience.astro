@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { experiences, certifications } from '../data/portfolio';
+---
+
+<BaseLayout title="Expérience">
+  <section class="py-16">
+    <h1 class="text-3xl font-bold tracking-tight">Expérience</h1>
+    <p class="mt-2 text-muted-foreground">
+      Parcours professionnel et formations.
+    </p>
+
+    <!-- Expérience pro -->
+    <div class="mt-10">
+      <h2 class="mb-6 text-lg font-semibold">Parcours professionnel</h2>
+
+      <div class="relative space-y-8 before:absolute before:left-[7px] before:top-2 before:bottom-2 before:w-px before:bg-border">
+        {experiences.map((exp) => (
+          <div class="relative pl-8">
+            <div class="absolute left-0 top-1.5 h-[15px] w-[15px] rounded-full border-2 border-primary bg-background"></div>
+
+            <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+              <h3 class="font-semibold">{exp.role}</h3>
+              <span class="text-sm text-muted-foreground">
+                {exp.company} · {exp.location}
+              </span>
+            </div>
+
+            <p class="mt-1 text-xs font-medium text-primary">{exp.period}</p>
+
+            <p class="mt-2 text-sm text-muted-foreground">{exp.description}</p>
+
+            {exp.highlights.length > 0 && (
+              <ul class="mt-3 space-y-1">
+                {exp.highlights.map((h) => (
+                  <li class="flex items-start gap-2 text-sm text-muted-foreground">
+                    <span class="mt-1.5 h-1 w-1 flex-shrink-0 rounded-full bg-primary"></span>
+                    {h}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Certifications -->
+    <div class="mt-14">
+      <h2 class="mb-6 text-lg font-semibold">Certifications</h2>
+
+      <div class="space-y-4">
+        {certifications.map((cert) => (
+          <div class="rounded-lg border border-border p-4">
+            <div class="flex flex-wrap items-baseline justify-between gap-2">
+              <h3 class="font-semibold">{cert.name}</h3>
+              <span class="text-xs text-muted-foreground">{cert.date}</span>
+            </div>
+            <p class="mt-1 text-sm text-muted-foreground">{cert.issuer}</p>
+            <p class="mt-2 text-xs text-muted-foreground">{cert.topics}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
