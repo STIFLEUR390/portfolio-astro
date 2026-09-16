@@ -1,6 +1,11 @@
 FROM oven/bun:1 AS build
 WORKDIR /app
 
+ARG GHOST_URL
+ARG CONTENT_API_KEY
+ENV GHOST_URL=$GHOST_URL
+ENV CONTENT_API_KEY=$CONTENT_API_KEY
+
 COPY package.json bun.lock* ./
 RUN bun install --frozen-lockfile
 
