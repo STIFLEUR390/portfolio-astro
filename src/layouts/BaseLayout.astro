@@ -7,7 +7,7 @@ import '@fontsource/space-grotesk/700.css';
 import '../styles/prism.css';
 import Header from '../components/base/Header.astro';
 import Footer from '../components/base/Footer.astro';
-import { site } from '../data/portfolio';
+import { site, images } from '../data/portfolio';
 
 interface Props {
   title?: string;
@@ -32,7 +32,19 @@ const pageDescription = description ?? site.description;
     <meta property="og:description" content={pageDescription} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url.href} />
-    <meta property="og:image" content={`${site.url}/og.png`} />
+    <meta property="og:image" content={images.og} />
+    <meta property="og:image:width" content="1600" />
+    <meta property="og:image:height" content="900" />
+    <meta property="og:image:type" content="image/webp" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={images.og} />
+
+    <!-- Canonical -->
+    <link rel="canonical" href={`${site.url}${Astro.url.pathname}`} />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />

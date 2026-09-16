@@ -4,11 +4,20 @@ export const site = {
   title: "Tamto Tamko Franck Herold",
   description:
     "Développeur FullStack — Laravel, Nuxt/Vue, API REST. Freelance à Douala, Cameroun, disponible remote.",
-  url: "https://portfolio.applix.fr",
+  url: "https://portfolio.aplix.nl",
   author: "Tamto Tamko Franck Herold",
   email: "heroldtamko39@gmail.com",
   phone: "+237 697626397",
   location: "Douala, Cameroun",
+} as const;
+
+export const images = {
+  og: 'https://storage.applix.fr/hermes/uploads/portfolio/og-card.webp',
+  hero: 'https://storage.applix.fr/hermes/uploads/portfolio/hero.webp',
+  projects: {
+    'Réussir TCF': 'https://storage.applix.fr/hermes/uploads/portfolio/project-reussir-tcf.webp',
+    'KwikTalk': 'https://storage.applix.fr/hermes/uploads/portfolio/project-kwiktalk.webp',
+  },
 } as const;
 
 export const socials = [
@@ -22,28 +31,31 @@ export type Project = {
   stack: readonly string[];
   url?: string;
   repo?: string;
-  status: "live" | "en cours" | "terminé";
+  status: string;
   featured: boolean;
+  cover?: string;
 };
 
 export const projects: readonly Project[] = [
   {
-    name: "Reussir TCF",
+    name: "Réussir TCF",
     description:
-      "SaaS de préparation au TCF Canada — gestion utilisateurs, abonnements payants, quiz interactifs, suivi de performance, contenu dynamique.",
+      "Plate-forme SaaS de préparation au TCF Canada — gestion utilisateurs, abonnements payants, quiz interactifs, suivi de performance, contenu dynamique.",
     stack: ["Laravel", "Vue.js", "MySQL", "Stripe"],
     url: "https://reussir-tcf.com",
-    status: "live",
+    status: "En ligne",
     featured: true,
+    cover: images.projects['Réussir TCF'],
   },
   {
     name: "KwikTalk",
     description:
-      "Plateforme SaaS marketing WhatsApp — campagnes automatisées, gestion de conversations, analyse de données, IA conversationnelle, multi-comptes.",
+      "Plate-forme SaaS marketing WhatsApp — campagnes automatisées, gestion de conversations, analyse de données, IA conversationnelle, multi-comptes.",
     stack: ["Laravel", "Vue.js", "WhatsApp API", "AI"],
     url: "https://whatspro.aplix.nl",
-    status: "live",
+    status: "En ligne",
     featured: true,
+    cover: images.projects['KwikTalk'],
   },
 ] as const;
 

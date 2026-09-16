@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { site, projects, skills } from '../data/portfolio';
+import { site, projects, skills, images } from '../data/portfolio';
 import { getPosts } from '../lib/ghost';
 
 const featuredProjects = projects.filter((p) => p.featured);
@@ -14,44 +14,56 @@ try {
 
 <BaseLayout>
   <!-- Hero -->
-  <section class="flex min-h-[70vh] flex-col justify-center py-16">
-    <p class="mb-3 text-sm font-medium text-primary">Développeur FullStack</p>
-    <h1 class="text-4xl font-bold tracking-tight sm:text-5xl">
-      {site.author}
-    </h1>
-    <p class="mt-4 max-w-xl text-lg text-muted-foreground">
-      {site.description}
-    </p>
+  <section class="grid min-h-[70vh] items-center gap-10 py-16 lg:grid-cols-2">
+    <div>
+      <p class="mb-3 text-sm font-medium text-primary">Développeur FullStack</p>
+      <h1 class="text-4xl font-bold tracking-tight sm:text-5xl">
+        {site.author}
+      </h1>
+      <p class="mt-4 max-w-xl text-lg text-muted-foreground">
+        {site.description}
+      </p>
 
-    <div class="mt-8 flex flex-wrap gap-3">
-      <a
-        href="/contact"
-        class="inline-flex h-10 items-center rounded-md bg-primary px-5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-      >
-        Discutons de votre projet
-      </a>
-      <a
-        href="/projets"
-        class="inline-flex h-10 items-center rounded-md border border-border px-5 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
-      >
-        Voir les projets
-      </a>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a
+          href="/contact"
+          class="inline-flex h-10 items-center rounded-md bg-primary px-5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+        >
+          Discutons de votre projet
+        </a>
+        <a
+          href="/projets"
+          class="inline-flex h-10 items-center rounded-md border border-border px-5 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
+        >
+          Voir les projets
+        </a>
+      </div>
+
+      <!-- Quick stats -->
+      <div class="mt-12 grid grid-cols-3 gap-6 border-t border-border pt-8 text-center">
+        <div>
+          <p class="text-2xl font-bold text-foreground">6+</p>
+          <p class="text-sm text-muted-foreground">Années d'expérience</p>
+        </div>
+        <div>
+          <p class="text-2xl font-bold text-foreground">{featuredProjects.length}+</p>
+          <p class="text-sm text-muted-foreground">Projets livrés</p>
+        </div>
+        <div>
+          <p class="text-2xl font-bold text-foreground">{techCount}</p>
+          <p class="text-sm text-muted-foreground">Technologies</p>
+        </div>
+      </div>
     </div>
 
-    <!-- Quick stats -->
-    <div class="mt-12 grid grid-cols-3 gap-6 border-t border-border pt-8 text-center">
-      <div>
-        <p class="text-2xl font-bold text-foreground">6+</p>
-        <p class="text-sm text-muted-foreground">Années d'expérience</p>
-      </div>
-      <div>
-        <p class="text-2xl font-bold text-foreground">{featuredProjects.length}+</p>
-        <p class="text-sm text-muted-foreground">Projets livrés</p>
-      </div>
-      <div>
-        <p class="text-2xl font-bold text-foreground">{techCount}</p>
-        <p class="text-sm text-muted-foreground">Technologies</p>
-      </div>
+    <div class="hidden lg:block">
+      <img
+        src={images.hero}
+        alt="Espace de travail de développeur full-stack"
+        width="1024" height="1024"
+        class="rounded-2xl shadow-xl"
+        loading="eager"
+      />
     </div>
   </section>
 
@@ -83,7 +95,16 @@ try {
 
     <div class="grid gap-4 sm:grid-cols-2">
       {featuredProjects.map((project) => (
-        <article class="group rounded-lg border border-border p-5 transition-colors hover:border-primary/50 hover:bg-accent/50">
+        <article class="group overflow-hidden rounded-lg border border-border transition-colors hover:border-primary/50 hover:bg-accent/50">
+          {project.cover && (
+            <img
+              src={project.cover}
+              alt={`Aperçu de ${project.name}`}
+              class="w-full object-cover aspect-video"
+              loading="lazy"
+            />
+          )}
+          <div class="p-5">
           <div class="mb-3 flex items-center justify-between">
             <h3 class="font-semibold">{project.name}</h3>
             <span class="rounded-full bg-primary/10 px-2 py-0.5 text-xs font-medium text-primary">
@@ -110,6 +131,7 @@ try {
               Voir le site →
             </a>
           )}
+          </div>
         </article>
       ))}
     </div>

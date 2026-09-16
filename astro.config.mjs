@@ -6,7 +6,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://portfolio.applix.fr',
+  site: 'https://portfolio.aplix.nl',
   integrations: [vue(), sitemap()],
   vite: {
     plugins: [tailwindcss()],
