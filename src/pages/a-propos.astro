@@ -1,0 +1,67 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { bio, site } from '../data/portfolio';
+---
+
+<BaseLayout title="À propos">
+  <section class="py-16">
+    <h1 class="text-3xl font-bold tracking-tight">À propos</h1>
+
+    <div class="mt-10 grid gap-10 lg:grid-cols-3">
+      <!-- Bio principale -->
+      <div class="lg:col-span-2 space-y-6">
+        <p class="text-lg text-muted-foreground leading-relaxed">
+          {bio.intro}
+        </p>
+        <p class="text-muted-foreground leading-relaxed">
+          {bio.approach}
+        </p>
+
+        <!-- Valeurs -->
+        <div class="mt-8">
+          <h2 class="mb-4 text-lg font-semibold">Ce qui me guide</h2>
+          <ul class="grid gap-3 sm:grid-cols-2">
+            {bio.values.map((v) => (
+              <li class="flex items-center gap-2 text-sm">
+                <span class="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary"></span>
+                {v}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="space-y-6">
+        <!-- Photo placeholder -->
+        <div class="flex h-48 items-center justify-center rounded-lg border border-border bg-accent/30">
+          <span class="text-sm text-muted-foreground">Photo</span>
+        </div>
+
+        <div class="rounded-lg border border-border p-4 space-y-3">
+          <div>
+            <p class="text-xs font-medium text-muted-foreground">Localisation</p>
+            <p class="text-sm">{site.location}</p>
+          </div>
+          <div>
+            <p class="text-xs font-medium text-muted-foreground">Email</p>
+            <a href={`mailto:${site.email}`} class="text-sm text-primary hover:underline">
+              {site.email}
+            </a>
+          </div>
+          <div>
+            <p class="text-xs font-medium text-muted-foreground">Disponibilité</p>
+            <p class="text-sm">{bio.availability}</p>
+          </div>
+        </div>
+
+        <a
+          href="/contact"
+          class="flex h-10 items-center justify-center rounded-md bg-primary text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+        >
+          Me contacter
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

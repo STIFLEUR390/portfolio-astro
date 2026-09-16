@@ -104,6 +104,73 @@ export const experiences: readonly Experience[] = [
   },
 ] as const;
 
+export type Service = {
+  title: string;
+  description: string;
+  features: readonly string[];
+};
+
+export const services: readonly Service[] = [
+  {
+    title: "Développement Web Full-Stack",
+    description:
+      "Applications web sur mesure avec Laravel (backend) et Vue.js/Nuxt (frontend).",
+    features: [
+      "Sites vitrines et e-commerce",
+      "SaaS et applications métier",
+      "Tableaux de bord et backoffices",
+      "Responsive design, accessible",
+    ],
+  },
+  {
+    title: "API REST & Intégrations",
+    description:
+      "Conception et développement d'API REST robustes, connectées à vos systèmes existants.",
+    features: [
+      "API REST / GraphQL",
+      "Intégrations tierces (paiement, SMS, email)",
+      "Webhooks et automatisations",
+      "Documentation Swagger/OpenAPI",
+    ],
+  },
+  {
+    title: "Mobile Money & USSD",
+    description:
+      "Intégration des solutions de paiement mobile et USSD pour le marché camerounais et africain.",
+    features: [
+      "API Mobile Money MTN *039#",
+      "Services USSD interactifs",
+      "Paiements en ligne sécurisés",
+      "Adapté aux contraintes locales (offline, feature phones)",
+    ],
+  },
+  {
+    title: "DevOps & Maintenance",
+    description:
+      "Mise en production, déploiement continu et maintenance d'applications existantes.",
+    features: [
+      "Déploiement Docker / CI/CD",
+      "Mise en production Nginx / VPS",
+      "Monitoring et optimisation",
+      "Refactoring et montées de version",
+    ],
+  },
+] as const;
+
+export const bio = {
+  intro:
+    "Développeur full-stack basé à Douala, Cameroun. Je construis des applications web robustes et performantes depuis 2018, avec un focus sur Laravel et Vue.js.",
+  approach:
+    "Je travaille principalement avec des PME et startups qui ont besoin d'outils sur mesure — plateformes SaaS, API d'intégration, solutions de paiement mobile. Mon objectif : livrer des produits fonctionnels, maintenables et adaptés au contexte local.",
+  values: [
+    "Code propre et maintenable",
+    "Communication transparente",
+    "Respect des délais",
+    "Solutions adaptées au contexte africain",
+  ],
+  availability: "Freelance disponible · Remote ou Douala",
+} as const;
+
 export const certifications = [
   {
     name: "Développement Web Full Stack",

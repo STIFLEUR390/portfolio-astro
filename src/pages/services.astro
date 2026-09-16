@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { services } from '../data/portfolio';
+---
+
+<BaseLayout title="Services">
+  <section class="py-16">
+    <h1 class="text-3xl font-bold tracking-tight">Services</h1>
+    <p class="mt-2 max-w-xl text-muted-foreground">
+      Prestations de développement web full-stack, du prototype au déploiement.
+    </p>
+
+    <div class="mt-10 grid gap-6 sm:grid-cols-2">
+      {services.map((service) => (
+        <article class="rounded-lg border border-border p-6 transition-colors hover:border-primary/50">
+          <h2 class="text-lg font-semibold">{service.title}</h2>
+          <p class="mt-2 text-sm text-muted-foreground leading-relaxed">
+            {service.description}
+          </p>
+          <ul class="mt-4 space-y-1.5">
+            {service.features.map((f) => (
+              <li class="flex items-start gap-2 text-sm text-muted-foreground">
+                <span class="mt-1.5 h-1 w-1 flex-shrink-0 rounded-full bg-primary"></span>
+                {f}
+              </li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </div>
+
+    <!-- CTA -->
+    <div class="mt-14 rounded-lg border border-border bg-accent/30 p-8 text-center">
+      <h2 class="text-xl font-semibold">Un projet en tête ?</h2>
+      <p class="mt-2 text-muted-foreground">
+        Décrivez votre besoin et recevez un devis sous 48h.
+      </p>
+      <a
+        href="/contact"
+        class="mt-5 inline-flex h-10 items-center rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+      >
+        Demander un devis
+      </a>
+    </div>
+  </section>
+</BaseLayout>
