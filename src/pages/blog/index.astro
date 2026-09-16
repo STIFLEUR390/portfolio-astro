@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getPosts } from '../../lib/ghost';
+
+let posts: any[] = [];
+let error = '';
+
+try {
+  posts = await getPosts();
+} catch (e) {
+  error = 'Impossible de charger les articles. Vérifiez la clé API Ghost dans .env';
+}
+---
+
+<BaseLayout title="Blog">
+  <section class="py-16">
+    <h1 class="text-3xl font-bold tracking-tight">Blog</h1>
+    <p class="mt-2 text-muted-foreground">
+      Articles techniques sur Laravel, Vue.js, DevOps et veille.
+    </p>
+
+    {error && (
+      <div class="mt-6 rounded-lg border border-destructive/50 bg-destructive/10 p-4 text-sm text-destructive">
+        {error}
+      </div>
+    )}
+
+    <div class="mt-10 space-y-6">
+      {posts.map((post) => (
+        <article class="group rounded-lg border border-border p-6 transition-colors hover:border-primary/50 hover:bg-accent/50">
+          <a href={`/blog/${post.slug}`} class="block">
+            <div class="flex items-center gap-2 text-xs text-muted-foreground">
+              <time datetime={post.published_at}>
+                {new Date(post.published_at).toLocaleDateString('fr-FR', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric',
+                })}
+              </time>
+              {post.tags?.length > 0 && (
+                <>
+                  <span>·</span>
+                  {post.tags.map((tag: any) => (
+                    <span class="rounded border border-border px-1.5 py-0.5">{tag.name}</span>
+                  ))}
+                </>
+              )}
+            </div>
+
+            <h2 class="mt-2 text-lg font-semibold group-hover:text-primary transition-colors">
+              {post.title}
+            </h2>
+
+            {post.custom_excerpt && (
+              <p class="mt-2 text-sm text-muted-foreground leading-relaxed">
+                {post.custom_excerpt}
+              </p>
+            )}
+
+            <span class="mt-3 inline-block text-sm font-medium text-primary hover:underline">
+              Lire l'article →
+            </span>
+          </a>
+        </article>
+      ))}
+    </div>
+
+    {posts.length === 0 && !error && (
+      <p class="mt-10 text-center text-muted-foreground">
+        Aucun article pour le moment.
+      </p>
+    )}
+  </section>
+</BaseLayout>
