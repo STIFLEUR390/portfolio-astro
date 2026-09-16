@@ -1,5 +1,9 @@
 ---
 import '../styles/globals.css';
+import '@fontsource/space-grotesk/400.css';
+import '@fontsource/space-grotesk/500.css';
+import '@fontsource/space-grotesk/600.css';
+import '@fontsource/space-grotesk/700.css';
 import Header from '../components/base/Header.astro';
 import Footer from '../components/base/Footer.astro';
 import { site } from '../data/portfolio';
@@ -27,11 +31,18 @@ const pageDescription = description ?? site.description;
     <meta property="og:description" content={pageDescription} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url.href} />
+    <meta property="og:image" content={`${site.url}/og.png`} />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
+
+    <!-- Font -->
+    <style>
+      :root { --font-heading: 'Space Grotesk', system-ui, sans-serif; }
+      h1, h2, h3, h4 { font-family: var(--font-heading); }
+    </style>
 
     <!-- Dark mode: prevent flash -->
     <script is:inline>
