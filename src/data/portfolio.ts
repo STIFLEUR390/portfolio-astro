@@ -52,7 +52,7 @@ export const projects: readonly Project[] = [
     description:
       "Plate-forme SaaS marketing WhatsApp — campagnes automatisées, gestion de conversations, analyse de données, IA conversationnelle, multi-comptes.",
     stack: ["Laravel", "Vue.js", "WhatsApp API", "AI"],
-    url: "https://whatspro.aplix.nl",
+    url: "https://kwiktalk.aplix.nl",
     status: "En ligne",
     featured: true,
     cover: images.projects['KwikTalk'],
