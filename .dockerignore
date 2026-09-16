@@ -1,0 +1,8 @@
+.DS_Store
+node_modules
+dist
+.git
+.env
+.env.*
+Dockerfile
+docker-compose.yml
