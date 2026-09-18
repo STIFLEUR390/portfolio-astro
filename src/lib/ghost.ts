@@ -12,7 +12,6 @@ export async function getPosts({ page = 1, limit = 6 }: { page?: number; limit?:
     page,
     filter: 'visibility:public',
     include: ['tags', 'authors'],
-    fields: ['slug', 'title', 'custom_excerpt', 'excerpt', 'published_at', 'reading_time', 'feature_image', 'feature_image_alt', 'feature_image_caption'],
   });
 }
 
