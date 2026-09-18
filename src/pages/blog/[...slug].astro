@@ -128,12 +128,14 @@ const type = Astro.props.type;
       {/* Pagination */}
       <nav class="mt-12 flex items-center justify-between border-t border-border/50 pt-6">
         {Astro.props.currentPage > 2 ? (
-          <a href={`/blog/${Astro.props.currentPage - 1}`} class="inline-flex items-center gap-1 rounded-lg border border-border/60 px-4 py-2 text-sm font-medium transition-all duration-200 hover:bg-accent active:scale-[0.98]">
-            &larr; Precedent
+          <a href={`/blog/${Astro.props.currentPage - 1}`} class="inline-flex items-center gap-1.5 rounded-lg border border-border/60 px-4 py-2 text-sm font-medium transition-all duration-200 hover:bg-accent active:scale-[0.98]">
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+            Precedent
           </a>
         ) : Astro.props.currentPage === 2 ? (
-          <a href="/blog" class="inline-flex items-center gap-1 rounded-lg border border-border/60 px-4 py-2 text-sm font-medium transition-all duration-200 hover:bg-accent active:scale-[0.98]">
-            &larr; Precedent
+          <a href="/blog" class="inline-flex items-center gap-1.5 rounded-lg border border-border/60 px-4 py-2 text-sm font-medium transition-all duration-200 hover:bg-accent active:scale-[0.98]">
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+            Precedent
           </a>
         ) : <div />}
 
@@ -142,8 +144,9 @@ const type = Astro.props.type;
         </span>
 
         {Astro.props.currentPage < Astro.props.totalPages ? (
-          <a href={`/blog/${Astro.props.currentPage + 1}`} class="inline-flex items-center gap-1 rounded-lg border border-border/60 px-4 py-2 text-sm font-medium transition-all duration-200 hover:bg-accent active:scale-[0.98]">
-            Suivant &rarr;
+          <a href={`/blog/${Astro.props.currentPage + 1}`} class="inline-flex items-center gap-1.5 rounded-lg border border-border/60 px-4 py-2 text-sm font-medium transition-all duration-200 hover:bg-accent active:scale-[0.98]">
+            Suivant
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
           </a>
         ) : <div />}
       </nav>
@@ -153,8 +156,9 @@ const type = Astro.props.type;
   <BaseLayout title={Astro.props.post.title} description={Astro.props.post.custom_excerpt ?? Astro.props.post.excerpt}>
     <article class="py-20">
       <!-- Back link -->
-      <a href="/blog" class="reveal mb-8 inline-flex items-center gap-1 text-sm text-muted-foreground transition-colors duration-200 hover:text-foreground">
-        &larr; Retour au blog
+      <a href="/blog" class="reveal mb-8 inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors duration-200 hover:text-foreground">
+        <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+        Retour au blog
       </a>
 
       <!-- Feature image -->
@@ -241,7 +245,7 @@ const type = Astro.props.type;
               href={`/blog/${Astro.props.prevPost.slug}`}
               class="group card-hover rounded-xl border border-border/50 bg-card p-5"
             >
-              <span class="text-xs text-muted-foreground">&larr; Article precedent</span>
+              <span class="inline-flex items-center gap-1 text-xs text-muted-foreground"><svg class="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg> Article precedent</span>
               <p class="mt-1.5 text-sm font-medium transition-colors duration-200 group-hover:text-primary">
                 {Astro.props.prevPost.title}
               </p>
@@ -253,7 +257,7 @@ const type = Astro.props.type;
               href={`/blog/${Astro.props.nextPost.slug}`}
               class="group card-hover rounded-xl border border-border/50 bg-card p-5 text-right"
             >
-              <span class="text-xs text-muted-foreground">Article suivant &rarr;</span>
+              <span class="inline-flex items-center gap-1 text-xs text-muted-foreground">Article suivant <svg class="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></span>
               <p class="mt-1.5 text-sm font-medium transition-colors duration-200 group-hover:text-primary">
                 {Astro.props.nextPost.title}
               </p>

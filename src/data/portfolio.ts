@@ -1,9 +1,9 @@
-// Source de vérité unique — alimente toutes les sections du portfolio.
+// Source de vérité unique. Alimente toutes les sections du portfolio.
 
 export const site = {
   title: "Tamto Tamko Franck Herold",
   description:
-    "Développeur FullStack — Laravel, Nuxt/Vue, API REST. Freelance à Douala, Cameroun, disponible remote.",
+    "Développeur FullStack - Laravel, Nuxt/Vue, API REST. Freelance à Douala, Cameroun, disponible remote.",
   url: "https://portfolio.aplix.nl",
   author: "Tamto Tamko Franck Herold",
   email: "heroldtamko39@gmail.com",
@@ -45,7 +45,7 @@ export const projects: readonly Project[] = [
   {
     name: "Réussir TCF",
     description:
-      "Plate-forme SaaS de préparation au TCF Canada — gestion utilisateurs, abonnements payants, quiz interactifs, suivi de performance, contenu dynamique.",
+      "Plate-forme SaaS de préparation au TCF Canada. Gestion utilisateurs, abonnements payants, quiz interactifs, suivi de performance, contenu dynamique.",
     stack: ["Laravel", "Vue.js", "MySQL", "Stripe"],
     url: "https://reussir-tcf.com",
     status: "En ligne",
@@ -55,7 +55,7 @@ export const projects: readonly Project[] = [
   {
     name: "KwikTalk",
     description:
-      "Plate-forme SaaS marketing WhatsApp — campagnes automatisées, gestion de conversations, analyse de données, IA conversationnelle, multi-comptes.",
+      "Plate-forme SaaS marketing WhatsApp. Campagnes automatisées, gestion de conversations, analyse de données, IA conversationnelle, multi-comptes.",
     stack: ["Laravel", "Vue.js", "WhatsApp API", "AI"],
     url: "https://kwiktalk.aplix.nl",
     status: "En ligne",
@@ -65,7 +65,7 @@ export const projects: readonly Project[] = [
   {
     name: "ETECH KEYS",
     description:
-      "Site web officiel — SMS, WhatsApp Business API, USSD et solutions cloud au Cameroun. Tech Provider Meta WhatsApp Officiel.",
+      "Site web officiel. SMS, WhatsApp Business API, USSD et solutions cloud au Cameroun. Tech Provider Meta WhatsApp Officiel.",
     stack: ["Vue.js", "TypeScript", "Tailwind CSS", "WhatsApp API"],
     url: "https://etech-keys.com",
     status: "En ligne",
@@ -84,7 +84,7 @@ export const projects: readonly Project[] = [
   {
     name: "Laralink",
     description:
-      "Outil desktop pour gérer et lancer vos projets Laravel locaux sur votre réseau local — URL + QR code. Dev tool.",
+      "Outil desktop pour gérer et lancer vos projets Laravel locaux sur votre réseau local. URL + QR code. Dev tool.",
     stack: ["Tauri 2", "Nuxt 4", "Laravel", "SQLite"],
     status: "Open source",
     featured: false,
@@ -93,7 +93,7 @@ export const projects: readonly Project[] = [
   {
     name: "S3 Policies Generator",
     description:
-      "Générateur de politiques S3/RustFS — Terraform, CloudFormation, guardrails, validator. PWA open source.",
+      "Générateur de politiques S3/RustFS. Terraform, CloudFormation, guardrails, validator. PWA open source.",
     stack: ["Vue.js", "Terraform", "CloudFormation", "PWA"],
     url: "https://s3-policies-generator.vercel.app",
     status: "Open source",
@@ -139,7 +139,7 @@ export const experiences: readonly Experience[] = [
     role: "Développeur Web",
     company: "ETECH KEYS",
     location: "Douala, Cameroun",
-    period: "Juil 2019 — Aujourd'hui",
+    period: "Juil 2019 - Aujourd'hui",
     description:
       "Développement d'applications web full-stack pour des clients du secteur bancaire, télécom et éducation.",
     highlights: [
@@ -154,7 +154,7 @@ export const experiences: readonly Experience[] = [
     role: "Stagiaire Développeur Web",
     company: "ETECH KEYS",
     location: "Douala, Cameroun",
-    period: "2018 — 2019",
+    period: "2018 - 2019",
     description:
       "Fondamentaux du développement web : HTML, CSS, PHP, MySQL.",
     highlights: ["Site vitrine pour entreprise de matériaux"],
@@ -218,7 +218,7 @@ export const bio = {
   intro:
     "Développeur full-stack basé à Douala, Cameroun. Je construis des applications web robustes et performantes depuis 2018, avec un focus sur Laravel et Vue.js.",
   approach:
-    "Je travaille principalement avec des PME et startups qui ont besoin d'outils sur mesure — plateformes SaaS, API d'intégration, solutions de paiement mobile. Mon objectif : livrer des produits fonctionnels, maintenables et adaptés au contexte local.",
+    "Je travaille principalement avec des PME et startups qui ont besoin d'outils sur mesure : plateformes SaaS, API d'intégration, solutions de paiement mobile. Mon objectif : livrer des produits fonctionnels, maintenables et adaptés au contexte local.",
   values: [
     "Code propre et maintenable",
     "Communication transparente",

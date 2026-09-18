@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { ArrowRight, ExternalLink } from '@lucide/vue';
 import { site, projects, skills, images, bio } from '../data/portfolio';
 import { getPosts } from '../lib/ghost';
 
@@ -14,7 +15,7 @@ try {
 
 <BaseLayout>
   <!-- Hero -->
-  <section class="grid min-h-[85vh] items-center gap-12 py-20 lg:grid-cols-5">
+  <section class="grid min-h-[100dvh] items-center gap-12 py-20 lg:grid-cols-5">
     <div class="lg:col-span-3">
       <div class="reveal">
         <p class="mb-4 text-sm font-medium text-primary">Developpeur FullStack</p>
@@ -28,13 +29,13 @@ try {
       <div class="reveal reveal-delay-2 mt-8 flex flex-wrap gap-3">
         <a
           href="/contact"
-          class="inline-flex h-11 items-center rounded-lg bg-primary px-6 text-sm font-medium text-primary-foreground transition-all duration-200 hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/20 active:scale-[0.98]"
+          class="inline-flex h-11 items-center gap-2 rounded-lg bg-primary px-6 text-sm font-medium text-primary-foreground transition-all duration-200 hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/20 active:scale-[0.98]"
         >
           Discutons de votre projet
         </a>
         <a
           href="/projets"
-          class="inline-flex h-11 items-center rounded-lg border border-border/60 px-6 text-sm font-medium transition-all duration-200 hover:bg-accent hover:text-foreground active:scale-[0.98]"
+          class="inline-flex h-11 items-center gap-2 rounded-lg border border-border/60 px-6 text-sm font-medium transition-all duration-200 hover:bg-accent hover:text-foreground active:scale-[0.98]"
         >
           Voir les projets
         </a>
@@ -57,20 +58,20 @@ try {
     </div>
   </section>
 
-  <!-- Quick stats -->
+  <!-- Quick stats - asymmetric bento, not 3 equal cols -->
   <section class="reveal border-y border-border/50 py-10">
-    <div class="grid grid-cols-3 gap-6 text-center">
-      <div>
-        <p class="text-3xl font-bold tracking-tight text-foreground">6+</p>
-        <p class="mt-1 text-sm text-muted-foreground">Annees d'experience</p>
+    <div class="grid grid-cols-2 gap-6 lg:grid-cols-4">
+      <div class="col-span-2 rounded-xl bg-accent/50 p-6 text-left">
+        <p class="text-4xl font-bold tracking-tight text-foreground">6+</p>
+        <p class="mt-2 text-sm text-muted-foreground">Annees d'experience en dev web</p>
       </div>
-      <div>
+      <div class="rounded-xl border border-border/50 bg-card p-6">
         <p class="text-3xl font-bold tracking-tight text-foreground">{featuredProjects.length}+</p>
-        <p class="mt-1 text-sm text-muted-foreground">Projets livres</p>
+        <p class="mt-2 text-sm text-muted-foreground">Projets livres</p>
       </div>
-      <div>
+      <div class="rounded-xl border border-border/50 bg-card p-6">
         <p class="text-3xl font-bold tracking-tight text-foreground">{techCount}</p>
-        <p class="mt-1 text-sm text-muted-foreground">Technologies</p>
+        <p class="mt-2 text-sm text-muted-foreground">Technologies</p>
       </div>
     </div>
   </section>
@@ -81,7 +82,7 @@ try {
     <div class="reveal reveal-delay-1 mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
       {Object.entries(skills).map(([category, items], i) => (
         <div class:list={['reveal', `reveal-delay-${Math.min(i + 1, 3)}`]}>
-          <h3 class="mb-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground">{category}</h3>
+          <h3 class="mb-3 text-sm font-medium text-muted-foreground">{category}</h3>
           <div class="flex flex-wrap gap-2">
             {items.map((skill) => (
               <span class="inline-block rounded-lg border border-border/60 bg-card px-3 py-1.5 text-xs font-medium transition-colors duration-200 hover:border-primary/30 hover:text-primary">
@@ -101,8 +102,9 @@ try {
         <h2 class="text-lg font-semibold">Projets vedettes</h2>
         <p class="mt-1 text-sm text-muted-foreground">Une selection de projets recents.</p>
       </div>
-      <a href="/projets" class="reveal text-sm font-medium text-primary transition-colors duration-200 hover:text-primary/80">
-        Tout voir &rarr;
+      <a href="/projets" class="reveal inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-colors duration-200 hover:text-primary/80">
+        Tout voir
+        <ArrowRight class="h-4 w-4" />
       </a>
     </div>
 
@@ -141,9 +143,10 @@ try {
                 href={project.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="mt-4 inline-block text-sm font-medium text-primary transition-colors duration-200 hover:text-primary/80"
+                class="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-colors duration-200 hover:text-primary/80"
               >
-                Voir le site &rarr;
+                Voir le site
+                <ExternalLink class="h-3.5 w-3.5" />
               </a>
             )}
           </div>
@@ -160,8 +163,9 @@ try {
           <h2 class="text-lg font-semibold">Derniers articles</h2>
           <p class="mt-1 text-sm text-muted-foreground">Reflexions techniques et veille.</p>
         </div>
-        <a href="/blog" class="text-sm font-medium text-primary transition-colors duration-200 hover:text-primary/80">
-          Tout voir &rarr;
+        <a href="/blog" class="reveal inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-colors duration-200 hover:text-primary/80">
+          Tout voir
+          <ArrowRight class="h-4 w-4" />
         </a>
       </div>
 
@@ -181,7 +185,7 @@ try {
               </time>
               {post.tags?.length > 0 && (
                 <>
-                  <span>&middot;</span>
+                  <span>-</span>
                   {post.tags.slice(0, 2).map((tag: any) => (
                     <span class="rounded-md bg-secondary px-1.5 py-0.5 text-[11px] font-medium">{tag.name}</span>
                   ))}
@@ -210,7 +214,7 @@ try {
     </p>
     <a
       href="/contact"
-      class="mt-6 inline-flex h-11 items-center rounded-lg bg-primary px-7 text-sm font-medium text-primary-foreground transition-all duration-200 hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/20 active:scale-[0.98]"
+      class="mt-6 inline-flex h-11 items-center gap-2 rounded-lg bg-primary px-7 text-sm font-medium text-primary-foreground transition-all duration-200 hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/20 active:scale-[0.98]"
     >
       Me contacter
     </a>
