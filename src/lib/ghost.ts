@@ -6,11 +6,13 @@ const api = new GhostContentAPI({
   version: 'v5.0',
 });
 
-export async function getPosts() {
+export async function getPosts({ page = 1, limit = 6 }: { page?: number; limit?: number } = {}) {
   return await api.posts.browse({
-    limit: 20,
+    limit,
+    page,
     filter: 'visibility:public',
     include: ['tags', 'authors'],
+    fields: ['slug', 'title', 'custom_excerpt', 'excerpt', 'published_at', 'reading_time', 'feature_image', 'feature_image_alt', 'feature_image_caption'],
   });
 }
 
@@ -20,6 +22,8 @@ export async function getPostBySlug(slug: string) {
     { include: ['tags', 'authors'] },
   );
 }
+
+
 
 export async function getTags() {
   return await api.tags.browse({ limit: 20 });
