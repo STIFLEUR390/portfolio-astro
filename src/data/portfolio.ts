@@ -62,6 +62,44 @@ export const projects: readonly Project[] = [
     featured: true,
     cover: images.projects['KwikTalk'],
   },
+  {
+    name: "ETECH KEYS",
+    description:
+      "Site web officiel — SMS, WhatsApp Business API, USSD et solutions cloud au Cameroun. Tech Provider Meta WhatsApp Officiel.",
+    stack: ["Vue.js", "TypeScript", "Tailwind CSS", "WhatsApp API"],
+    url: "https://etech-keys.com",
+    status: "En ligne",
+    featured: false,
+    repo: "https://github.com/STIFLEUR390/etech-website",
+  },
+  {
+    name: "MboaCaisse",
+    description:
+      "Application de gestion pour bar, restaurant et épicerie. Fonctionne en LAN local, sans internet obligatoire. POS offline-first.",
+    stack: ["Tauri 2", "Rust", "Axum", "SQLite", "Nuxt 4"],
+    status: "En développement",
+    featured: true,
+    repo: "https://github.com/STIFLEUR390/MboaCaisse",
+  },
+  {
+    name: "Laralink",
+    description:
+      "Outil desktop pour gérer et lancer vos projets Laravel locaux sur votre réseau local — URL + QR code. Dev tool.",
+    stack: ["Tauri 2", "Nuxt 4", "Laravel", "SQLite"],
+    status: "Open source",
+    featured: false,
+    repo: "https://github.com/STIFLEUR390/laralink",
+  },
+  {
+    name: "S3 Policies Generator",
+    description:
+      "Générateur de politiques S3/RustFS — Terraform, CloudFormation, guardrails, validator. PWA open source.",
+    stack: ["Vue.js", "Terraform", "CloudFormation", "PWA"],
+    url: "https://s3-policies-generator.vercel.app",
+    status: "Open source",
+    featured: false,
+    repo: "https://github.com/STIFLEUR390/s3-policies-generator",
+  },
 ] as const;
 
 export const skills = {
@@ -70,6 +108,7 @@ export const skills = {
     "PHP",
     "Nuxt / Vue.js",
     "JavaScript",
+    "TypeScript",
     "HTML5",
     "CSS3",
   ],
@@ -83,6 +122,7 @@ export const skills = {
   ],
   Frontend: ["Tailwind CSS", "Bootstrap", "Bulma", "Responsive Design"],
   "Outils & DevOps": ["Git", "Docker", "Linux", "CI/CD"],
+  "Desktop & Systems": ["Rust", "Tauri 2", "Axum", "SQLite"],
 } as const;
 
 export type Experience = {
