@@ -14,6 +14,11 @@ export const site = {
 export const images = {
   og: 'https://storage.applix.fr/hermes/uploads/portfolio/og-card.webp',
   hero: 'https://storage.applix.fr/hermes/uploads/portfolio/hero.webp',
+  profile: {
+    small: '/profile-400.webp',
+    large: '/profile-800.webp',
+    fallback: '/profile-400.png',
+  },
   projects: {
     'Réussir TCF': 'https://storage.applix.fr/hermes/uploads/portfolio/project-reussir-tcf.webp',
     'KwikTalk': 'https://storage.applix.fr/hermes/uploads/portfolio/project-kwiktalk.webp',

@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { site, projects, skills, images } from '../data/portfolio';
+import { site, projects, skills, images, bio } from '../data/portfolio';
 import { getPosts } from '../lib/ghost';
 
 const featuredProjects = projects.filter((p) => p.featured);
@@ -16,10 +16,24 @@ try {
   <!-- Hero -->
   <section class="grid min-h-[70vh] items-center gap-10 py-16 lg:grid-cols-2">
     <div>
-      <p class="mb-3 text-sm font-medium text-primary">Développeur FullStack</p>
-      <h1 class="text-4xl font-bold tracking-tight sm:text-5xl">
-        {site.author}
-      </h1>
+      <div class="mb-4 flex items-center gap-4">
+        <picture>
+          <source srcset={images.profile.small} type="image/webp" />
+          <img
+            src={images.profile.fallback}
+            alt={site.author}
+            class="h-16 w-16 rounded-full object-cover ring-2 ring-border"
+            width="64" height="64"
+            loading="eager"
+          />
+        </picture>
+        <div>
+          <p class="text-sm font-medium text-primary">Développeur FullStack</p>
+          <h1 class="text-4xl font-bold tracking-tight sm:text-5xl">
+            {site.author}
+          </h1>
+        </div>
+      </div>
       <p class="mt-4 max-w-xl text-lg text-muted-foreground">
         {site.description}
       </p>

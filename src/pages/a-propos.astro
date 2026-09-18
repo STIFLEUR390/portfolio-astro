@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { bio, site } from '../data/portfolio';
+import { bio, site, images } from '../data/portfolio';
 ---
 
 <BaseLayout title="À propos">
@@ -33,9 +33,18 @@ import { bio, site } from '../data/portfolio';
 
       <!-- Sidebar -->
       <div class="space-y-6">
-        <!-- Photo placeholder -->
-        <div class="flex h-48 items-center justify-center rounded-lg border border-border bg-accent/30">
-          <span class="text-sm text-muted-foreground">Photo</span>
+        <!-- Photo -->
+        <div class="overflow-hidden rounded-lg border border-border">
+          <picture>
+            <source srcset={images.profile.small} type="image/webp" />
+            <img
+              src={images.profile.fallback}
+              alt={site.author}
+              class="h-48 w-full object-cover"
+              width="400" height="400"
+              loading="lazy"
+            />
+          </picture>
         </div>
 
         <div class="rounded-lg border border-border p-4 space-y-3">
