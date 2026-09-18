@@ -4,18 +4,20 @@ import { site, socials } from '../data/portfolio';
 ---
 
 <BaseLayout title="Contact">
-  <section class="py-16">
-    <h1 class="text-3xl font-bold tracking-tight">Contact</h1>
-    <p class="mt-2 text-muted-foreground">
-      Une idée de projet ? Un poste à pourvoir ? Écrivez-moi.
-    </p>
+  <section class="py-20">
+    <div class="reveal">
+      <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">Contact</h1>
+      <p class="mt-3 max-w-xl text-muted-foreground">
+        Une idee de projet ? Un poste a pourvoir ? Ecrivez-moi.
+      </p>
+    </div>
 
-    <div class="mt-10 grid gap-10 lg:grid-cols-2">
+    <div class="reveal reveal-delay-1 mt-12 grid gap-12 lg:grid-cols-5">
       <!-- Formulaire (FormSubmit) -->
       <form
         action="https://formsubmit.co/heroldtamko39@gmail.com"
         method="POST"
-        class="space-y-4"
+        class="lg:col-span-3 space-y-5"
       >
         <!-- FormSubmit config -->
         <input type="hidden" name="_subject" value="Nouveau message depuis le portfolio" />
@@ -24,85 +26,82 @@ import { site, socials } from '../data/portfolio';
         <input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off" />
 
         <div>
-          <label for="name" class="mb-1 block text-sm font-medium">Nom</label>
+          <label for="name" class="mb-1.5 block text-sm font-medium">Nom</label>
           <input
             type="text"
             id="name"
             name="name"
             required
-            class="h-10 w-full rounded-md border border-border bg-background px-3 text-sm outline-none transition-colors focus:border-primary focus:ring-1 focus:ring-primary"
+            class="h-11 w-full rounded-lg border border-border/60 bg-card px-4 text-sm outline-none transition-all duration-200 focus:border-primary focus:ring-2 focus:ring-primary/20"
             placeholder="Votre nom"
           />
         </div>
 
         <div>
-          <label for="email" class="mb-1 block text-sm font-medium">Email</label>
+          <label for="email" class="mb-1.5 block text-sm font-medium">Email</label>
           <input
             type="email"
             id="email"
             name="email"
             required
-            class="h-10 w-full rounded-md border border-border bg-background px-3 text-sm outline-none transition-colors focus:border-primary focus:ring-1 focus:ring-primary"
+            class="h-11 w-full rounded-lg border border-border/60 bg-card px-4 text-sm outline-none transition-all duration-200 focus:border-primary focus:ring-2 focus:ring-primary/20"
             placeholder="vous@exemple.com"
           />
         </div>
 
         <div>
-          <label for="message" class="mb-1 block text-sm font-medium">Message</label>
+          <label for="message" class="mb-1.5 block text-sm font-medium">Message</label>
           <textarea
             id="message"
             name="message"
             required
-            rows="5"
-            class="w-full rounded-md border border-border bg-background px-3 py-2 text-sm outline-none transition-colors focus:border-primary focus:ring-1 focus:ring-primary"
-            placeholder="Décrivez votre projet ou votre demande..."
+            rows="6"
+            class="w-full rounded-lg border border-border/60 bg-card px-4 py-3 text-sm outline-none transition-all duration-200 focus:border-primary focus:ring-2 focus:ring-primary/20"
+            placeholder="Decrivez votre projet ou votre demande..."
           ></textarea>
         </div>
 
         <button
           type="submit"
-          class="inline-flex h-10 items-center rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+          class="inline-flex h-11 items-center rounded-lg bg-primary px-7 text-sm font-medium text-primary-foreground transition-all duration-200 hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/20 active:scale-[0.98]"
         >
           Envoyer
         </button>
       </form>
 
       <!-- Infos contact -->
-      <div class="space-y-6">
-        <div>
-          <h2 class="mb-3 text-lg font-semibold">Coordonnées</h2>
-          <ul class="space-y-2 text-sm text-muted-foreground">
+      <div class="lg:col-span-2 space-y-6">
+        <div class="rounded-xl border border-border/50 bg-card p-5">
+          <h2 class="mb-4 text-sm font-semibold">Coordonnees</h2>
+          <ul class="space-y-3 text-sm text-muted-foreground">
             <li>
-              <span class="font-medium text-foreground">Email :</span>
-              {' '}
-              <a href={`mailto:${site.email}`} class="text-primary hover:underline">
+              <span class="block text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1">Email</span>
+              <a href={`mailto:${site.email}`} class="text-primary transition-colors duration-200 hover:text-primary/80">
                 {site.email}
               </a>
             </li>
-            <li>
-              <span class="font-medium text-foreground">Téléphone :</span>
-              {' '}
-              <a href={`tel:${site.phone}`} class="text-primary hover:underline">
+            <li class="border-t border-border/50 pt-3">
+              <span class="block text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1">Telephone</span>
+              <a href={`tel:${site.phone}`} class="text-primary transition-colors duration-200 hover:text-primary/80">
                 {site.phone}
               </a>
             </li>
-            <li>
-              <span class="font-medium text-foreground">Localisation :</span>
-              {' '}
+            <li class="border-t border-border/50 pt-3">
+              <span class="block text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1">Localisation</span>
               {site.location}
             </li>
           </ul>
         </div>
 
-        <div>
-          <h2 class="mb-3 text-lg font-semibold">Réseaux</h2>
+        <div class="rounded-xl border border-border/50 bg-card p-5">
+          <h2 class="mb-4 text-sm font-semibold">Reseaux</h2>
           <div class="flex gap-3">
             {socials.map((s) => (
               <a
                 href={s.url}
                 target={s.url.startsWith('http') ? '_blank' : undefined}
                 rel={s.url.startsWith('http') ? 'noopener noreferrer' : undefined}
-                class="inline-flex h-9 items-center rounded-md border border-border px-4 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
+                class="inline-flex h-9 items-center rounded-lg border border-border/60 px-4 text-sm font-medium transition-all duration-200 hover:border-primary/30 hover:text-foreground active:scale-[0.98]"
               >
                 {s.label}
               </a>
@@ -110,10 +109,10 @@ import { site, socials } from '../data/portfolio';
           </div>
         </div>
 
-        <div class="rounded-lg border border-border bg-accent/30 p-4">
+        <div class="rounded-xl border border-primary/10 bg-primary/5 p-5">
           <p class="text-sm text-muted-foreground">
-            <span class="font-medium text-foreground">Disponibilité :</span>
-            {' '}Freelance · Remote ou Douala, Cameroun.
+            <span class="font-medium text-foreground">Disponibilite :</span>
+            {' '}Freelance &middot; Remote ou Douala, Cameroun.
           </p>
         </div>
       </div>

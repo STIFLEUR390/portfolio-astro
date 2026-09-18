@@ -1,24 +1,84 @@
 ---
 import { site, socials } from '../../data/portfolio';
+
+const navLinks = [
+  { label: 'Accueil', href: '/' },
+  { label: 'Projets', href: '/projets' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'Services', href: '/services' },
+  { label: 'Contact', href: '/contact' },
+];
 ---
 
-<footer class="mt-20 border-t border-border">
-  <div class="mx-auto flex max-w-4xl flex-col items-center gap-4 px-4 py-8 sm:flex-row sm:justify-between sm:px-6 lg:px-8">
-    <p class="text-sm text-muted-foreground">
-      © {new Date().getFullYear()} {site.author}
-    </p>
-
-    <div class="flex items-center gap-4">
-      {socials.map((s) => (
-        <a
-          href={s.url}
-          target={s.url.startsWith('http') ? '_blank' : undefined}
-          rel={s.url.startsWith('http') ? 'noopener noreferrer' : undefined}
-          class="text-sm text-muted-foreground transition-colors hover:text-foreground"
-        >
-          {s.label}
+<footer class="mt-24 border-t border-border/50">
+  <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
+    <div class="grid gap-10 py-12 sm:grid-cols-2 lg:grid-cols-4">
+      <!-- Brand -->
+      <div class="lg:col-span-2">
+        <a href="/" class="text-base font-bold tracking-tight hover:text-primary transition-colors duration-200">
+          {site.author}
         </a>
-      ))}
+        <p class="mt-3 max-w-sm text-sm leading-relaxed text-muted-foreground">
+          {site.description}
+        </p>
+        <div class="mt-5 flex items-center gap-3">
+          {socials.map((s) => (
+            <a
+              href={s.url}
+              target={s.url.startsWith('http') ? '_blank' : undefined}
+              rel={s.url.startsWith('http') ? 'noopener noreferrer' : undefined}
+              class="inline-flex h-8 items-center rounded-lg border border-border/50 px-3 text-xs font-medium text-muted-foreground transition-all duration-200 hover:border-primary/30 hover:text-foreground"
+            >
+              {s.label}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <div>
+        <p class="mb-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Navigation</p>
+        <ul class="space-y-2">
+          {navLinks.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="text-sm text-muted-foreground transition-colors duration-200 hover:text-foreground"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <p class="mb-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Contact</p>
+        <ul class="space-y-2 text-sm text-muted-foreground">
+          <li>
+            <a href={`mailto:${site.email}`} class="transition-colors duration-200 hover:text-foreground">
+              {site.email}
+            </a>
+          </li>
+          <li>
+            <a href={`tel:${site.phone}`} class="transition-colors duration-200 hover:text-foreground">
+              {site.phone}
+            </a>
+          </li>
+          <li>{site.location}</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="flex flex-col items-center justify-between gap-3 border-t border-border/50 py-6 sm:flex-row">
+      <p class="text-xs text-muted-foreground">
+        &copy; {new Date().getFullYear()} {site.author}. Tous droits reserves.
+      </p>
+      <p class="text-xs text-muted-foreground">
+        {site.location}
+      </p>
     </div>
   </div>
 </footer>

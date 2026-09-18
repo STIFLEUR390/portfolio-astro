@@ -4,22 +4,24 @@ import { services } from '../data/portfolio';
 ---
 
 <BaseLayout title="Services">
-  <section class="py-16">
-    <h1 class="text-3xl font-bold tracking-tight">Services</h1>
-    <p class="mt-2 max-w-xl text-muted-foreground">
-      Prestations de développement web full-stack, du prototype au déploiement.
-    </p>
+  <section class="py-20">
+    <div class="reveal">
+      <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">Services</h1>
+      <p class="mt-3 max-w-xl text-muted-foreground">
+        Prestations de developpement web full-stack, du prototype au deploiement.
+      </p>
+    </div>
 
-    <div class="mt-10 grid gap-6 sm:grid-cols-2">
+    <div class="reveal reveal-delay-1 mt-12 grid gap-5 sm:grid-cols-2">
       {services.map((service) => (
-        <article class="rounded-lg border border-border p-6 transition-colors hover:border-primary/50">
-          <h2 class="text-lg font-semibold">{service.title}</h2>
-          <p class="mt-2 text-sm text-muted-foreground leading-relaxed">
+        <article class="card-hover rounded-xl border border-border/50 bg-card p-7">
+          <h2 class="font-semibold">{service.title}</h2>
+          <p class="mt-2 text-sm leading-relaxed text-muted-foreground">
             {service.description}
           </p>
-          <ul class="mt-4 space-y-1.5">
+          <ul class="mt-5 space-y-2">
             {service.features.map((f) => (
-              <li class="flex items-start gap-2 text-sm text-muted-foreground">
+              <li class="flex items-start gap-2.5 text-sm text-muted-foreground">
                 <span class="mt-1.5 h-1 w-1 flex-shrink-0 rounded-full bg-primary"></span>
                 {f}
               </li>
@@ -30,17 +32,17 @@ import { services } from '../data/portfolio';
     </div>
 
     <!-- CTA -->
-    <div class="mt-14 rounded-lg border border-border bg-accent/30 p-8 text-center">
-      <h2 class="text-xl font-semibold">Un projet en tête ?</h2>
-      <p class="mt-2 text-muted-foreground">
-        Décrivez votre besoin et recevez un devis sous 48h.
+    <section class="reveal mt-16 overflow-hidden rounded-2xl border border-border/50 bg-accent/50 p-10 text-center sm:p-14">
+      <h2 class="text-2xl font-bold tracking-tight">Un projet en tete ?</h2>
+      <p class="mx-auto mt-3 max-w-md text-muted-foreground">
+        Decrivez votre besoin et recevez un devis sous 48h.
       </p>
       <a
         href="/contact"
-        class="mt-5 inline-flex h-10 items-center rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+        class="mt-6 inline-flex h-11 items-center rounded-lg bg-primary px-7 text-sm font-medium text-primary-foreground transition-all duration-200 hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/20 active:scale-[0.98]"
       >
         Demander un devis
       </a>
-    </div>
+    </section>
   </section>
 </BaseLayout>

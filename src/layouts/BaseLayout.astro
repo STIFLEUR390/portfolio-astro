@@ -15,7 +15,7 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
-const pageTitle = title ? `${title} — ${site.author}` : `${site.author} — Développeur FullStack`;
+const pageTitle = title ? `${title} - ${site.author}` : `${site.author} - Developpeur FullStack`;
 const pageDescription = description ?? site.description;
 ---
 
@@ -51,12 +51,6 @@ const pageDescription = description ?? site.description;
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
 
-    <!-- Font -->
-    <style>
-      :root { --font-heading: 'Space Grotesk', system-ui, sans-serif; }
-      h1, h2, h3, h4 { font-family: var(--font-heading); }
-    </style>
-
     <!-- Dark mode: prevent flash -->
     <script is:inline>
       (function () {
@@ -70,9 +64,29 @@ const pageDescription = description ?? site.description;
   </head>
   <body class="min-h-screen bg-background text-foreground antialiased">
     <Header />
-    <main class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+    <main class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
       <slot />
     </main>
     <Footer />
+    <script>
+      // Scroll reveal observer
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('revealed');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+      );
+      document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+      // Re-observe after Astro page transitions
+      document.addEventListener('astro:page-load', () => {
+        document.querySelectorAll('.reveal:not(.revealed)').forEach((el) => observer.observe(el));
+      });
+    </script>
   </body>
 </html>
