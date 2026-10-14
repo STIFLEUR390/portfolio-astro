@@ -15,13 +15,13 @@ All site copy is French (`<html lang="fr">`); keep user-facing strings in French
 ## Build & environment (non-obvious)
 
 - Output is fully **static**: every page, including each blog post, is prerendered at build time.
-- `src/lib/ghost.ts` constructs the Ghost Content API client at module load and **throws if env is missing**. `GHOST_URL` and `CONTENT_API_KEY` must be set (Astro loads `.env`; it is gitignored and there is no `.env.example`) or `bun run build` fails, and the dev server cannot render `/blog`.
-- `Dockerfile` is a bun-build → nginx static image and passes those values as `--build-arg GHOST_URL=... --build-arg CONTENT_API_KEY=...`.
+- `GHOST_URL` and `CONTENT_API_KEY` are declared in the `env.schema` of `astro.config.mjs` (via `astro:env`, `context: "server"`, `access: "secret"`) and consumed in `src/lib/ghost.ts` through `import { GHOST_URL, CONTENT_API_KEY } from 'astro:env/server'`. A missing variable fails the build early with `[EnvInvalidVariables]`. Astro loads `.env` (gitignored, no `.env.example`); the Dockerfile passes the same values as `--build-arg`. Secret values are **not** inlined in build output — keep it that way (never switch back to `import.meta.env.*` for these).
+- `Dockerfile` deletes `dist/.prerender` before copying `dist/` to nginx: that folder holds server-side prerender chunks that read build secrets and must never be publicly served. `docker/nginx.conf` adds security headers, Astro's 404 page and immutable caching for `/_astro/`.
 
 ## Architecture
 
 - `src/data/portfolio.ts` is the **single source of truth** for all content (site meta, projects, skills, experience, services, bio). Edit copy here, not in page templates.
-- Blog is Ghost-backed through `src/lib/ghost.ts` (`getPosts` / `getPostBySlug` / `getTags`, Content API v5).
+- Blog is Ghost-backed through `src/lib/ghost.ts` (`getAllPosts` — paginated at Ghost's max of 100/request via `meta.pagination.next`; `getPosts({ limit })`; Content API v5). In `src/pages/blog/[...slug].astro`, `getStaticPaths()` fetches **all posts once** and slices listings/pagination in memory — do not re-fetch per page. Posts come newest-first: `allPosts[i + 1]` is the chronologically *previous* article.
 - `src/pages/blog/[...slug].astro` deliberately merges the listing, pagination and article views into **one** route. Do not split it back into separate routes — that previously caused 404s.
 - Interactivity uses Vue via `@astrojs/vue`, hydrated as islands (`client:load`); currently only `DarkModeToggle.vue`. Everything else is `.astro`.
 - The contact form posts to the external FormSubmit.co service; there is no backend or API route.
