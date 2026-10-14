@@ -162,6 +162,21 @@
   box-shadow: 0 8px 30px oklch(0 0 0 / 0.3);
 }
 
+/* Effets activables (bouton flottant FxToggle) : tout est nesté sous
+   `.fx-enabled`, la page reste identique quand les effets sont OFF. */
+.fx-enabled .card-hover {
+  /* transition courte : le tilt suit la souris sans latence perceptible */
+  transition: transform 0.12s ease-out, box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes fx-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+.fx-enabled [data-fx-float] {
+  animation: fx-float 7s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal {
     opacity: 1;

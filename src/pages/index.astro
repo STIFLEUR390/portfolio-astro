@@ -44,8 +44,8 @@ try {
       </div>
     </div>
     <div class="reveal reveal-delay-1 hidden lg:flex lg:col-span-2 lg:justify-end">
-      <div class="relative">
-        <div class="absolute -inset-3 rounded-2xl bg-primary/5 blur-xl"></div>
+      <div class="relative" data-fx-parallax="0.08">
+        <div class="absolute -inset-3 rounded-2xl bg-primary/5 blur-xl" data-fx-float></div>
         <picture>
           <source srcset={images.profile.large} type="image/webp" />
           <img
@@ -64,15 +64,15 @@ try {
   <section class="reveal border-y border-border/50 py-10">
     <div class="grid grid-cols-2 gap-6 lg:grid-cols-4">
       <div class="col-span-2 rounded-xl bg-accent/50 p-6 text-left">
-        <p class="text-4xl font-bold tracking-tight text-foreground">6+</p>
+        <p class="text-4xl font-bold tracking-tight text-foreground" data-fx-count="6">6+</p>
         <p class="mt-2 text-sm text-muted-foreground">Annees d'experience en dev web</p>
       </div>
       <div class="rounded-xl border border-border/50 bg-card p-6">
-        <p class="text-3xl font-bold tracking-tight text-foreground">{featuredProjects.length}+</p>
+        <p class="text-3xl font-bold tracking-tight text-foreground" data-fx-count={featuredProjects.length}>{featuredProjects.length}+</p>
         <p class="mt-2 text-sm text-muted-foreground">Projets livres</p>
       </div>
       <div class="rounded-xl border border-border/50 bg-card p-6">
-        <p class="text-3xl font-bold tracking-tight text-foreground">{techCount}</p>
+        <p class="text-3xl font-bold tracking-tight text-foreground" data-fx-count={techCount}>{techCount}</p>
         <p class="mt-2 text-sm text-muted-foreground">Technologies</p>
       </div>
     </div>

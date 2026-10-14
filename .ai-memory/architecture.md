@@ -28,5 +28,12 @@ src/lib/ghost.ts ───────┘         (Header hydrate 1 îlot Vue : 
 - **Reveal au scroll** : IntersectionObserver dans BaseLayout sur `.reveal`
   (pas de `<ClientRouter />`, donc pas de re-hydration après navigation —
   chaque page est un plein rechargement).
+- **Effets animés (FX)** : moteur vanilla `src/lib/fx.ts` (tilt 3D des
+  `.card-hover`, parallax `[data-fx-parallax]`, compteurs `[data-fx-count]`,
+  particules canvas, 4 succès localStorage). 100 % conditionné à la classe
+  `.fx-enabled` sur `<html>` : état posé sans flash par le script inline du
+  head (défaut ON, OFF si `prefers-reduced-motion`), bascule par l'îlot
+  `FxToggle.vue` (bouton flottant, événement `fx:change`). Aucune dépendance
+  ajoutée (pas de GSAP/Three.js) — les imports lourds ont été évités.
 - **Assets dist** : `/_astro/*` = hashés (immutable) ; `dist/.prerender` =
   chunks server-side supprimés dans le Dockerfile (jamais servis).

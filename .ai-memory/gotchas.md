@@ -19,3 +19,9 @@
   les merges sont donc le moment du contrôle final.
 - **Ghost version** : SDK en `v5.0` (Accept-Version) — toujours fonctionnel ;
   le défaut du SDK récent est `v6.0`. Ne changer qu'avec vérification du blog.
+- **FX & prefers-reduced-motion** : le head script choisit l'état FX par
+  défaut UNE fois au chargement ; si vous inversez la préférence système,
+  l'état stocké (`localStorage.fx`) reste prioritaire. Ne jamais animer un
+  élément portant `data-fx-parallax` avec une animation CSS `transform`
+  (conflit : l'inline style et l'animation se marchent dessus) — animer un
+  enfant (`data-fx-float`) à la place.

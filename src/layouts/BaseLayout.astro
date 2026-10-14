@@ -6,6 +6,7 @@ import '@fontsource/space-grotesk/600.css';
 import '@fontsource/space-grotesk/700.css';
 import '../styles/prism.css';
 import Header from '../components/base/Header.astro';
+import FxToggle from '../components/interactive/FxToggle.vue';
 import Footer from '../components/base/Footer.astro';
 import { site, images } from '../data/portfolio';
 
@@ -59,6 +60,14 @@ const pageDescription = description ?? site.description;
         if (stored === 'dark' || (!stored && prefersDark)) {
           document.documentElement.classList.add('dark');
         }
+
+        // Effets animés : état posé avant paint (pas de flash), OFF par
+        // défaut si l'utilisateur préfère les animations réduites.
+        const fx = localStorage.getItem('fx');
+        const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (fx === '1' || (fx === null && !reduced)) {
+          document.documentElement.classList.add('fx-enabled');
+        }
       })();
     </script>
   </head>
@@ -68,6 +77,11 @@ const pageDescription = description ?? site.description;
       <slot />
     </main>
     <Footer />
+    <FxToggle client:load />
+    <script>
+      import { initFx } from '../lib/fx';
+      initFx();
+    </script>
     <script>
       // Scroll reveal observer. Every page is fully prerendered and there is
       // no <ClientRouter /> (view transitions), so a plain page load is enough
