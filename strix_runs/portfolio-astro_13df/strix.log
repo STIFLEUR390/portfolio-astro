@@ -1,0 +1,240 @@
+2026-10-14 22:18:53.439 INFO    portfolio-astro_13df - strix.core.runner: Starting Strix scan portfolio-astro_13df (image=ghcr.io/usestrix/strix-sandbox:1.3.0, max_turns=500, interactive=False, run_dir=/home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_13df)
+2026-10-14 22:18:53.439 INFO    portfolio-astro_13df - strix.config.models: OpenAI API route for openai/mimo-v2.6-flash: chat_completions
+2026-10-14 22:18:53.439 INFO    portfolio-astro_13df - strix.core.runner: LLM model resolved: openai/mimo-v2.6-flash
+2026-10-14 22:18:53.439 INFO    portfolio-astro_13df - strix.core.runner: Bringing up sandbox session for scan portfolio-astro_13df
+2026-10-14 22:18:53.439 DEBUG   portfolio-astro_13df - strix.runtime.backends: Selected sandbox backend: docker
+2026-10-14 22:18:53.440 INFO    portfolio-astro_13df - strix.runtime.session_manager: Creating sandbox session for scan portfolio-astro_13df (backend=docker, image=ghcr.io/usestrix/strix-sandbox:1.3.0)
+2026-10-14 22:18:53.697 DEBUG   portfolio-astro_13df - strix.runtime.docker_client: Creating sandbox container: image=ghcr.io/usestrix/strix-sandbox:1.3.0 caps=['NET_ADMIN', 'NET_RAW'] exposed_ports=[48080]
+2026-10-14 22:18:55.354 INFO    portfolio-astro_13df - strix.runtime.docker_client: Sandbox container created: id=77ed3dad6ee8 image=ghcr.io/usestrix/strix-sandbox:1.3.0
+2026-10-14 22:18:56.325 DEBUG   portfolio-astro_13df - strix.runtime.session_manager: Caido host endpoint resolved: http://127.0.0.1:32770
+2026-10-14 22:18:56.325 INFO    portfolio-astro_13df - strix.runtime.session_manager: Sandbox session for scan portfolio-astro_13df ready and cached
+2026-10-14 22:18:56.325 INFO    portfolio-astro_13df - strix.core.runner: Sandbox ready for scan portfolio-astro_13df
+2026-10-14 22:18:56.330 DEBUG   portfolio-astro_13df - strix.skills: Loaded skill: scan_modes/quick -> quick
+2026-10-14 22:18:56.331 DEBUG   portfolio-astro_13df - strix.skills: Loaded skill: tooling/agent_browser -> agent_browser
+2026-10-14 22:18:56.333 DEBUG   portfolio-astro_13df - strix.skills: Loaded skill: tooling/python -> python
+2026-10-14 22:18:56.335 DEBUG   portfolio-astro_13df - strix.skills: Loaded skill: analysis/counterevidence -> counterevidence
+2026-10-14 22:18:56.336 DEBUG   portfolio-astro_13df - strix.skills: Loaded skill: analysis/severity_calibration -> severity_calibration
+2026-10-14 22:18:56.337 DEBUG   portfolio-astro_13df - strix.skills: Loaded skill: coordination/root_agent -> root_agent
+2026-10-14 22:18:56.338 DEBUG   portfolio-astro_13df - strix.skills: Loaded skill: coordination/source_aware_whitebox -> source_aware_whitebox
+2026-10-14 22:18:56.338 DEBUG   portfolio-astro_13df - strix.skills: Loaded skill: custom/source_aware_sast -> source_aware_sast
+2026-10-14 22:18:56.339 DEBUG   portfolio-astro_13df - strix.skills: Loaded skill: analysis/source_aware_discovery -> source_aware_discovery
+2026-10-14 22:18:56.340 DEBUG   portfolio-astro_13df - strix.skills: Loaded skill: analysis/fix_verification -> fix_verification
+2026-10-14 22:18:56.340 DEBUG   portfolio-astro_13df - strix.skills: load_skills: 10 skill(s) resolved
+2026-10-14 22:18:56.371 DEBUG   portfolio-astro_13df - strix.agents.prompt: render_system_prompt: scan_mode=quick root=True whitebox=True skills=10 prompt_len=130188
+2026-10-14 22:18:56.371 INFO    portfolio-astro_13df - strix.agents.factory: Built root agent 'Root Agent' (skills=0, tools=44, scan_mode=quick, whitebox=True)
+2026-10-14 22:18:56.372 INFO    portfolio-astro_13df - strix.core.agents: agent.register 1fb3a9d1 (Root Agent) parent=-
+2026-10-14 22:18:56.509 INFO    portfolio-astro_13df - strix.runtime.caido_bootstrap: Bootstrapping Caido client (host=http://127.0.0.1:32770, container=http://127.0.0.1:48080)
+2026-10-14 22:18:56.577 DEBUG   portfolio-astro_13df - openai.agents: Tracing is disabled. Not creating trace
+2026-10-14 22:18:56.582 DEBUG   portfolio-astro_13df - openai.agents: Setting current trace: no-op
+2026-10-14 22:18:56.583 DEBUG   portfolio-astro_13df - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 22:18:56.597 DEBUG   portfolio-astro_13df - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 22:18:56.599 DEBUG   portfolio-astro_13df - openai.agents: Starting turn 1, current_agent=Root Agent
+2026-10-14 22:18:56.599 DEBUG   portfolio-astro_13df - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 22:18:56.604 DEBUG   portfolio-astro_13df - openai.agents: No conversation_id available for request
+2026-10-14 22:18:56.613 DEBUG   portfolio-astro_13df - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 22:18:56.617 DEBUG   portfolio-astro_13df - openai.agents: Calling LLM
+2026-10-14 22:18:56.669 DEBUG   portfolio-astro_13df - strix.runtime.caido_bootstrap: loginAsGuest attempt 1/10 failed: curl exit 7: curl: (7) Failed to connect to 127.0.0.1 port 48080 after 0 ms: Could not connect to server
+
+2026-10-14 22:18:59.156 INFO    portfolio-astro_13df - strix.runtime.caido_bootstrap: Caido project selected: f2829bd4-5869-446a-b9eb-7f9d26ee59fa
+2026-10-14 22:19:08.154 DEBUG   portfolio-astro_13df - strix.llm.request_log: llm_request route=openai provider=openai model=openai/mimo-v2.6-flash host=127.0.0.1 outcome=success status=200 request_id=- response_id=- stream=1 duration_ms=11546 ttft_ms=9386 req_bytes=260179 res_bytes=2104 finish=- in=61262 out=185 cached=24576 cost=- agent=1fb3a9d1 attempt=0
+2026-10-14 22:19:08.171 INFO    portfolio-astro_13df - strix.report.coverage: Saved coverage record to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_13df/coverage.json (0 surface(s), 1 gap(s))
+2026-10-14 22:19:08.173 INFO    portfolio-astro_13df - strix.report.sarif: Wrote SARIF 2.1.0 report: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_13df/findings.sarif (0 results)
+2026-10-14 22:19:08.174 INFO    portfolio-astro_13df - strix.report.state: Essential scan data saved to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_13df
+2026-10-14 22:19:08.175 DEBUG   portfolio-astro_13df - openai.agents: Processing output item type=reasoning class=ResponseReasoningItem
+2026-10-14 22:19:08.175 DEBUG   portfolio-astro_13df - openai.agents: Processing output item type=message class=ResponseOutputMessage
+2026-10-14 22:19:08.175 DEBUG   portfolio-astro_13df - openai.agents: Processing output item type=function_call class=ResponseFunctionToolCall
+2026-10-14 22:19:08.175 DEBUG   portfolio-astro_13df - openai.agents: Processing output item type=function_call class=ResponseFunctionToolCall
+2026-10-14 22:19:08.176 DEBUG   portfolio-astro_13df - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 22:19:08.176 DEBUG   portfolio-astro_13df - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 22:19:08.177 DEBUG   portfolio-astro_13df - openai.agents: Invoking tool get_threat_model
+2026-10-14 22:19:08.179 DEBUG   portfolio-astro_13df - openai.agents: Tool get_threat_model completed.
+2026-10-14 22:19:08.361 DEBUG   portfolio-astro_13df - openai.agents: Turn 1 complete, next_step type=NextStepRunAgain
+2026-10-14 22:19:08.411 DEBUG   portfolio-astro_13df - openai.agents: Starting turn 2, current_agent=Root Agent
+2026-10-14 22:19:08.411 DEBUG   portfolio-astro_13df - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 22:19:08.414 DEBUG   portfolio-astro_13df - openai.agents: No conversation_id available for request
+2026-10-14 22:19:08.421 DEBUG   portfolio-astro_13df - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 22:19:08.424 DEBUG   portfolio-astro_13df - openai.agents: Calling LLM
+2026-10-14 22:19:22.897 DEBUG   portfolio-astro_13df - strix.llm.request_log: llm_request route=openai provider=openai model=openai/mimo-v2.6-flash host=127.0.0.1 outcome=success status=200 request_id=- response_id=- stream=1 duration_ms=14482 ttft_ms=8716 req_bytes=264721 res_bytes=2274 finish=- in=62582 out=366 cached=61248 cost=- agent=1fb3a9d1 attempt=0
+2026-10-14 22:19:22.910 INFO    portfolio-astro_13df - strix.report.coverage: Saved coverage record to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_13df/coverage.json (0 surface(s), 1 gap(s))
+2026-10-14 22:19:22.911 INFO    portfolio-astro_13df - strix.report.sarif: Wrote SARIF 2.1.0 report: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_13df/findings.sarif (0 results)
+2026-10-14 22:19:22.913 INFO    portfolio-astro_13df - strix.report.state: Essential scan data saved to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_13df
+2026-10-14 22:19:22.914 DEBUG   portfolio-astro_13df - openai.agents: Processing output item type=reasoning class=ResponseReasoningItem
+2026-10-14 22:19:22.914 DEBUG   portfolio-astro_13df - openai.agents: Processing output item type=function_call class=ResponseFunctionToolCall
+2026-10-14 22:19:22.915 DEBUG   portfolio-astro_13df - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 22:19:23.096 DEBUG   portfolio-astro_13df - openai.agents: Turn 2 complete, next_step type=NextStepRunAgain
+2026-10-14 22:19:23.150 DEBUG   portfolio-astro_13df - openai.agents: Starting turn 3, current_agent=Root Agent
+2026-10-14 22:19:23.150 DEBUG   portfolio-astro_13df - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 22:19:23.156 DEBUG   portfolio-astro_13df - openai.agents: No conversation_id available for request
+2026-10-14 22:19:23.165 DEBUG   portfolio-astro_13df - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 22:19:23.171 DEBUG   portfolio-astro_13df - openai.agents: Calling LLM
+2026-10-14 22:19:44.137 DEBUG   portfolio-astro_13df - strix.llm.request_log: llm_request route=openai provider=openai model=openai/mimo-v2.6-flash host=127.0.0.1 outcome=success status=200 request_id=- response_id=- stream=1 duration_ms=20978 ttft_ms=10199 req_bytes=275419 res_bytes=3651 finish=- in=65290 out=657 cached=62528 cost=- agent=1fb3a9d1 attempt=0
+2026-10-14 22:19:44.148 INFO    portfolio-astro_13df - strix.report.coverage: Saved coverage record to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_13df/coverage.json (0 surface(s), 1 gap(s))
+2026-10-14 22:19:44.150 INFO    portfolio-astro_13df - strix.report.sarif: Wrote SARIF 2.1.0 report: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_13df/findings.sarif (0 results)
+2026-10-14 22:19:44.151 INFO    portfolio-astro_13df - strix.report.state: Essential scan data saved to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_13df
+2026-10-14 22:19:44.152 DEBUG   portfolio-astro_13df - openai.agents: Processing output item type=reasoning class=ResponseReasoningItem
+2026-10-14 22:19:44.152 DEBUG   portfolio-astro_13df - openai.agents: Processing output item type=function_call class=ResponseFunctionToolCall
+2026-10-14 22:19:44.152 DEBUG   portfolio-astro_13df - openai.agents: Processing output item type=function_call class=ResponseFunctionToolCall
+2026-10-14 22:19:44.154 DEBUG   portfolio-astro_13df - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 22:19:44.154 DEBUG   portfolio-astro_13df - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 22:19:44.156 DEBUG   portfolio-astro_13df - openai.agents: Invoking tool list_mcps
+2026-10-14 22:19:44.156 DEBUG   portfolio-astro_13df - openai.agents: Tool list_mcps completed.
+2026-10-14 22:19:44.411 DEBUG   portfolio-astro_13df - openai.agents: Turn 3 complete, next_step type=NextStepRunAgain
+2026-10-14 22:19:44.490 DEBUG   portfolio-astro_13df - openai.agents: Starting turn 4, current_agent=Root Agent
+2026-10-14 22:19:44.490 DEBUG   portfolio-astro_13df - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 22:19:44.495 DEBUG   portfolio-astro_13df - openai.agents: No conversation_id available for request
+2026-10-14 22:19:44.515 DEBUG   portfolio-astro_13df - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 22:19:44.520 DEBUG   portfolio-astro_13df - openai.agents: Calling LLM
+2026-10-14 22:20:01.073 DEBUG   portfolio-astro_13df - strix.llm.request_log: llm_request route=openai provider=openai model=openai/mimo-v2.6-flash host=127.0.0.1 outcome=success status=200 request_id=- response_id=- stream=1 duration_ms=16576 ttft_ms=8861 req_bytes=307181 res_bytes=2639 finish=- in=73589 out=446 cached=65280 cost=- agent=1fb3a9d1 attempt=0
+2026-10-14 22:20:01.086 INFO    portfolio-astro_13df - strix.report.coverage: Saved coverage record to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_13df/coverage.json (0 surface(s), 1 gap(s))
+2026-10-14 22:20:01.087 INFO    portfolio-astro_13df - strix.report.sarif: Wrote SARIF 2.1.0 report: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_13df/findings.sarif (0 results)
+2026-10-14 22:20:01.088 INFO    portfolio-astro_13df - strix.report.state: Essential scan data saved to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_13df
+2026-10-14 22:20:01.089 DEBUG   portfolio-astro_13df - openai.agents: Processing output item type=reasoning class=ResponseReasoningItem
+2026-10-14 22:20:01.089 DEBUG   portfolio-astro_13df - openai.agents: Processing output item type=function_call class=ResponseFunctionToolCall
+2026-10-14 22:20:01.090 DEBUG   portfolio-astro_13df - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 22:20:01.287 DEBUG   portfolio-astro_13df - openai.agents: Turn 4 complete, next_step type=NextStepRunAgain
+2026-10-14 22:20:01.386 DEBUG   portfolio-astro_13df - openai.agents: Starting turn 5, current_agent=Root Agent
+2026-10-14 22:20:01.386 DEBUG   portfolio-astro_13df - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 22:20:01.388 DEBUG   portfolio-astro_13df - openai.agents: No conversation_id available for request
+2026-10-14 22:20:01.393 DEBUG   portfolio-astro_13df - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 22:20:01.399 DEBUG   portfolio-astro_13df - openai.agents: Calling LLM
+2026-10-14 22:21:09.124 DEBUG   portfolio-astro_13df - strix.llm.request_log: llm_request route=openai provider=openai model=openai/mimo-v2.6-flash host=127.0.0.1 outcome=success status=200 request_id=- response_id=- stream=1 duration_ms=67734 ttft_ms=8516 req_bytes=314121 res_bytes=13454 finish=- in=75267 out=2680 cached=73536 cost=- agent=1fb3a9d1 attempt=0
+2026-10-14 22:21:09.146 INFO    portfolio-astro_13df - strix.report.coverage: Saved coverage record to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_13df/coverage.json (0 surface(s), 1 gap(s))
+2026-10-14 22:21:09.150 INFO    portfolio-astro_13df - strix.report.sarif: Wrote SARIF 2.1.0 report: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_13df/findings.sarif (0 results)
+2026-10-14 22:21:09.151 INFO    portfolio-astro_13df - strix.report.state: Essential scan data saved to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_13df
+2026-10-14 22:21:09.152 DEBUG   portfolio-astro_13df - openai.agents: Processing output item type=reasoning class=ResponseReasoningItem
+2026-10-14 22:21:09.153 DEBUG   portfolio-astro_13df - openai.agents: Processing output item type=function_call class=ResponseFunctionToolCall
+2026-10-14 22:21:09.153 DEBUG   portfolio-astro_13df - openai.agents: Processing output item type=function_call class=ResponseFunctionToolCall
+2026-10-14 22:21:09.154 DEBUG   portfolio-astro_13df - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 22:21:09.154 DEBUG   portfolio-astro_13df - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 22:21:09.155 DEBUG   portfolio-astro_13df - openai.agents: Invoking tool create_todo
+2026-10-14 22:21:09.157 DEBUG   portfolio-astro_13df - openai.agents: Tool create_todo completed.
+2026-10-14 22:21:09.157 DEBUG   portfolio-astro_13df - openai.agents: Invoking tool create_agent
+2026-10-14 22:21:09.158 DEBUG   portfolio-astro_13df - strix.skills: Loaded skill: scan_modes/quick -> quick
+2026-10-14 22:21:09.159 DEBUG   portfolio-astro_13df - strix.skills: Loaded skill: tooling/agent_browser -> agent_browser
+2026-10-14 22:21:09.160 DEBUG   portfolio-astro_13df - strix.skills: Loaded skill: tooling/python -> python
+2026-10-14 22:21:09.160 DEBUG   portfolio-astro_13df - strix.skills: Loaded skill: analysis/counterevidence -> counterevidence
+2026-10-14 22:21:09.161 DEBUG   portfolio-astro_13df - strix.skills: Loaded skill: analysis/severity_calibration -> severity_calibration
+2026-10-14 22:21:09.162 DEBUG   portfolio-astro_13df - strix.skills: Loaded skill: coordination/source_aware_whitebox -> source_aware_whitebox
+2026-10-14 22:21:09.163 DEBUG   portfolio-astro_13df - strix.skills: Loaded skill: custom/source_aware_sast -> source_aware_sast
+2026-10-14 22:21:09.163 DEBUG   portfolio-astro_13df - strix.skills: Loaded skill: analysis/source_aware_discovery -> source_aware_discovery
+2026-10-14 22:21:09.164 DEBUG   portfolio-astro_13df - strix.skills: Loaded skill: analysis/fix_verification -> fix_verification
+2026-10-14 22:21:09.164 DEBUG   portfolio-astro_13df - strix.skills: load_skills: 9 skill(s) resolved
+2026-10-14 22:21:09.194 DEBUG   portfolio-astro_13df - strix.agents.prompt: render_system_prompt: scan_mode=quick root=False whitebox=True skills=9 prompt_len=122710
+2026-10-14 22:21:09.194 INFO    portfolio-astro_13df - strix.agents.factory: Built child agent 'LLM Pipeline Connection Test' (skills=0, tools=44, scan_mode=quick, whitebox=True)
+2026-10-14 22:21:09.195 INFO    portfolio-astro_13df - strix.core.agents: agent.register 5b09e676 (LLM Pipeline Connection Test) parent=1fb3a9d1
+2026-10-14 22:21:09.196 INFO    portfolio-astro_13df - strix.tools.agents_graph.tools: create_agent: spawned 5b09e676 (LLM Pipeline Connection Test) parent=1fb3a9d1 skills=0 task_len=567
+2026-10-14 22:21:09.196 DEBUG   portfolio-astro_13df - openai.agents: Tool create_agent completed.
+2026-10-14 22:21:09.199 DEBUG   portfolio-astro_13df - openai.agents: Turn 5 complete, next_step type=NextStepRunAgain
+2026-10-14 22:21:09.318 DEBUG   portfolio-astro_13df - openai.agents: Starting turn 6, current_agent=Root Agent
+2026-10-14 22:21:09.321 DEBUG   portfolio-astro_13df - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 22:21:09.324 DEBUG   portfolio-astro_13df - openai.agents: No conversation_id available for request
+2026-10-14 22:21:09.340 DEBUG   portfolio-astro_13df - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 22:21:09.349 DEBUG   portfolio-astro_13df - openai.agents: Calling LLM
+2026-10-14 22:21:09.389 DEBUG   portfolio-astro_13df - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 22:21:09.416 DEBUG   portfolio-astro_13df - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 22:21:09.417 DEBUG   portfolio-astro_13df - openai.agents: Starting turn 1, current_agent=LLM Pipeline Connection Test
+2026-10-14 22:21:09.417 DEBUG   portfolio-astro_13df - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 22:21:09.420 DEBUG   portfolio-astro_13df - openai.agents: No conversation_id available for request
+2026-10-14 22:21:09.423 DEBUG   portfolio-astro_13df - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 22:21:09.427 DEBUG   portfolio-astro_13df - openai.agents: Calling LLM
+2026-10-14 22:21:22.419 DEBUG   portfolio-astro_13df - strix.llm.request_log: llm_request route=openai provider=openai model=openai/mimo-v2.6-flash host=127.0.0.1 outcome=success status=200 request_id=- response_id=- stream=1 duration_ms=12998 ttft_ms=12441 req_bytes=247413 res_bytes=883 finish=- in=58630 out=33 cached=24576 cost=- agent=5b09e676 attempt=0
+2026-10-14 22:21:22.430 INFO    portfolio-astro_13df - strix.report.coverage: Saved coverage record to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_13df/coverage.json (0 surface(s), 1 gap(s))
+2026-10-14 22:21:22.431 INFO    portfolio-astro_13df - strix.report.sarif: Wrote SARIF 2.1.0 report: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_13df/findings.sarif (0 results)
+2026-10-14 22:21:22.432 INFO    portfolio-astro_13df - strix.report.state: Essential scan data saved to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_13df
+2026-10-14 22:21:22.433 DEBUG   portfolio-astro_13df - openai.agents: Processing output item type=reasoning class=ResponseReasoningItem
+2026-10-14 22:21:22.433 DEBUG   portfolio-astro_13df - openai.agents: Processing output item type=function_call class=ResponseFunctionToolCall
+2026-10-14 22:21:22.435 DEBUG   portfolio-astro_13df - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 22:21:22.760 DEBUG   portfolio-astro_13df - openai.agents: Turn 1 complete, next_step type=NextStepRunAgain
+2026-10-14 22:21:22.828 DEBUG   portfolio-astro_13df - openai.agents: Starting turn 2, current_agent=LLM Pipeline Connection Test
+2026-10-14 22:21:22.828 DEBUG   portfolio-astro_13df - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 22:21:22.830 DEBUG   portfolio-astro_13df - openai.agents: No conversation_id available for request
+2026-10-14 22:21:22.835 DEBUG   portfolio-astro_13df - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 22:21:22.842 DEBUG   portfolio-astro_13df - openai.agents: Calling LLM
+2026-10-14 22:21:28.257 DEBUG   portfolio-astro_13df - strix.llm.request_log: llm_request route=openai provider=openai model=openai/mimo-v2.6-flash host=127.0.0.1 outcome=success status=200 request_id=- response_id=- stream=1 duration_ms=18926 ttft_ms=16110 req_bytes=330209 res_bytes=2057 finish=- in=78916 out=232 cached=75264 cost=- agent=1fb3a9d1 attempt=0
+2026-10-14 22:21:28.269 INFO    portfolio-astro_13df - strix.report.coverage: Saved coverage record to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_13df/coverage.json (0 surface(s), 1 gap(s))
+2026-10-14 22:21:28.274 INFO    portfolio-astro_13df - strix.report.sarif: Wrote SARIF 2.1.0 report: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_13df/findings.sarif (0 results)
+2026-10-14 22:21:28.278 INFO    portfolio-astro_13df - strix.report.state: Essential scan data saved to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_13df
+2026-10-14 22:21:28.279 DEBUG   portfolio-astro_13df - openai.agents: Processing output item type=reasoning class=ResponseReasoningItem
+2026-10-14 22:21:28.279 DEBUG   portfolio-astro_13df - openai.agents: Processing output item type=message class=ResponseOutputMessage
+2026-10-14 22:21:28.279 DEBUG   portfolio-astro_13df - openai.agents: Processing output item type=function_call class=ResponseFunctionToolCall
+2026-10-14 22:21:28.283 DEBUG   portfolio-astro_13df - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 22:21:28.486 DEBUG   portfolio-astro_13df - openai.agents: Turn 6 complete, next_step type=NextStepRunAgain
+2026-10-14 22:21:28.527 DEBUG   portfolio-astro_13df - openai.agents: Starting turn 7, current_agent=Root Agent
+2026-10-14 22:21:28.528 DEBUG   portfolio-astro_13df - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 22:21:28.530 DEBUG   portfolio-astro_13df - openai.agents: No conversation_id available for request
+2026-10-14 22:21:28.538 DEBUG   portfolio-astro_13df - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 22:21:28.544 DEBUG   portfolio-astro_13df - openai.agents: Calling LLM
+2026-10-14 22:21:34.930 DEBUG   portfolio-astro_13df - strix.llm.request_log: llm_request route=openai provider=openai model=openai/mimo-v2.6-flash host=127.0.0.1 outcome=success status=200 request_id=- response_id=- stream=1 duration_ms=12099 ttft_ms=10976 req_bytes=248147 res_bytes=1220 finish=- in=58732 out=128 cached=58624 cost=- agent=5b09e676 attempt=0
+2026-10-14 22:21:34.942 INFO    portfolio-astro_13df - strix.report.coverage: Saved coverage record to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_13df/coverage.json (0 surface(s), 1 gap(s))
+2026-10-14 22:21:34.944 INFO    portfolio-astro_13df - strix.report.sarif: Wrote SARIF 2.1.0 report: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_13df/findings.sarif (0 results)
+2026-10-14 22:21:34.949 INFO    portfolio-astro_13df - strix.report.state: Essential scan data saved to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_13df
+2026-10-14 22:21:34.950 DEBUG   portfolio-astro_13df - openai.agents: Processing output item type=reasoning class=ResponseReasoningItem
+2026-10-14 22:21:34.950 DEBUG   portfolio-astro_13df - openai.agents: Processing output item type=function_call class=ResponseFunctionToolCall
+2026-10-14 22:21:34.951 DEBUG   portfolio-astro_13df - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 22:21:34.952 DEBUG   portfolio-astro_13df - openai.agents: Invoking tool record_coverage
+2026-10-14 22:21:34.953 INFO    portfolio-astro_13df - strix.tools.coverage.tools: Coverage recorded: id=4041b6 outcome=no_issue_found surface=sandbox agent pipeline
+2026-10-14 22:21:34.954 DEBUG   portfolio-astro_13df - openai.agents: Tool record_coverage completed.
+2026-10-14 22:21:34.954 DEBUG   portfolio-astro_13df - openai.agents: Turn 2 complete, next_step type=NextStepRunAgain
+2026-10-14 22:21:34.995 DEBUG   portfolio-astro_13df - openai.agents: Starting turn 3, current_agent=LLM Pipeline Connection Test
+2026-10-14 22:21:34.995 DEBUG   portfolio-astro_13df - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 22:21:34.997 DEBUG   portfolio-astro_13df - openai.agents: No conversation_id available for request
+2026-10-14 22:21:35.001 DEBUG   portfolio-astro_13df - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 22:21:35.005 DEBUG   portfolio-astro_13df - openai.agents: Calling LLM
+2026-10-14 22:21:44.272 DEBUG   portfolio-astro_13df - strix.llm.request_log: llm_request route=openai provider=openai model=openai/mimo-v2.6-flash host=127.0.0.1 outcome=success status=200 request_id=- response_id=- stream=1 duration_ms=9269 ttft_ms=7483 req_bytes=249256 res_bytes=1269 finish=- in=58910 out=138 cached=58688 cost=- agent=5b09e676 attempt=0
+2026-10-14 22:21:44.326 INFO    portfolio-astro_13df - strix.report.coverage: Saved coverage record to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_13df/coverage.json (1 surface(s), 0 gap(s))
+2026-10-14 22:21:44.345 INFO    portfolio-astro_13df - strix.report.sarif: Wrote SARIF 2.1.0 report: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_13df/findings.sarif (0 results)
+2026-10-14 22:21:44.359 INFO    portfolio-astro_13df - strix.report.state: Essential scan data saved to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_13df
+2026-10-14 22:21:44.367 DEBUG   portfolio-astro_13df - openai.agents: Processing output item type=reasoning class=ResponseReasoningItem
+2026-10-14 22:21:44.373 DEBUG   portfolio-astro_13df - openai.agents: Processing output item type=function_call class=ResponseFunctionToolCall
+2026-10-14 22:21:44.382 DEBUG   portfolio-astro_13df - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 22:21:44.385 DEBUG   portfolio-astro_13df - openai.agents: Invoking tool agent_finish
+2026-10-14 22:21:44.408 INFO    portfolio-astro_13df - strix.core.agents: agent.status 5b09e676=completed
+2026-10-14 22:21:44.412 INFO    portfolio-astro_13df - strix.tools.agents_graph.tools: agent_finish: 5b09e676 success=True findings=1 filed_reports=0 parent_notified=True
+2026-10-14 22:21:44.414 DEBUG   portfolio-astro_13df - openai.agents: Tool agent_finish completed.
+2026-10-14 22:21:44.423 DEBUG   portfolio-astro_13df - openai.agents: Turn 3 complete, next_step type=NextStepFinalOutput
+2026-10-14 22:22:24.377 DEBUG   portfolio-astro_13df - strix.llm.request_log: llm_request route=openai provider=openai model=openai/mimo-v2.6-flash host=127.0.0.1 outcome=success status=200 request_id=- response_id=- stream=1 duration_ms=55846 ttft_ms=16280 req_bytes=356399 res_bytes=9212 finish=- in=84584 out=1801 cached=78912 cost=- agent=1fb3a9d1 attempt=0
+2026-10-14 22:22:24.386 INFO    portfolio-astro_13df - strix.report.coverage: Saved coverage record to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_13df/coverage.json (1 surface(s), 0 gap(s))
+2026-10-14 22:22:24.389 INFO    portfolio-astro_13df - strix.report.sarif: Wrote SARIF 2.1.0 report: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_13df/findings.sarif (0 results)
+2026-10-14 22:22:24.393 INFO    portfolio-astro_13df - strix.report.state: Essential scan data saved to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_13df
+2026-10-14 22:22:24.394 DEBUG   portfolio-astro_13df - openai.agents: Processing output item type=reasoning class=ResponseReasoningItem
+2026-10-14 22:22:24.394 DEBUG   portfolio-astro_13df - openai.agents: Processing output item type=message class=ResponseOutputMessage
+2026-10-14 22:22:24.394 DEBUG   portfolio-astro_13df - openai.agents: Processing output item type=function_call class=ResponseFunctionToolCall
+2026-10-14 22:22:24.394 DEBUG   portfolio-astro_13df - openai.agents: Processing output item type=function_call class=ResponseFunctionToolCall
+2026-10-14 22:22:24.395 DEBUG   portfolio-astro_13df - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 22:22:24.395 DEBUG   portfolio-astro_13df - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 22:22:24.396 DEBUG   portfolio-astro_13df - openai.agents: Invoking tool save_threat_model
+2026-10-14 22:22:24.396 DEBUG   portfolio-astro_13df - openai.agents: Invoking tool view_agent_graph
+2026-10-14 22:22:24.397 DEBUG   portfolio-astro_13df - openai.agents: Tool view_agent_graph completed.
+2026-10-14 22:22:24.398 DEBUG   portfolio-astro_13df - openai.agents: Tool save_threat_model completed.
+2026-10-14 22:22:24.398 DEBUG   portfolio-astro_13df - openai.agents: Turn 7 complete, next_step type=NextStepRunAgain
+2026-10-14 22:22:24.466 DEBUG   portfolio-astro_13df - openai.agents: Starting turn 8, current_agent=Root Agent
+2026-10-14 22:22:24.467 DEBUG   portfolio-astro_13df - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 22:22:24.472 DEBUG   portfolio-astro_13df - openai.agents: No conversation_id available for request
+2026-10-14 22:22:24.480 DEBUG   portfolio-astro_13df - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 22:22:24.483 DEBUG   portfolio-astro_13df - openai.agents: Calling LLM
+2026-10-14 22:22:39.419 DEBUG   portfolio-astro_13df - strix.llm.request_log: llm_request route=openai provider=openai model=openai/mimo-v2.6-flash host=127.0.0.1 outcome=success status=200 request_id=- response_id=- stream=1 duration_ms=14945 ttft_ms=8062 req_bytes=365974 res_bytes=2405 finish=- in=86557 out=284 cached=84544 cost=- agent=1fb3a9d1 attempt=0
+2026-10-14 22:22:39.430 INFO    portfolio-astro_13df - strix.report.coverage: Saved coverage record to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_13df/coverage.json (1 surface(s), 0 gap(s))
+2026-10-14 22:22:39.436 INFO    portfolio-astro_13df - strix.report.sarif: Wrote SARIF 2.1.0 report: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_13df/findings.sarif (0 results)
+2026-10-14 22:22:39.439 INFO    portfolio-astro_13df - strix.report.state: Essential scan data saved to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_13df
+2026-10-14 22:22:39.441 DEBUG   portfolio-astro_13df - openai.agents: Processing output item type=reasoning class=ResponseReasoningItem
+2026-10-14 22:22:39.442 DEBUG   portfolio-astro_13df - openai.agents: Processing output item type=message class=ResponseOutputMessage
+2026-10-14 22:22:39.442 DEBUG   portfolio-astro_13df - openai.agents: Processing output item type=function_call class=ResponseFunctionToolCall
+2026-10-14 22:22:39.445 DEBUG   portfolio-astro_13df - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 22:22:39.449 DEBUG   portfolio-astro_13df - openai.agents: Invoking tool wait_for_agents
+2026-10-14 22:22:39.502 DEBUG   portfolio-astro_13df - openai.agents: Tool wait_for_agents completed.
+2026-10-14 22:22:39.503 DEBUG   portfolio-astro_13df - openai.agents: Turn 8 complete, next_step type=NextStepRunAgain
+2026-10-14 22:22:39.577 DEBUG   portfolio-astro_13df - openai.agents: Starting turn 9, current_agent=Root Agent
+2026-10-14 22:22:39.578 DEBUG   portfolio-astro_13df - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 22:22:39.581 DEBUG   portfolio-astro_13df - openai.agents: No conversation_id available for request
+2026-10-14 22:22:39.594 DEBUG   portfolio-astro_13df - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 22:22:39.597 DEBUG   portfolio-astro_13df - openai.agents: Calling LLM
+2026-10-14 22:23:40.327 INFO    - - strix.report.coverage: Saved coverage record to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_13df/coverage.json (1 surface(s), 0 gap(s))
+2026-10-14 22:23:40.329 INFO    - - strix.report.sarif: Wrote SARIF 2.1.0 report: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_13df/findings.sarif (0 results)
+2026-10-14 22:23:40.330 INFO    - - strix.report.state: Essential scan data saved to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_13df
+2026-10-14 22:23:40.332 WARNING portfolio-astro_13df - strix.llm.request_log: llm_request route=openai provider=openai model=openai/mimo-v2.6-flash host=127.0.0.1 outcome=error status=200 request_id=- response_id=- stream=1 duration_ms=60749 ttft_ms=6764 req_bytes=369559 res_bytes=- finish=- in=- out=- cached=- cost=- agent=1fb3a9d1 attempt=0 error=CancelledError: attempt cancelled before the reply was consumed (stream idle timeout or shutdown)
+2026-10-14 22:23:40.332 DEBUG   portfolio-astro_13df - openai.agents: Resetting current trace
+2026-10-14 22:23:40.332 INFO    portfolio-astro_13df - strix.core.runner: Scan portfolio-astro_13df interrupted by the user
+2026-10-14 22:23:40.332 INFO    portfolio-astro_13df - strix.core.agents: agent.status 1fb3a9d1=running
+2026-10-14 22:23:40.334 INFO    portfolio-astro_13df - strix.core.runner: Tearing down sandbox session for scan portfolio-astro_13df
+2026-10-14 22:23:42.477 INFO    portfolio-astro_13df - strix.runtime.session_manager: Cleaned up sandbox session for scan portfolio-astro_13df
+2026-10-14 22:23:42.478 INFO    portfolio-astro_13df - strix.core.runner: Strix scan portfolio-astro_13df done

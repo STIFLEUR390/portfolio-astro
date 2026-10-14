@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-14 09:26:47 UTC",
+  "run_id": "portfolio-astro_7953",
+  "run_name": "portfolio-astro_7953",
+  "scope": {
+    "targets": [
+      {
+        "type": "local_code",
+        "details": {
+          "target_path": "/home/herold/Projects/front/portfolio-astro",
+          "workspace_subdir": "portfolio-astro"
+        },
+        "original": "/home/herold/Projects/front/portfolio-astro"
+      },
+      {
+        "type": "web_application",
+        "details": {
+          "target_url": "https://portfolio.aplix.nl"
+        },
+        "original": "https://portfolio.aplix.nl"
+      }
+    ],
+    "scan_mode": "standard",
+    "scope_mode": "auto",
+    "diff_scope": {
+      "active": false,
+      "mode": "auto"
+    },
+    "instruction": "Fully static Astro 7 site: every page is prerendered at build time and served as static files by nginx (Dockerfile). No SSR, no API routes, no backend. Known attacker-reachable inputs: (1) Ghost CMS post HTML injected via set:html in src/pages/blog/[...slug].astro — evaluate XSS impact if the CMS is compromised; (2) the contact form in src/pages/contact.astro posts to the external FormSubmit.co service (honeypot _honey field, _captcha disabled); (3) localStorage-based dark mode script in BaseLayout.astro; (4) URLs listed in src/data/portfolio.ts. Critical invariant to verify: the Ghost Content API key (env CONTENT_API_KEY, GHOST_URL) used at build time must NOT leak into any client-visible output in dist/ (JS bundles, HTML, sitemap). src/components/ui/** is vendored shadcn-vue components mostly unused by pages — deprioritize but report if reachable. Also review Dockerfile/nginx static serving configuration and the Astro/Vite build configuration in astro.config.mjs."
+  },
+  "summary": {
+    "surfaces_reviewed": 0,
+    "outcomes": {},
+    "findings_filed": 0,
+    "gaps": 1
+  },
+  "machine_observed": {
+    "agents": [
+      {
+        "agent_id": "5f22f7f6",
+        "agent_name": "Root Agent",
+        "status": "failed",
+        "skills": [],
+        "task": "\n\nLocal Codebases: - /home/herold/Projects/front/portfolio-astro (available at: /workspace/portfolio-astro; this is the user's real directory, mounted live and writable — .git/.agents/.codex are read-only) \n\nURLs: - https://portfolio.aplix.nl\n\nSpecial instructions: Fully static Astro 7 site: every page is prerendered at build time and served as static files by nginx (Dockerfile). No SSR, no API routes, no backend. Known attacker-reachable inputs: (1) Ghost CMS post HTML injected via set:html in src/pages/blog/[...slug].astro — evaluate XSS impact if the CMS is compromised; (2) the contact form in src/pages/contact.astro posts to the external FormSubmit.co service (honeypot _honey field, _captcha disabled); (3) localStorage-based dark mode script in BaseLayout.astro; (4) URLs listed in src/data/portfolio.ts. Critical invariant to verify: the Ghost Content API key (env CONTENT_API_KEY, GHOST_URL) used at build time must NOT leak into any client-visible output in dist/ (JS bundles, HTML, sitemap). src/components/ui/** is vendored shadcn-vue components mostly unused by pages — deprioritize but report if reachable. Also review Dockerfile/nginx static serving configuration and the Astro/Vite build configuration in astro.config.mjs.",
+        "is_root": true
+      }
+    ],
+    "skills_exercised": [],
+    "findings_filed": 0,
+    "source": "runtime"
+  },
+  "completeness": {
+    "complete": false,
+    "scan_status": "failed",
+    "exit_reason": "error",
+    "caveats": [
+      "The scan ended with status 'failed' rather than completing, so coverage reflects only the work finished before it stopped.",
+      "The run terminated via 'error' rather than the root agent finishing, so remaining scope was not reached."
+    ]
+  },
+  "entries": [],
+  "gaps": [
+    {
+      "kind": "agent_recorded_no_coverage",
+      "agent_name": "Root Agent",
+      "detail": "Root Agent ran (status: failed) without recording any coverage. Whatever it examined is absent from this record."
+    }
+  ]
+}

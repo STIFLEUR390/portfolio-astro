@@ -1,0 +1,371 @@
+{
+  "run_id": "portfolio-astro_13df",
+  "run_name": "portfolio-astro_13df",
+  "start_time": "2026-10-14T21:18:52.029244+00:00",
+  "end_time": "2026-10-14T21:23:40.319362+00:00",
+  "status": "interrupted",
+  "auth_mode": "api_key",
+  "targets_info": [
+    {
+      "type": "local_code",
+      "details": {
+        "target_path": "/home/herold/Projects/front/portfolio-astro",
+        "workspace_subdir": "portfolio-astro"
+      },
+      "original": "/home/herold/Projects/front/portfolio-astro"
+    }
+  ],
+  "llm_usage": {
+    "requests": 11,
+    "input_tokens": 764319,
+    "input_tokens_details": [
+      {
+        "cache_write_tokens": 0,
+        "cached_tokens": 667776
+      }
+    ],
+    "output_tokens": 6950,
+    "output_tokens_details": [
+      {
+        "reasoning_tokens": 4325
+      }
+    ],
+    "total_tokens": 771269,
+    "request_usage_entries": [
+      {
+        "input_tokens": 61262,
+        "output_tokens": 185,
+        "total_tokens": 61447,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 24576
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 107
+        }
+      },
+      {
+        "input_tokens": 62582,
+        "output_tokens": 366,
+        "total_tokens": 62948,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 61248
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 261
+        }
+      },
+      {
+        "input_tokens": 65290,
+        "output_tokens": 657,
+        "total_tokens": 65947,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 62528
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 483
+        }
+      },
+      {
+        "input_tokens": 73589,
+        "output_tokens": 446,
+        "total_tokens": 74035,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 65280
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 397
+        }
+      },
+      {
+        "input_tokens": 75267,
+        "output_tokens": 2680,
+        "total_tokens": 77947,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 73536
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 2289
+        }
+      },
+      {
+        "input_tokens": 58630,
+        "output_tokens": 33,
+        "total_tokens": 58663,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 24576
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 7
+        }
+      },
+      {
+        "input_tokens": 78916,
+        "output_tokens": 232,
+        "total_tokens": 79148,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 75264
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 121
+        }
+      },
+      {
+        "input_tokens": 58732,
+        "output_tokens": 128,
+        "total_tokens": 58860,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 58624
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 9
+        }
+      },
+      {
+        "input_tokens": 58910,
+        "output_tokens": 138,
+        "total_tokens": 59048,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 58688
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 9
+        }
+      },
+      {
+        "input_tokens": 84584,
+        "output_tokens": 1801,
+        "total_tokens": 86385,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 78912
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 421
+        }
+      },
+      {
+        "input_tokens": 86557,
+        "output_tokens": 284,
+        "total_tokens": 86841,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 84544
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 221
+        }
+      }
+    ],
+    "cost": 0.0173317928,
+    "providers": {},
+    "agents": [
+      {
+        "requests": 8,
+        "input_tokens": 588047,
+        "input_tokens_details": [
+          {
+            "cache_write_tokens": 0,
+            "cached_tokens": 525888
+          }
+        ],
+        "output_tokens": 6651,
+        "output_tokens_details": [
+          {
+            "reasoning_tokens": 4300
+          }
+        ],
+        "total_tokens": 594698,
+        "request_usage_entries": [
+          {
+            "input_tokens": 61262,
+            "output_tokens": 185,
+            "total_tokens": 61447,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 24576
+            },
+            "output_tokens_details": {
+              "reasoning_tokens": 107
+            }
+          },
+          {
+            "input_tokens": 62582,
+            "output_tokens": 366,
+            "total_tokens": 62948,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 61248
+            },
+            "output_tokens_details": {
+              "reasoning_tokens": 261
+            }
+          },
+          {
+            "input_tokens": 65290,
+            "output_tokens": 657,
+            "total_tokens": 65947,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 62528
+            },
+            "output_tokens_details": {
+              "reasoning_tokens": 483
+            }
+          },
+          {
+            "input_tokens": 73589,
+            "output_tokens": 446,
+            "total_tokens": 74035,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 65280
+            },
+            "output_tokens_details": {
+              "reasoning_tokens": 397
+            }
+          },
+          {
+            "input_tokens": 75267,
+            "output_tokens": 2680,
+            "total_tokens": 77947,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 73536
+            },
+            "output_tokens_details": {
+              "reasoning_tokens": 2289
+            }
+          },
+          {
+            "input_tokens": 78916,
+            "output_tokens": 232,
+            "total_tokens": 79148,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 75264
+            },
+            "output_tokens_details": {
+              "reasoning_tokens": 121
+            }
+          },
+          {
+            "input_tokens": 84584,
+            "output_tokens": 1801,
+            "total_tokens": 86385,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 78912
+            },
+            "output_tokens_details": {
+              "reasoning_tokens": 421
+            }
+          },
+          {
+            "input_tokens": 86557,
+            "output_tokens": 284,
+            "total_tokens": 86841,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 84544
+            },
+            "output_tokens_details": {
+              "reasoning_tokens": 221
+            }
+          }
+        ],
+        "agent_id": "1fb3a9d1",
+        "agent_name": "Root Agent",
+        "model": "openai/mimo-v2.6-flash",
+        "cost": 0.0133639269
+      },
+      {
+        "requests": 3,
+        "input_tokens": 176272,
+        "input_tokens_details": [
+          {
+            "cache_write_tokens": 0,
+            "cached_tokens": 141888
+          }
+        ],
+        "output_tokens": 299,
+        "output_tokens_details": [
+          {
+            "reasoning_tokens": 25
+          }
+        ],
+        "total_tokens": 176571,
+        "request_usage_entries": [
+          {
+            "input_tokens": 58630,
+            "output_tokens": 33,
+            "total_tokens": 58663,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 24576
+            },
+            "output_tokens_details": {
+              "reasoning_tokens": 7
+            }
+          },
+          {
+            "input_tokens": 58732,
+            "output_tokens": 128,
+            "total_tokens": 58860,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 58624
+            },
+            "output_tokens_details": {
+              "reasoning_tokens": 9
+            }
+          },
+          {
+            "input_tokens": 58910,
+            "output_tokens": 138,
+            "total_tokens": 59048,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 58688
+            },
+            "output_tokens_details": {
+              "reasoning_tokens": 9
+            }
+          }
+        ],
+        "agent_id": "5b09e676",
+        "agent_name": "LLM Pipeline Connection Test",
+        "model": "openai/mimo-v2.6-flash",
+        "cost": 0.0039678659
+      }
+    ]
+  },
+  "scan_mode": "quick",
+  "instruction": "Connection test with local LLM: confirm the pipeline works, then do a fast security review of this static Astro site.",
+  "user_instruction": "Connection test with local LLM: confirm the pipeline works, then do a fast security review of this static Astro site.",
+  "non_interactive": true,
+  "local_sources": [
+    {
+      "source_path": "/home/herold/Projects/front/portfolio-astro",
+      "workspace_subdir": "portfolio-astro",
+      "protect_metadata": true,
+      "read_only": false
+    }
+  ],
+  "workspace_files": [],
+  "workspace_mount": null,
+  "diff_scope": {
+    "active": false,
+    "mode": "auto"
+  },
+  "scope_mode": "auto",
+  "diff_base": null
+}

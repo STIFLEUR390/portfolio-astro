@@ -1,0 +1,2 @@
+id,title,severity,timestamp,file
+vuln-0001,Stored XSS via Ghost CMS blog content injection,HIGH,2026-10-14 09:22:53 UTC,vulnerabilities/vuln-0001.md

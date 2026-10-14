@@ -1,0 +1,5 @@
+id,title,severity,timestamp,file
+vuln-0001,CVE-2026-92708: devalue 5.9.2 process memory disclosure via typed-array serialization (transitive via astro),LOW,2026-10-14 22:05:54 UTC,vulnerabilities/vuln-0001.md
+vuln-0003,CVE-2026-104844: postcss-selector-parser 6.0.10 quadratic-time DoS via crafted CSS selectors (transitive via @tailwindcss/typography),LOW,2026-10-14 22:12:32 UTC,vulnerabilities/vuln-0003.md
+vuln-0004,CVE-2026-93749: source-map-js 1.2.1 event-loop DoS via malformed indexed source maps (transitive build dependency),LOW,2026-10-14 22:14:08 UTC,vulnerabilities/vuln-0004.md
+vuln-0002,CVE-2026-93748: http-cache-semantics 4.2.0 cross-user cache disclosure via max-stale (transitive via astro),INFO,2026-10-14 22:09:27 UTC,vulnerabilities/vuln-0002.md

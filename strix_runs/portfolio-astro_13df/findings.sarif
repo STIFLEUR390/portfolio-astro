@@ -1,0 +1,93 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Strix",
+          "informationUri": "https://strix.ai",
+          "rules": [
+            {
+              "id": "strix-coverage/llm-subagent-connectivity",
+              "name": "LLM subagent connectivity",
+              "shortDescription": {
+                "text": "Coverage: LLM subagent connectivity"
+              },
+              "fullDescription": {
+                "text": "Coverage of LLM subagent connectivity across the assessed attack surface."
+              },
+              "defaultConfiguration": {
+                "level": "none"
+              },
+              "help": {
+                "text": "Coverage of LLM subagent connectivity across the assessed attack surface.",
+                "markdown": "Coverage of LLM subagent connectivity across the assessed attack surface."
+              },
+              "properties": {
+                "tags": [
+                  "coverage"
+                ]
+              }
+            }
+          ],
+          "version": "1.7.0"
+        }
+      },
+      "results": [
+        {
+          "ruleId": "strix-coverage/llm-subagent-connectivity",
+          "ruleIndex": 0,
+          "kind": "pass",
+          "level": "none",
+          "message": {
+            "text": "LLM subagent connectivity — No issue identified: sandbox agent pipeline\n\nChild agent executed `node --version` (v24.18.0) and `date -u` (Wed Oct 14 21:21:22 UTC 2026) successfully via exec_command, then recorded coverage and finished — trivial subagent LLM pipeline round-trip works."
+          },
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "sandbox agent pipeline"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "strix": {
+              "coverage_outcome": "no_issue_found",
+              "risk_area": "LLM subagent connectivity",
+              "surface": "sandbox agent pipeline",
+              "recorded_by": "LLM Pipeline Connection Test",
+              "source": "agent_reported"
+            }
+          }
+        }
+      ],
+      "invocations": [
+        {
+          "executionSuccessful": false,
+          "toolExecutionNotifications": [
+            {
+              "level": "warning",
+              "message": {
+                "text": "The scan ended with status 'interrupted' rather than completing, so coverage reflects only the work finished before it stopped."
+              }
+            },
+            {
+              "level": "warning",
+              "message": {
+                "text": "1 agent(s) did not finish cleanly (Root Agent); any surface they held is under-covered."
+              }
+            },
+            {
+              "level": "warning",
+              "message": {
+                "text": "The run terminated via 'user_exit' rather than the root agent finishing, so remaining scope was not reached."
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

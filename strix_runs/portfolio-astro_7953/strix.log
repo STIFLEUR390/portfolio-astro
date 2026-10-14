@@ -1,0 +1,496 @@
+2026-10-14 10:14:50.323 INFO    portfolio-astro_7953 - strix.core.runner: Starting Strix scan portfolio-astro_7953 (image=ghcr.io/usestrix/strix-sandbox:1.3.0, max_turns=500, interactive=False, run_dir=/home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953)
+2026-10-14 10:14:50.323 INFO    portfolio-astro_7953 - strix.config.models: OpenAI API route for openrouter/qwen/qwen3.7-flash: chat_completions
+2026-10-14 10:14:50.323 INFO    portfolio-astro_7953 - strix.core.runner: LLM model resolved: openrouter/qwen/qwen3.7-flash
+2026-10-14 10:14:50.324 INFO    portfolio-astro_7953 - strix.core.runner: Bringing up sandbox session for scan portfolio-astro_7953
+2026-10-14 10:14:50.324 DEBUG   portfolio-astro_7953 - strix.runtime.backends: Selected sandbox backend: docker
+2026-10-14 10:14:50.324 INFO    portfolio-astro_7953 - strix.runtime.session_manager: Creating sandbox session for scan portfolio-astro_7953 (backend=docker, image=ghcr.io/usestrix/strix-sandbox:1.3.0)
+2026-10-14 10:14:50.496 DEBUG   portfolio-astro_7953 - strix.runtime.docker_client: Creating sandbox container: image=ghcr.io/usestrix/strix-sandbox:1.3.0 caps=['NET_ADMIN', 'NET_RAW'] exposed_ports=[48080]
+2026-10-14 10:14:52.140 INFO    portfolio-astro_7953 - strix.runtime.docker_client: Sandbox container created: id=1fa426f2257b image=ghcr.io/usestrix/strix-sandbox:1.3.0
+2026-10-14 10:14:52.991 DEBUG   portfolio-astro_7953 - strix.runtime.session_manager: Caido host endpoint resolved: http://127.0.0.1:32768
+2026-10-14 10:14:52.992 INFO    portfolio-astro_7953 - strix.runtime.session_manager: Sandbox session for scan portfolio-astro_7953 ready and cached
+2026-10-14 10:14:52.992 INFO    portfolio-astro_7953 - strix.core.runner: Sandbox ready for scan portfolio-astro_7953
+2026-10-14 10:14:52.995 DEBUG   portfolio-astro_7953 - strix.skills: Loaded skill: scan_modes/standard -> standard
+2026-10-14 10:14:52.996 DEBUG   portfolio-astro_7953 - strix.skills: Loaded skill: tooling/agent_browser -> agent_browser
+2026-10-14 10:14:52.997 DEBUG   portfolio-astro_7953 - strix.skills: Loaded skill: tooling/python -> python
+2026-10-14 10:14:52.997 DEBUG   portfolio-astro_7953 - strix.skills: Loaded skill: analysis/counterevidence -> counterevidence
+2026-10-14 10:14:52.998 DEBUG   portfolio-astro_7953 - strix.skills: Loaded skill: analysis/severity_calibration -> severity_calibration
+2026-10-14 10:14:52.998 DEBUG   portfolio-astro_7953 - strix.skills: Loaded skill: coordination/root_agent -> root_agent
+2026-10-14 10:14:52.999 DEBUG   portfolio-astro_7953 - strix.skills: Loaded skill: coordination/source_aware_whitebox -> source_aware_whitebox
+2026-10-14 10:14:53.000 DEBUG   portfolio-astro_7953 - strix.skills: Loaded skill: custom/source_aware_sast -> source_aware_sast
+2026-10-14 10:14:53.000 DEBUG   portfolio-astro_7953 - strix.skills: Loaded skill: analysis/source_aware_discovery -> source_aware_discovery
+2026-10-14 10:14:53.001 DEBUG   portfolio-astro_7953 - strix.skills: Loaded skill: analysis/fix_verification -> fix_verification
+2026-10-14 10:14:53.001 DEBUG   portfolio-astro_7953 - strix.skills: load_skills: 10 skill(s) resolved
+2026-10-14 10:14:53.029 DEBUG   portfolio-astro_7953 - strix.agents.prompt: render_system_prompt: scan_mode=standard root=True whitebox=True skills=10 prompt_len=131136
+2026-10-14 10:14:53.029 INFO    portfolio-astro_7953 - strix.agents.factory: Built root agent 'Root Agent' (skills=0, tools=44, scan_mode=standard, whitebox=True)
+2026-10-14 10:14:53.030 INFO    portfolio-astro_7953 - strix.core.agents: agent.register 5f22f7f6 (Root Agent) parent=-
+2026-10-14 10:14:53.142 INFO    portfolio-astro_7953 - strix.runtime.caido_bootstrap: Bootstrapping Caido client (host=http://127.0.0.1:32768, container=http://127.0.0.1:48080)
+2026-10-14 10:14:53.207 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating trace
+2026-10-14 10:14:53.210 DEBUG   portfolio-astro_7953 - openai.agents: Setting current trace: no-op
+2026-10-14 10:14:53.210 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:14:53.219 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:14:53.219 DEBUG   portfolio-astro_7953 - openai.agents: Starting turn 1, current_agent=Root Agent
+2026-10-14 10:14:53.219 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:14:53.221 DEBUG   portfolio-astro_7953 - openai.agents: No conversation_id available for request
+2026-10-14 10:14:53.222 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:14:53.225 DEBUG   portfolio-astro_7953 - openai.agents: Calling LLM
+2026-10-14 10:14:53.629 INFO    portfolio-astro_7953 - strix.runtime.caido_bootstrap: Caido project selected: bc87c936-e40f-48fb-b774-a857176bc1f2
+2026-10-14 10:15:08.304 DEBUG   portfolio-astro_7953 - strix.llm.request_log: llm_request route=litellm provider=openrouter model=qwen/qwen3.7-flash host=openrouter.ai outcome=success status=200 request_id=gen-1791969296-M3sQsEMIC9B6jCcHHkkl response_id=gen-1791969296-M3sQsEMIC9B6jCcHHkkl stream=1 duration_ms=15072 ttft_ms=10688 req_bytes=264199 res_bytes=858 finish=tool_calls in=62358 out=466 cached=0 cost=0.006422 agent=5f22f7f6 attempt=0
+2026-10-14 10:15:08.308 DEBUG   portfolio-astro_7953 - strix.report.usage: LiteLLM cost estimate unavailable for model openrouter/qwen/qwen3.7-flash
+2026-10-14 10:15:08.318 INFO    portfolio-astro_7953 - strix.report.coverage: Saved coverage record to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953/coverage.json (0 surface(s), 1 gap(s))
+2026-10-14 10:15:08.319 INFO    portfolio-astro_7953 - strix.report.sarif: Wrote SARIF 2.1.0 report: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953/findings.sarif (0 results)
+2026-10-14 10:15:08.320 INFO    portfolio-astro_7953 - strix.report.state: Essential scan data saved to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953
+2026-10-14 10:15:08.321 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=reasoning class=ResponseReasoningItem
+2026-10-14 10:15:08.321 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=message class=ResponseOutputMessage
+2026-10-14 10:15:08.321 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=function_call class=ResponseFunctionToolCall
+2026-10-14 10:15:08.321 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=function_call class=ResponseFunctionToolCall
+2026-10-14 10:15:08.322 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:15:08.322 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:15:08.323 DEBUG   portfolio-astro_7953 - openai.agents: Invoking tool get_threat_model
+2026-10-14 10:15:08.343 DEBUG   portfolio-astro_7953 - openai.agents: Tool get_threat_model completed.
+2026-10-14 10:15:08.531 DEBUG   portfolio-astro_7953 - openai.agents: Turn 1 complete, next_step type=NextStepRunAgain
+2026-10-14 10:15:08.597 DEBUG   portfolio-astro_7953 - openai.agents: Starting turn 2, current_agent=Root Agent
+2026-10-14 10:15:08.597 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:15:08.599 DEBUG   portfolio-astro_7953 - openai.agents: No conversation_id available for request
+2026-10-14 10:15:08.600 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:15:08.604 DEBUG   portfolio-astro_7953 - openai.agents: Calling LLM
+2026-10-14 10:15:19.517 DEBUG   portfolio-astro_7953 - strix.llm.request_log: llm_request route=litellm provider=openrouter model=qwen/qwen3.7-flash host=openrouter.ai outcome=success status=200 request_id=gen-1791969315-hSjX4LRHVzMrJnnkfuil response_id=gen-1791969315-hSjX4LRHVzMrJnnkfuil stream=1 duration_ms=10907 ttft_ms=9394 req_bytes=270681 res_bytes=1319 finish=tool_calls in=63675 out=253 cached=62208 cost=0.001492 agent=5f22f7f6 attempt=0
+2026-10-14 10:15:19.518 DEBUG   portfolio-astro_7953 - strix.report.usage: LiteLLM cost estimate unavailable for model openrouter/qwen/qwen3.7-flash
+2026-10-14 10:15:19.525 INFO    portfolio-astro_7953 - strix.report.coverage: Saved coverage record to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953/coverage.json (0 surface(s), 1 gap(s))
+2026-10-14 10:15:19.527 INFO    portfolio-astro_7953 - strix.report.sarif: Wrote SARIF 2.1.0 report: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953/findings.sarif (0 results)
+2026-10-14 10:15:19.528 INFO    portfolio-astro_7953 - strix.report.state: Essential scan data saved to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953
+2026-10-14 10:15:19.528 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=message class=ResponseOutputMessage
+2026-10-14 10:15:19.529 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=function_call class=ResponseFunctionToolCall
+2026-10-14 10:15:19.529 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=function_call class=ResponseFunctionToolCall
+2026-10-14 10:15:19.529 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=function_call class=ResponseFunctionToolCall
+2026-10-14 10:15:19.529 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=function_call class=ResponseFunctionToolCall
+2026-10-14 10:15:19.529 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=function_call class=ResponseFunctionToolCall
+2026-10-14 10:15:19.529 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=function_call class=ResponseFunctionToolCall
+2026-10-14 10:15:19.530 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:15:19.530 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:15:19.530 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:15:19.530 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:15:19.530 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:15:19.531 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:15:19.895 DEBUG   portfolio-astro_7953 - openai.agents: Turn 2 complete, next_step type=NextStepRunAgain
+2026-10-14 10:15:19.971 DEBUG   portfolio-astro_7953 - openai.agents: Starting turn 3, current_agent=Root Agent
+2026-10-14 10:15:19.972 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:15:19.973 DEBUG   portfolio-astro_7953 - openai.agents: No conversation_id available for request
+2026-10-14 10:15:19.974 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:15:19.977 DEBUG   portfolio-astro_7953 - openai.agents: Calling LLM
+2026-10-14 10:15:31.789 DEBUG   portfolio-astro_7953 - strix.llm.request_log: llm_request route=litellm provider=openrouter model=qwen/qwen3.7-flash host=openrouter.ai outcome=success status=200 request_id=gen-1791969327-sX54Gy1PkASQiOwOV2dQ response_id=gen-1791969327-sX54Gy1PkASQiOwOV2dQ stream=1 duration_ms=11804 ttft_ms=11217 req_bytes=302767 res_bytes=981 finish=tool_calls in=72196 out=108 cached=63360 cost=0.002194 agent=5f22f7f6 attempt=0
+2026-10-14 10:15:31.790 DEBUG   portfolio-astro_7953 - strix.report.usage: LiteLLM cost estimate unavailable for model openrouter/qwen/qwen3.7-flash
+2026-10-14 10:15:31.798 INFO    portfolio-astro_7953 - strix.report.coverage: Saved coverage record to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953/coverage.json (0 surface(s), 1 gap(s))
+2026-10-14 10:15:31.799 INFO    portfolio-astro_7953 - strix.report.sarif: Wrote SARIF 2.1.0 report: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953/findings.sarif (0 results)
+2026-10-14 10:15:31.800 INFO    portfolio-astro_7953 - strix.report.state: Essential scan data saved to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953
+2026-10-14 10:15:31.801 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=reasoning class=ResponseReasoningItem
+2026-10-14 10:15:31.801 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=function_call class=ResponseFunctionToolCall
+2026-10-14 10:15:31.801 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=function_call class=ResponseFunctionToolCall
+2026-10-14 10:15:31.801 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=function_call class=ResponseFunctionToolCall
+2026-10-14 10:15:31.802 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:15:31.802 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:15:31.802 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:15:32.041 DEBUG   portfolio-astro_7953 - openai.agents: Turn 3 complete, next_step type=NextStepRunAgain
+2026-10-14 10:15:32.206 DEBUG   portfolio-astro_7953 - openai.agents: Starting turn 4, current_agent=Root Agent
+2026-10-14 10:15:32.206 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:15:32.208 DEBUG   portfolio-astro_7953 - openai.agents: No conversation_id available for request
+2026-10-14 10:15:32.209 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:15:32.213 DEBUG   portfolio-astro_7953 - openai.agents: Calling LLM
+2026-10-14 10:15:57.837 DEBUG   portfolio-astro_7953 - strix.llm.request_log: llm_request route=litellm provider=openrouter model=qwen/qwen3.7-flash host=openrouter.ai outcome=success status=200 request_id=gen-1791969336-E39XeH5f7PSDRrHRVBSr response_id=gen-1791969336-E39XeH5f7PSDRrHRVBSr stream=1 duration_ms=25618 ttft_ms=7164 req_bytes=307308 res_bytes=739 finish=tool_calls in=73563 out=1873 cached=71424 cost=0.002392 agent=5f22f7f6 attempt=0
+2026-10-14 10:15:57.838 DEBUG   portfolio-astro_7953 - strix.report.usage: LiteLLM cost estimate unavailable for model openrouter/qwen/qwen3.7-flash
+2026-10-14 10:15:57.845 INFO    portfolio-astro_7953 - strix.report.coverage: Saved coverage record to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953/coverage.json (0 surface(s), 1 gap(s))
+2026-10-14 10:15:57.847 INFO    portfolio-astro_7953 - strix.report.sarif: Wrote SARIF 2.1.0 report: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953/findings.sarif (0 results)
+2026-10-14 10:15:57.848 INFO    portfolio-astro_7953 - strix.report.state: Essential scan data saved to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953
+2026-10-14 10:15:57.848 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=reasoning class=ResponseReasoningItem
+2026-10-14 10:15:57.849 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=message class=ResponseOutputMessage
+2026-10-14 10:15:57.849 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=function_call class=ResponseFunctionToolCall
+2026-10-14 10:15:57.850 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:15:57.850 DEBUG   portfolio-astro_7953 - openai.agents: Invoking tool save_threat_model
+2026-10-14 10:15:57.851 DEBUG   portfolio-astro_7953 - openai.agents: Tool save_threat_model completed.
+2026-10-14 10:15:57.852 DEBUG   portfolio-astro_7953 - openai.agents: Turn 4 complete, next_step type=NextStepRunAgain
+2026-10-14 10:15:57.918 DEBUG   portfolio-astro_7953 - openai.agents: Starting turn 5, current_agent=Root Agent
+2026-10-14 10:15:57.918 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:15:57.919 DEBUG   portfolio-astro_7953 - openai.agents: No conversation_id available for request
+2026-10-14 10:15:57.920 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:15:57.923 DEBUG   portfolio-astro_7953 - openai.agents: Calling LLM
+2026-10-14 10:16:08.489 DEBUG   portfolio-astro_7953 - strix.llm.request_log: llm_request route=litellm provider=openrouter model=qwen/qwen3.7-flash host=openrouter.ai outcome=success status=200 request_id=gen-1791969362-rP5Sdn6KOrsxtqQCbkIu response_id=gen-1791969362-rP5Sdn6KOrsxtqQCbkIu stream=1 duration_ms=10560 ttft_ms=8722 req_bytes=313613 res_bytes=733 finish=tool_calls in=74980 out=177 cached=72576 cost=0.001763 agent=5f22f7f6 attempt=0
+2026-10-14 10:16:08.490 DEBUG   portfolio-astro_7953 - strix.report.usage: LiteLLM cost estimate unavailable for model openrouter/qwen/qwen3.7-flash
+2026-10-14 10:16:08.497 INFO    portfolio-astro_7953 - strix.report.coverage: Saved coverage record to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953/coverage.json (0 surface(s), 1 gap(s))
+2026-10-14 10:16:08.499 INFO    portfolio-astro_7953 - strix.report.sarif: Wrote SARIF 2.1.0 report: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953/findings.sarif (0 results)
+2026-10-14 10:16:08.500 INFO    portfolio-astro_7953 - strix.report.state: Essential scan data saved to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953
+2026-10-14 10:16:08.500 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=reasoning class=ResponseReasoningItem
+2026-10-14 10:16:08.501 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=function_call class=ResponseFunctionToolCall
+2026-10-14 10:16:08.501 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:16:08.654 DEBUG   portfolio-astro_7953 - openai.agents: Turn 5 complete, next_step type=NextStepRunAgain
+2026-10-14 10:16:08.722 DEBUG   portfolio-astro_7953 - openai.agents: Starting turn 6, current_agent=Root Agent
+2026-10-14 10:16:08.722 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:16:08.724 DEBUG   portfolio-astro_7953 - openai.agents: No conversation_id available for request
+2026-10-14 10:16:08.725 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:16:08.728 DEBUG   portfolio-astro_7953 - openai.agents: Calling LLM
+2026-10-14 10:16:19.610 DEBUG   portfolio-astro_7953 - strix.llm.request_log: llm_request route=litellm provider=openrouter model=qwen/qwen3.7-flash host=openrouter.ai outcome=success status=200 request_id=gen-1791969372-VZI4X0VYbIeLDtSXVAnv response_id=gen-1791969372-VZI4X0VYbIeLDtSXVAnv stream=1 duration_ms=10876 ttft_ms=7837 req_bytes=317875 res_bytes=730 finish=tool_calls in=76221 out=315 cached=74880 cost=0.001758 agent=5f22f7f6 attempt=0
+2026-10-14 10:16:19.611 DEBUG   portfolio-astro_7953 - strix.report.usage: LiteLLM cost estimate unavailable for model openrouter/qwen/qwen3.7-flash
+2026-10-14 10:16:19.619 INFO    portfolio-astro_7953 - strix.report.coverage: Saved coverage record to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953/coverage.json (0 surface(s), 1 gap(s))
+2026-10-14 10:16:19.620 INFO    portfolio-astro_7953 - strix.report.sarif: Wrote SARIF 2.1.0 report: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953/findings.sarif (0 results)
+2026-10-14 10:16:19.621 INFO    portfolio-astro_7953 - strix.report.state: Essential scan data saved to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953
+2026-10-14 10:16:19.622 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=reasoning class=ResponseReasoningItem
+2026-10-14 10:16:19.622 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=function_call class=ResponseFunctionToolCall
+2026-10-14 10:16:19.622 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:16:19.623 DEBUG   portfolio-astro_7953 - openai.agents: Invoking tool create_todo
+2026-10-14 10:16:19.624 DEBUG   portfolio-astro_7953 - openai.agents: Tool create_todo completed.
+2026-10-14 10:16:19.624 DEBUG   portfolio-astro_7953 - openai.agents: Turn 6 complete, next_step type=NextStepRunAgain
+2026-10-14 10:16:19.717 DEBUG   portfolio-astro_7953 - openai.agents: Starting turn 7, current_agent=Root Agent
+2026-10-14 10:16:19.718 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:16:19.719 DEBUG   portfolio-astro_7953 - openai.agents: No conversation_id available for request
+2026-10-14 10:16:19.720 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:16:19.723 DEBUG   portfolio-astro_7953 - openai.agents: Calling LLM
+2026-10-14 10:16:33.287 DEBUG   portfolio-astro_7953 - strix.llm.request_log: llm_request route=litellm provider=openrouter model=qwen/qwen3.7-flash host=openrouter.ai outcome=success status=200 request_id=gen-1791969385-e5xSoTafxsjDWkCXPgNs response_id=gen-1791969385-e5xSoTafxsjDWkCXPgNs stream=1 duration_ms=13558 ttft_ms=10617 req_bytes=322292 res_bytes=984 finish=tool_calls in=77510 out=293 cached=76032 cost=0.001786 agent=5f22f7f6 attempt=0
+2026-10-14 10:16:33.287 DEBUG   portfolio-astro_7953 - strix.report.usage: LiteLLM cost estimate unavailable for model openrouter/qwen/qwen3.7-flash
+2026-10-14 10:16:33.296 INFO    portfolio-astro_7953 - strix.report.coverage: Saved coverage record to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953/coverage.json (0 surface(s), 1 gap(s))
+2026-10-14 10:16:33.297 INFO    portfolio-astro_7953 - strix.report.sarif: Wrote SARIF 2.1.0 report: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953/findings.sarif (0 results)
+2026-10-14 10:16:33.298 INFO    portfolio-astro_7953 - strix.report.state: Essential scan data saved to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953
+2026-10-14 10:16:33.299 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=reasoning class=ResponseReasoningItem
+2026-10-14 10:16:33.299 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=message class=ResponseOutputMessage
+2026-10-14 10:16:33.299 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=function_call class=ResponseFunctionToolCall
+2026-10-14 10:16:33.299 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=function_call class=ResponseFunctionToolCall
+2026-10-14 10:16:33.299 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=function_call class=ResponseFunctionToolCall
+2026-10-14 10:16:33.300 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:16:33.300 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:16:33.300 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:16:34.744 DEBUG   portfolio-astro_7953 - openai.agents: Turn 7 complete, next_step type=NextStepRunAgain
+2026-10-14 10:16:34.789 DEBUG   portfolio-astro_7953 - openai.agents: Starting turn 8, current_agent=Root Agent
+2026-10-14 10:16:34.789 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:16:34.791 DEBUG   portfolio-astro_7953 - openai.agents: No conversation_id available for request
+2026-10-14 10:16:34.791 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:16:34.794 DEBUG   portfolio-astro_7953 - openai.agents: Calling LLM
+2026-10-14 10:16:46.425 DEBUG   portfolio-astro_7953 - strix.llm.request_log: llm_request route=litellm provider=openrouter model=qwen/qwen3.7-flash host=openrouter.ai outcome=success status=200 request_id=gen-1791969399-v0Q3fFqpsHFfQEgTIczP response_id=gen-1791969399-v0Q3fFqpsHFfQEgTIczP stream=1 duration_ms=11624 ttft_ms=7971 req_bytes=324056 res_bytes=859 finish=tool_calls in=78011 out=340 cached=76032 cost=0.001855 agent=5f22f7f6 attempt=0
+2026-10-14 10:16:46.425 DEBUG   portfolio-astro_7953 - strix.report.usage: LiteLLM cost estimate unavailable for model openrouter/qwen/qwen3.7-flash
+2026-10-14 10:16:46.434 INFO    portfolio-astro_7953 - strix.report.coverage: Saved coverage record to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953/coverage.json (0 surface(s), 1 gap(s))
+2026-10-14 10:16:46.435 INFO    portfolio-astro_7953 - strix.report.sarif: Wrote SARIF 2.1.0 report: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953/findings.sarif (0 results)
+2026-10-14 10:16:46.436 INFO    portfolio-astro_7953 - strix.report.state: Essential scan data saved to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953
+2026-10-14 10:16:46.437 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=reasoning class=ResponseReasoningItem
+2026-10-14 10:16:46.437 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=message class=ResponseOutputMessage
+2026-10-14 10:16:46.437 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=function_call class=ResponseFunctionToolCall
+2026-10-14 10:16:46.437 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=function_call class=ResponseFunctionToolCall
+2026-10-14 10:16:46.438 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:16:46.439 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:16:47.639 DEBUG   portfolio-astro_7953 - openai.agents: Turn 8 complete, next_step type=NextStepRunAgain
+2026-10-14 10:16:47.669 DEBUG   portfolio-astro_7953 - openai.agents: Starting turn 9, current_agent=Root Agent
+2026-10-14 10:16:47.670 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:16:47.671 DEBUG   portfolio-astro_7953 - openai.agents: No conversation_id available for request
+2026-10-14 10:16:47.672 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:16:47.676 DEBUG   portfolio-astro_7953 - openai.agents: Calling LLM
+2026-10-14 10:17:05.595 DEBUG   portfolio-astro_7953 - strix.llm.request_log: llm_request route=litellm provider=openrouter model=qwen/qwen3.7-flash host=openrouter.ai outcome=success status=200 request_id=gen-1791969413-Cy13tmz5xeROtCTJyp3r response_id=gen-1791969413-Cy13tmz5xeROtCTJyp3r stream=1 duration_ms=17910 ttft_ms=15055 req_bytes=382452 res_bytes=815 finish=tool_calls in=94968 out=313 cached=77184 cost=0.003447 agent=5f22f7f6 attempt=0
+2026-10-14 10:17:05.595 DEBUG   portfolio-astro_7953 - strix.report.usage: LiteLLM cost estimate unavailable for model openrouter/qwen/qwen3.7-flash
+2026-10-14 10:17:05.603 INFO    portfolio-astro_7953 - strix.report.coverage: Saved coverage record to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953/coverage.json (0 surface(s), 1 gap(s))
+2026-10-14 10:17:05.604 INFO    portfolio-astro_7953 - strix.report.sarif: Wrote SARIF 2.1.0 report: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953/findings.sarif (0 results)
+2026-10-14 10:17:05.606 INFO    portfolio-astro_7953 - strix.report.state: Essential scan data saved to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953
+2026-10-14 10:17:05.606 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=message class=ResponseOutputMessage
+2026-10-14 10:17:05.606 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=function_call class=ResponseFunctionToolCall
+2026-10-14 10:17:05.607 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=function_call class=ResponseFunctionToolCall
+2026-10-14 10:17:05.607 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:17:05.607 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:17:09.145 DEBUG   portfolio-astro_7953 - openai.agents: Turn 9 complete, next_step type=NextStepRunAgain
+2026-10-14 10:17:09.162 DEBUG   portfolio-astro_7953 - openai.agents: Starting turn 10, current_agent=Root Agent
+2026-10-14 10:17:09.162 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:17:09.164 DEBUG   portfolio-astro_7953 - openai.agents: No conversation_id available for request
+2026-10-14 10:17:09.165 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:17:09.168 DEBUG   portfolio-astro_7953 - openai.agents: Calling LLM
+2026-10-14 10:17:31.499 DEBUG   portfolio-astro_7953 - strix.llm.request_log: llm_request route=litellm provider=openrouter model=qwen/qwen3.7-flash host=openrouter.ai outcome=success status=200 request_id=gen-1791969442-qRGkRnsDagOsUAeOvyDQ response_id=gen-1791969442-qRGkRnsDagOsUAeOvyDQ stream=1 duration_ms=22324 ttft_ms=19262 req_bytes=386735 res_bytes=733 finish=tool_calls in=96313 out=295 cached=76032 cost=0.003667 agent=5f22f7f6 attempt=0
+2026-10-14 10:17:31.500 DEBUG   portfolio-astro_7953 - strix.report.usage: LiteLLM cost estimate unavailable for model openrouter/qwen/qwen3.7-flash
+2026-10-14 10:17:31.509 INFO    portfolio-astro_7953 - strix.report.coverage: Saved coverage record to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953/coverage.json (0 surface(s), 1 gap(s))
+2026-10-14 10:17:31.511 INFO    portfolio-astro_7953 - strix.report.sarif: Wrote SARIF 2.1.0 report: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953/findings.sarif (0 results)
+2026-10-14 10:17:31.512 INFO    portfolio-astro_7953 - strix.report.state: Essential scan data saved to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953
+2026-10-14 10:17:31.513 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=reasoning class=ResponseReasoningItem
+2026-10-14 10:17:31.513 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=message class=ResponseOutputMessage
+2026-10-14 10:17:31.513 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=function_call class=ResponseFunctionToolCall
+2026-10-14 10:17:31.514 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:17:33.542 DEBUG   portfolio-astro_7953 - openai.agents: Turn 10 complete, next_step type=NextStepRunAgain
+2026-10-14 10:17:33.565 DEBUG   portfolio-astro_7953 - openai.agents: Starting turn 11, current_agent=Root Agent
+2026-10-14 10:17:33.565 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:17:33.567 DEBUG   portfolio-astro_7953 - openai.agents: No conversation_id available for request
+2026-10-14 10:17:33.568 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:17:33.571 DEBUG   portfolio-astro_7953 - openai.agents: Calling LLM
+2026-10-14 10:18:00.390 DEBUG   portfolio-astro_7953 - strix.llm.request_log: llm_request route=litellm provider=openrouter model=qwen/qwen3.7-flash host=openrouter.ai outcome=success status=200 request_id=gen-1791969471-ky3j7hS9cnZJG88jTsa7 response_id=gen-1791969471-ky3j7hS9cnZJG88jTsa7 stream=1 duration_ms=26811 ttft_ms=23937 req_bytes=387661 res_bytes=733 finish=tool_calls in=96553 out=271 cached=76032 cost=0.003681 agent=5f22f7f6 attempt=0
+2026-10-14 10:18:00.390 DEBUG   portfolio-astro_7953 - strix.report.usage: LiteLLM cost estimate unavailable for model openrouter/qwen/qwen3.7-flash
+2026-10-14 10:18:00.403 INFO    portfolio-astro_7953 - strix.report.coverage: Saved coverage record to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953/coverage.json (0 surface(s), 1 gap(s))
+2026-10-14 10:18:00.405 INFO    portfolio-astro_7953 - strix.report.sarif: Wrote SARIF 2.1.0 report: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953/findings.sarif (0 results)
+2026-10-14 10:18:00.408 INFO    portfolio-astro_7953 - strix.report.state: Essential scan data saved to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953
+2026-10-14 10:18:00.408 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=reasoning class=ResponseReasoningItem
+2026-10-14 10:18:00.408 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=function_call class=ResponseFunctionToolCall
+2026-10-14 10:18:00.410 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:18:08.437 DEBUG   portfolio-astro_7953 - openai.agents: Turn 11 complete, next_step type=NextStepRunAgain
+2026-10-14 10:18:08.515 DEBUG   portfolio-astro_7953 - openai.agents: Starting turn 12, current_agent=Root Agent
+2026-10-14 10:18:08.515 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:18:08.517 DEBUG   portfolio-astro_7953 - openai.agents: No conversation_id available for request
+2026-10-14 10:18:08.518 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:18:08.522 DEBUG   portfolio-astro_7953 - openai.agents: Calling LLM
+2026-10-14 10:19:02.433 DEBUG   portfolio-astro_7953 - strix.llm.request_log: llm_request route=litellm provider=openrouter model=qwen/qwen3.7-flash host=openrouter.ai outcome=success status=200 request_id=gen-1791969535-ON1ogOd5goSF8NQFIRek response_id=gen-1791969535-ON1ogOd5goSF8NQFIRek stream=1 duration_ms=53904 ttft_ms=49838 req_bytes=388585 res_bytes=682 finish=tool_calls in=96890 out=436 cached=95616 cost=0.002214 agent=5f22f7f6 attempt=0
+2026-10-14 10:19:02.433 DEBUG   portfolio-astro_7953 - strix.report.usage: LiteLLM cost estimate unavailable for model openrouter/qwen/qwen3.7-flash
+2026-10-14 10:19:02.445 INFO    portfolio-astro_7953 - strix.report.coverage: Saved coverage record to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953/coverage.json (0 surface(s), 1 gap(s))
+2026-10-14 10:19:02.447 INFO    portfolio-astro_7953 - strix.report.sarif: Wrote SARIF 2.1.0 report: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953/findings.sarif (0 results)
+2026-10-14 10:19:02.448 INFO    portfolio-astro_7953 - strix.report.state: Essential scan data saved to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953
+2026-10-14 10:19:02.449 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=function_call class=ResponseFunctionToolCall
+2026-10-14 10:19:02.450 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:19:02.450 DEBUG   portfolio-astro_7953 - openai.agents: Invalid JSON input for tool think
+2026-10-14 10:19:02.451 DEBUG   portfolio-astro_7953 - openai.agents: Tool think failed
+2026-10-14 10:19:02.451 DEBUG   portfolio-astro_7953 - openai.agents: Turn 12 complete, next_step type=NextStepRunAgain
+2026-10-14 10:19:02.477 DEBUG   portfolio-astro_7953 - openai.agents: Starting turn 13, current_agent=Root Agent
+2026-10-14 10:19:02.477 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:19:02.480 DEBUG   portfolio-astro_7953 - openai.agents: No conversation_id available for request
+2026-10-14 10:19:02.480 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:19:02.484 DEBUG   portfolio-astro_7953 - openai.agents: Calling LLM
+2026-10-14 10:20:07.165 DEBUG   portfolio-astro_7953 - strix.llm.request_log: llm_request route=litellm provider=openrouter model=qwen/qwen3.7-flash host=openrouter.ai outcome=success status=200 request_id=gen-1791969599-EJOl3Er5fLEU0YHWhDPs response_id=gen-1791969599-EJOl3Er5fLEU0YHWhDPs stream=1 duration_ms=64674 ttft_ms=61910 req_bytes=390568 res_bytes=732 finish=tool_calls in=97363 out=309 cached=76032 cost=0.003777 agent=5f22f7f6 attempt=0
+2026-10-14 10:20:07.166 DEBUG   portfolio-astro_7953 - strix.report.usage: LiteLLM cost estimate unavailable for model openrouter/qwen/qwen3.7-flash
+2026-10-14 10:20:07.175 INFO    portfolio-astro_7953 - strix.report.coverage: Saved coverage record to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953/coverage.json (0 surface(s), 1 gap(s))
+2026-10-14 10:20:07.177 INFO    portfolio-astro_7953 - strix.report.sarif: Wrote SARIF 2.1.0 report: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953/findings.sarif (0 results)
+2026-10-14 10:20:07.179 INFO    portfolio-astro_7953 - strix.report.state: Essential scan data saved to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953
+2026-10-14 10:20:07.180 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=reasoning class=ResponseReasoningItem
+2026-10-14 10:20:07.180 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=message class=ResponseOutputMessage
+2026-10-14 10:20:07.180 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=function_call class=ResponseFunctionToolCall
+2026-10-14 10:20:07.181 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:20:09.371 DEBUG   portfolio-astro_7953 - openai.agents: Turn 13 complete, next_step type=NextStepRunAgain
+2026-10-14 10:20:09.389 DEBUG   portfolio-astro_7953 - openai.agents: Starting turn 14, current_agent=Root Agent
+2026-10-14 10:20:09.389 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:20:09.391 DEBUG   portfolio-astro_7953 - openai.agents: No conversation_id available for request
+2026-10-14 10:20:09.392 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:20:09.395 DEBUG   portfolio-astro_7953 - openai.agents: Calling LLM
+2026-10-14 10:20:38.098 DEBUG   portfolio-astro_7953 - strix.llm.request_log: llm_request route=litellm provider=openrouter model=qwen/qwen3.7-flash host=openrouter.ai outcome=success status=200 request_id=gen-1791969633-TGRHOorvfKy6oDhRsLsP response_id=gen-1791969633-TGRHOorvfKy6oDhRsLsP stream=1 duration_ms=28688 ttft_ms=26770 req_bytes=391727 res_bytes=689 finish=tool_calls in=97695 out=185 cached=96768 cost=0.002102 agent=5f22f7f6 attempt=0
+2026-10-14 10:20:38.099 DEBUG   portfolio-astro_7953 - strix.report.usage: LiteLLM cost estimate unavailable for model openrouter/qwen/qwen3.7-flash
+2026-10-14 10:20:38.109 INFO    portfolio-astro_7953 - strix.report.coverage: Saved coverage record to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953/coverage.json (0 surface(s), 1 gap(s))
+2026-10-14 10:20:38.110 INFO    portfolio-astro_7953 - strix.report.sarif: Wrote SARIF 2.1.0 report: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953/findings.sarif (0 results)
+2026-10-14 10:20:38.111 INFO    portfolio-astro_7953 - strix.report.state: Essential scan data saved to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953
+2026-10-14 10:20:38.112 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=message class=ResponseOutputMessage
+2026-10-14 10:20:38.112 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=function_call class=ResponseFunctionToolCall
+2026-10-14 10:20:38.113 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:20:38.355 DEBUG   portfolio-astro_7953 - openai.agents: Turn 14 complete, next_step type=NextStepRunAgain
+2026-10-14 10:20:38.377 DEBUG   portfolio-astro_7953 - openai.agents: Starting turn 15, current_agent=Root Agent
+2026-10-14 10:20:38.377 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:20:38.380 DEBUG   portfolio-astro_7953 - openai.agents: No conversation_id available for request
+2026-10-14 10:20:38.381 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:20:38.384 DEBUG   portfolio-astro_7953 - openai.agents: Calling LLM
+2026-10-14 10:21:03.585 DEBUG   portfolio-astro_7953 - strix.llm.request_log: llm_request route=litellm provider=openrouter model=qwen/qwen3.7-flash host=openrouter.ai outcome=success status=200 request_id=gen-1791969656-jFU9cncc1R3QCxzQuWP4 response_id=gen-1791969656-jFU9cncc1R3QCxzQuWP4 stream=1 duration_ms=25193 ttft_ms=22429 req_bytes=392899 res_bytes=733 finish=tool_calls in=97974 out=265 cached=96768 cost=0.002162 agent=5f22f7f6 attempt=0
+2026-10-14 10:21:03.586 DEBUG   portfolio-astro_7953 - strix.report.usage: LiteLLM cost estimate unavailable for model openrouter/qwen/qwen3.7-flash
+2026-10-14 10:21:03.594 INFO    portfolio-astro_7953 - strix.report.coverage: Saved coverage record to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953/coverage.json (0 surface(s), 1 gap(s))
+2026-10-14 10:21:03.595 INFO    portfolio-astro_7953 - strix.report.sarif: Wrote SARIF 2.1.0 report: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953/findings.sarif (0 results)
+2026-10-14 10:21:03.597 INFO    portfolio-astro_7953 - strix.report.state: Essential scan data saved to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953
+2026-10-14 10:21:03.598 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=reasoning class=ResponseReasoningItem
+2026-10-14 10:21:03.598 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=function_call class=ResponseFunctionToolCall
+2026-10-14 10:21:03.599 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:21:07.053 DEBUG   portfolio-astro_7953 - openai.agents: Turn 15 complete, next_step type=NextStepRunAgain
+2026-10-14 10:21:07.070 DEBUG   portfolio-astro_7953 - openai.agents: Starting turn 16, current_agent=Root Agent
+2026-10-14 10:21:07.071 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:21:07.073 DEBUG   portfolio-astro_7953 - openai.agents: No conversation_id available for request
+2026-10-14 10:21:07.073 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:21:07.076 DEBUG   portfolio-astro_7953 - openai.agents: Calling LLM
+2026-10-14 10:21:32.844 DEBUG   portfolio-astro_7953 - strix.llm.request_log: llm_request route=litellm provider=openrouter model=qwen/qwen3.7-flash host=openrouter.ai outcome=success status=200 request_id=gen-1791969682-iDI8w2nfJB5qcm9dN9RL response_id=gen-1791969682-iDI8w2nfJB5qcm9dN9RL stream=1 duration_ms=25760 ttft_ms=22843 req_bytes=394042 res_bytes=733 finish=tool_calls in=98368 out=289 cached=62208 cost=0.004976 agent=5f22f7f6 attempt=0
+2026-10-14 10:21:32.845 DEBUG   portfolio-astro_7953 - strix.report.usage: LiteLLM cost estimate unavailable for model openrouter/qwen/qwen3.7-flash
+2026-10-14 10:21:32.854 INFO    portfolio-astro_7953 - strix.report.coverage: Saved coverage record to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953/coverage.json (0 surface(s), 1 gap(s))
+2026-10-14 10:21:32.856 INFO    portfolio-astro_7953 - strix.report.sarif: Wrote SARIF 2.1.0 report: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953/findings.sarif (0 results)
+2026-10-14 10:21:32.857 INFO    portfolio-astro_7953 - strix.report.state: Essential scan data saved to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953
+2026-10-14 10:21:32.858 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=reasoning class=ResponseReasoningItem
+2026-10-14 10:21:32.858 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=function_call class=ResponseFunctionToolCall
+2026-10-14 10:21:32.859 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:21:34.045 DEBUG   portfolio-astro_7953 - openai.agents: Turn 16 complete, next_step type=NextStepRunAgain
+2026-10-14 10:21:34.065 DEBUG   portfolio-astro_7953 - openai.agents: Starting turn 17, current_agent=Root Agent
+2026-10-14 10:21:34.066 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:21:34.068 DEBUG   portfolio-astro_7953 - openai.agents: No conversation_id available for request
+2026-10-14 10:21:34.069 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:21:34.073 DEBUG   portfolio-astro_7953 - openai.agents: Calling LLM
+2026-10-14 10:22:00.288 DEBUG   portfolio-astro_7953 - strix.llm.request_log: llm_request route=litellm provider=openrouter model=qwen/qwen3.7-flash host=openrouter.ai outcome=success status=200 request_id=gen-1791969713-JjjtaLdJQ7sbWOnmEABm response_id=gen-1791969713-JjjtaLdJQ7sbWOnmEABm stream=1 duration_ms=26202 ttft_ms=24538 req_bytes=394661 res_bytes=688 finish=tool_calls in=98540 out=201 cached=97920 cost=0.002101 agent=5f22f7f6 attempt=0
+2026-10-14 10:22:00.288 DEBUG   portfolio-astro_7953 - strix.report.usage: LiteLLM cost estimate unavailable for model openrouter/qwen/qwen3.7-flash
+2026-10-14 10:22:00.297 INFO    portfolio-astro_7953 - strix.report.coverage: Saved coverage record to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953/coverage.json (0 surface(s), 1 gap(s))
+2026-10-14 10:22:00.299 INFO    portfolio-astro_7953 - strix.report.sarif: Wrote SARIF 2.1.0 report: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953/findings.sarif (0 results)
+2026-10-14 10:22:00.301 INFO    portfolio-astro_7953 - strix.report.state: Essential scan data saved to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953
+2026-10-14 10:22:00.302 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=message class=ResponseOutputMessage
+2026-10-14 10:22:00.302 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=function_call class=ResponseFunctionToolCall
+2026-10-14 10:22:00.303 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:22:02.448 DEBUG   portfolio-astro_7953 - openai.agents: Turn 17 complete, next_step type=NextStepRunAgain
+2026-10-14 10:22:02.477 DEBUG   portfolio-astro_7953 - openai.agents: Starting turn 18, current_agent=Root Agent
+2026-10-14 10:22:02.477 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:22:02.480 DEBUG   portfolio-astro_7953 - openai.agents: No conversation_id available for request
+2026-10-14 10:22:02.480 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:22:02.484 DEBUG   portfolio-astro_7953 - openai.agents: Calling LLM
+2026-10-14 10:22:29.671 DEBUG   portfolio-astro_7953 - strix.llm.request_log: llm_request route=litellm provider=openrouter model=qwen/qwen3.7-flash host=openrouter.ai outcome=success status=200 request_id=gen-1791969739-3n04iRxhCcYqShpfYNQt response_id=gen-1791969739-3n04iRxhCcYqShpfYNQt stream=1 duration_ms=27179 ttft_ms=20634 req_bytes=409850 res_bytes=733 finish=tool_calls in=102908 out=602 cached=97920 cost=0.002698 agent=5f22f7f6 attempt=0
+2026-10-14 10:22:29.671 DEBUG   portfolio-astro_7953 - strix.report.usage: LiteLLM cost estimate unavailable for model openrouter/qwen/qwen3.7-flash
+2026-10-14 10:22:29.680 INFO    portfolio-astro_7953 - strix.report.coverage: Saved coverage record to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953/coverage.json (0 surface(s), 1 gap(s))
+2026-10-14 10:22:29.681 INFO    portfolio-astro_7953 - strix.report.sarif: Wrote SARIF 2.1.0 report: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953/findings.sarif (0 results)
+2026-10-14 10:22:29.682 INFO    portfolio-astro_7953 - strix.report.state: Essential scan data saved to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953
+2026-10-14 10:22:29.683 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=reasoning class=ResponseReasoningItem
+2026-10-14 10:22:29.684 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=message class=ResponseOutputMessage
+2026-10-14 10:22:29.684 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=function_call class=ResponseFunctionToolCall
+2026-10-14 10:22:29.684 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:22:32.650 DEBUG   portfolio-astro_7953 - openai.agents: Turn 18 complete, next_step type=NextStepRunAgain
+2026-10-14 10:22:32.671 DEBUG   portfolio-astro_7953 - openai.agents: Starting turn 19, current_agent=Root Agent
+2026-10-14 10:22:32.671 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:22:32.673 DEBUG   portfolio-astro_7953 - openai.agents: No conversation_id available for request
+2026-10-14 10:22:32.674 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:22:32.678 DEBUG   portfolio-astro_7953 - openai.agents: Calling LLM
+2026-10-14 10:22:59.721 DEBUG   portfolio-astro_7953 - strix.llm.request_log: llm_request route=litellm provider=openrouter model=qwen/qwen3.7-flash host=openrouter.ai outcome=success status=200 request_id=gen-1791969771-qHBVIImmXAadU03gEJb8 response_id=gen-1791969771-qHBVIImmXAadU03gEJb8 stream=1 duration_ms=27035 ttft_ms=23965 req_bytes=410842 res_bytes=736 finish=tool_calls in=103154 out=352 cached=102528 cost=0.002254 agent=5f22f7f6 attempt=0
+2026-10-14 10:22:59.722 DEBUG   portfolio-astro_7953 - strix.report.usage: LiteLLM cost estimate unavailable for model openrouter/qwen/qwen3.7-flash
+2026-10-14 10:22:59.730 INFO    portfolio-astro_7953 - strix.report.coverage: Saved coverage record to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953/coverage.json (0 surface(s), 1 gap(s))
+2026-10-14 10:22:59.732 INFO    portfolio-astro_7953 - strix.report.sarif: Wrote SARIF 2.1.0 report: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953/findings.sarif (0 results)
+2026-10-14 10:22:59.734 INFO    portfolio-astro_7953 - strix.report.state: Essential scan data saved to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953
+2026-10-14 10:22:59.735 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=reasoning class=ResponseReasoningItem
+2026-10-14 10:22:59.735 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=message class=ResponseOutputMessage
+2026-10-14 10:22:59.735 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=function_call class=ResponseFunctionToolCall
+2026-10-14 10:22:59.736 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:23:09.747 DEBUG   portfolio-astro_7953 - openai.agents: Turn 19 complete, next_step type=NextStepRunAgain
+2026-10-14 10:23:09.771 DEBUG   portfolio-astro_7953 - openai.agents: Starting turn 20, current_agent=Root Agent
+2026-10-14 10:23:09.771 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:23:09.774 DEBUG   portfolio-astro_7953 - openai.agents: No conversation_id available for request
+2026-10-14 10:23:09.774 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:23:09.778 DEBUG   portfolio-astro_7953 - openai.agents: Calling LLM
+2026-10-14 10:23:44.376 DEBUG   portfolio-astro_7953 - strix.llm.request_log: llm_request route=litellm provider=openrouter model=qwen/qwen3.7-flash host=openrouter.ai outcome=success status=200 request_id=gen-1791969809-Ebth3NsMnabX4LU07We1 response_id=gen-1791969809-Ebth3NsMnabX4LU07We1 stream=1 duration_ms=34588 ttft_ms=32317 req_bytes=411782 res_bytes=735 finish=tool_calls in=103395 out=216 cached=62208 cost=0.005449 agent=5f22f7f6 attempt=0
+2026-10-14 10:23:44.376 DEBUG   portfolio-astro_7953 - strix.report.usage: LiteLLM cost estimate unavailable for model openrouter/qwen/qwen3.7-flash
+2026-10-14 10:23:44.386 INFO    portfolio-astro_7953 - strix.report.coverage: Saved coverage record to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953/coverage.json (0 surface(s), 1 gap(s))
+2026-10-14 10:23:44.388 INFO    portfolio-astro_7953 - strix.report.sarif: Wrote SARIF 2.1.0 report: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953/findings.sarif (0 results)
+2026-10-14 10:23:44.390 INFO    portfolio-astro_7953 - strix.report.state: Essential scan data saved to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953
+2026-10-14 10:23:44.391 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=reasoning class=ResponseReasoningItem
+2026-10-14 10:23:44.391 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=function_call class=ResponseFunctionToolCall
+2026-10-14 10:23:44.392 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:23:48.863 DEBUG   portfolio-astro_7953 - openai.agents: Turn 20 complete, next_step type=NextStepRunAgain
+2026-10-14 10:23:48.880 DEBUG   portfolio-astro_7953 - openai.agents: Starting turn 21, current_agent=Root Agent
+2026-10-14 10:23:48.881 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:23:48.883 DEBUG   portfolio-astro_7953 - openai.agents: No conversation_id available for request
+2026-10-14 10:23:48.884 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:23:48.888 DEBUG   portfolio-astro_7953 - openai.agents: Calling LLM
+2026-10-14 10:24:29.300 DEBUG   portfolio-astro_7953 - strix.llm.request_log: llm_request route=litellm provider=openrouter model=qwen/qwen3.7-flash host=openrouter.ai outcome=success status=200 request_id=gen-1791969861-E8bHQaTuQGxBTTbNIdLr response_id=gen-1791969861-E8bHQaTuQGxBTTbNIdLr stream=1 duration_ms=40404 ttft_ms=39997 req_bytes=412586 res_bytes=690 finish=tool_calls in=103610 out=66 cached=62208 cost=0.005411 agent=5f22f7f6 attempt=0
+2026-10-14 10:24:29.300 DEBUG   portfolio-astro_7953 - strix.report.usage: LiteLLM cost estimate unavailable for model openrouter/qwen/qwen3.7-flash
+2026-10-14 10:24:29.308 INFO    portfolio-astro_7953 - strix.report.coverage: Saved coverage record to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953/coverage.json (0 surface(s), 1 gap(s))
+2026-10-14 10:24:29.310 INFO    portfolio-astro_7953 - strix.report.sarif: Wrote SARIF 2.1.0 report: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953/findings.sarif (0 results)
+2026-10-14 10:24:29.312 INFO    portfolio-astro_7953 - strix.report.state: Essential scan data saved to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953
+2026-10-14 10:24:29.313 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=function_call class=ResponseFunctionToolCall
+2026-10-14 10:24:29.314 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:24:30.247 DEBUG   portfolio-astro_7953 - openai.agents: Turn 21 complete, next_step type=NextStepRunAgain
+2026-10-14 10:24:30.264 DEBUG   portfolio-astro_7953 - openai.agents: Starting turn 22, current_agent=Root Agent
+2026-10-14 10:24:30.264 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:24:30.267 DEBUG   portfolio-astro_7953 - openai.agents: No conversation_id available for request
+2026-10-14 10:24:30.267 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:24:30.271 DEBUG   portfolio-astro_7953 - openai.agents: Calling LLM
+2026-10-14 10:25:17.414 DEBUG   portfolio-astro_7953 - strix.llm.request_log: llm_request route=litellm provider=openrouter model=qwen/qwen3.7-flash host=openrouter.ai outcome=success status=200 request_id=gen-1791969907-4VxUnrZKls7ATQ6LLLC3 response_id=gen-1791969907-4VxUnrZKls7ATQ6LLLC3 stream=1 duration_ms=47135 ttft_ms=45086 req_bytes=414540 res_bytes=691 finish=tool_calls in=104240 out=219 cached=62208 cost=0.005535 agent=5f22f7f6 attempt=0
+2026-10-14 10:25:17.414 DEBUG   portfolio-astro_7953 - strix.report.usage: LiteLLM cost estimate unavailable for model openrouter/qwen/qwen3.7-flash
+2026-10-14 10:25:17.423 INFO    portfolio-astro_7953 - strix.report.coverage: Saved coverage record to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953/coverage.json (0 surface(s), 1 gap(s))
+2026-10-14 10:25:17.424 INFO    portfolio-astro_7953 - strix.report.sarif: Wrote SARIF 2.1.0 report: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953/findings.sarif (0 results)
+2026-10-14 10:25:17.426 INFO    portfolio-astro_7953 - strix.report.state: Essential scan data saved to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953
+2026-10-14 10:25:17.427 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=message class=ResponseOutputMessage
+2026-10-14 10:25:17.427 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=function_call class=ResponseFunctionToolCall
+2026-10-14 10:25:17.428 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:25:19.442 DEBUG   portfolio-astro_7953 - openai.agents: Turn 22 complete, next_step type=NextStepRunAgain
+2026-10-14 10:25:19.471 DEBUG   portfolio-astro_7953 - openai.agents: Starting turn 23, current_agent=Root Agent
+2026-10-14 10:25:19.471 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:25:19.474 DEBUG   portfolio-astro_7953 - openai.agents: No conversation_id available for request
+2026-10-14 10:25:19.475 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:25:19.478 DEBUG   portfolio-astro_7953 - openai.agents: Calling LLM
+2026-10-14 10:26:05.062 DEBUG   portfolio-astro_7953 - strix.llm.request_log: llm_request route=litellm provider=openrouter model=qwen/qwen3.7-flash host=openrouter.ai outcome=success status=200 request_id=gen-1791969950-JilnIrPkoBd2zWw0A4yG response_id=gen-1791969950-JilnIrPkoBd2zWw0A4yG stream=1 duration_ms=45576 ttft_ms=34172 req_bytes=416655 res_bytes=736 finish=tool_calls in=104776 out=1003 cached=103680 cost=0.002584 agent=5f22f7f6 attempt=0
+2026-10-14 10:26:05.063 DEBUG   portfolio-astro_7953 - strix.report.usage: LiteLLM cost estimate unavailable for model openrouter/qwen/qwen3.7-flash
+2026-10-14 10:26:05.071 INFO    portfolio-astro_7953 - strix.report.coverage: Saved coverage record to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953/coverage.json (0 surface(s), 1 gap(s))
+2026-10-14 10:26:05.072 INFO    portfolio-astro_7953 - strix.report.sarif: Wrote SARIF 2.1.0 report: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953/findings.sarif (0 results)
+2026-10-14 10:26:05.074 INFO    portfolio-astro_7953 - strix.report.state: Essential scan data saved to: /home/herold/Projects/front/portfolio-astro/strix_runs/portfolio-astro_7953
+2026-10-14 10:26:05.074 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=reasoning class=ResponseReasoningItem
+2026-10-14 10:26:05.075 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=message class=ResponseOutputMessage
+2026-10-14 10:26:05.075 DEBUG   portfolio-astro_7953 - openai.agents: Processing output item type=function_call class=ResponseFunctionToolCall
+2026-10-14 10:26:05.076 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:26:06.536 DEBUG   portfolio-astro_7953 - openai.agents: Turn 23 complete, next_step type=NextStepRunAgain
+2026-10-14 10:26:06.554 DEBUG   portfolio-astro_7953 - openai.agents: Starting turn 24, current_agent=Root Agent
+2026-10-14 10:26:06.554 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:26:06.557 DEBUG   portfolio-astro_7953 - openai.agents: No conversation_id available for request
+2026-10-14 10:26:06.558 DEBUG   portfolio-astro_7953 - openai.agents: Tracing is disabled. Not creating span
+2026-10-14 10:26:06.561 DEBUG   portfolio-astro_7953 - openai.agents: Calling LLM
+2026-10-14 10:26:41.858 WARNING portfolio-astro_7953 - strix.llm.request_log: llm_request route=litellm provider=openrouter model=qwen/qwen3.7-flash host=openrouter.ai outcome=error status=402 request_id=gen-1791970001-xrGXoVZklp6d9IYOfXRw response_id=- stream=1 duration_ms=35285 ttft_ms=- req_bytes=110938 res_bytes=887 finish=- in=- out=- cached=- cost=- agent=5f22f7f6 attempt=0 error=APIError: litellm.APIError: APIError: OpenrouterException - {"error":{"message":"This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 47636. To increase, visit https://openrouter.ai/workspaces/default/keys/b576e7d41432e5e0a95c3f58f012827228ec1ed5c6a41f7abf6a696181276ac7 and adjust the key's total limit","code":402,"metadata":{"limit_source":"openrouter_key_limit","remedy_hint":"Raise or remove this API key's usage limit at https://openrouter.ai/settings/keys, or use a key without a limit.","provider_name":null,"previous_errors":[{"code":402,"message":"This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 54781. To increase, visit https://openrouter.ai/workspaces/default/keys/b576e7d41432e5e0a95c3f58f012827228ec1ed5c6a41f7abf6a696181276ac7 and adjust the key's total limit"}]}},"user_id":"user_31YfPqberUWqcBcutKeKzvUgsSk"}
+2026-10-14 10:26:41.860 DEBUG   portfolio-astro_7953 - openai.agents: Resetting current trace
+2026-10-14 10:26:41.925 ERROR   portfolio-astro_7953 - strix.core.execution: agent run failed for 5f22f7f6; marking failed
+Traceback (most recent call last):
+  File "litellm/llms/custom_httpx/llm_http_handler.py", line 334, in _make_common_async_call
+  File "litellm/litellm_core_utils/logging_utils.py", line 336, in async_wrapper
+  File "litellm/llms/custom_httpx/http_handler.py", line 740, in post
+  File "litellm/llms/custom_httpx/http_handler.py", line 498, in _raise_masked_async_error
+litellm.llms.custom_httpx.http_handler.MaskedHTTPStatusError: Client error '402 Payment Required' for url 'https://openrouter.ai/api/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "litellm/main.py", line 648, in acompletion
+  File "litellm/main.py", line 713, in _resolve_dispatched_chat_response
+  File "litellm/llms/custom_httpx/llm_http_handler.py", line 815, in acompletion_stream_function
+  File "litellm/llms/custom_httpx/llm_http_handler.py", line 875, in make_async_call_stream_helper
+  File "litellm/llms/custom_httpx/llm_http_handler.py", line 351, in _make_common_async_call
+  File "litellm/llms/custom_httpx/llm_http_handler.py", line 6019, in _handle_error
+litellm.llms.openrouter.common_utils.OpenRouterException: {"error":{"message":"This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 47636. To increase, visit https://openrouter.ai/workspaces/default/keys/b576e7d41432e5e0a95c3f58f012827228ec1ed5c6a41f7abf6a696181276ac7 and adjust the key's total limit","code":402,"metadata":{"limit_source":"openrouter_key_limit","remedy_hint":"Raise or remove this API key's usage limit at https://openrouter.ai/settings/keys, or use a key without a limit.","provider_name":null,"previous_errors":[{"code":402,"message":"This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 54781. To increase, visit https://openrouter.ai/workspaces/default/keys/b576e7d41432e5e0a95c3f58f012827228ec1ed5c6a41f7abf6a696181276ac7 and adjust the key's total limit"}]}},"user_id":"user_31YfPqberUWqcBcutKeKzvUgsSk"}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "strix/core/execution.py", line 759, in _run_cycle
+  File "agents/result.py", line 861, in stream_events
+  File "agents/result.py", line 949, in _await_task_safely
+  File "agents/result.py", line 691, in _await_run_and_cleanup
+  File "agents/run_internal/run_loop.py", line 1095, in start_streaming
+  File "agents/run_internal/run_loop.py", line 1584, in run_single_turn_streamed
+  File "agents/models/_run_context.py", line 31, in model_run_context_stream
+  File "agents/run_internal/model_retry.py", line 560, in stream_response_with_retry
+  File "strix/config/models.py", line 363, in stream_response
+  File "strix/config/models.py", line 408, in _with_idle_timeout
+  File "asyncio/tasks.py", line 520, in wait_for
+  File "strix/llm/request_log.py", line 1244, in stream_response
+  File "agents/extensions/models/litellm_model.py", line 387, in stream_response
+  File "agents/extensions/models/litellm_model.py", line 597, in _fetch_response
+  File "litellm/utils.py", line 2076, in wrapper_async
+  File "litellm/utils.py", line 1872, in wrapper_async
+  File "litellm/main.py", line 701, in acompletion
+  File "litellm/litellm_core_utils/exception_mapping_utils.py", line 2675, in exception_type
+  File "litellm/litellm_core_utils/exception_mapping_utils.py", line 2610, in exception_type
+  File "litellm/litellm_core_utils/exception_mapping_utils.py", line 2185, in _map_openrouter_exception
+litellm.exceptions.APIError: litellm.APIError: APIError: OpenrouterException - {"error":{"message":"This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 47636. To increase, visit https://openrouter.ai/workspaces/default/keys/b576e7d41432e5e0a95c3f58f012827228ec1ed5c6a41f7abf6a696181276ac7 and adjust the key's total limit","code":402,"metadata":{"limit_source":"openrouter_key_limit","remedy_hint":"Raise or remove this API key's usage limit at https://openrouter.ai/settings/keys, or use a key without a limit.","provider_name":null,"previous_errors":[{"code":402,"message":"This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 54781. To increase, visit https://openrouter.ai/workspaces/default/keys/b576e7d41432e5e0a95c3f58f012827228ec1ed5c6a41f7abf6a696181276ac7 and adjust the key's total limit"}]}},"user_id":"user_31YfPqberUWqcBcutKeKzvUgsSk"}
+2026-10-14 10:26:41.931 INFO    portfolio-astro_7953 - strix.core.agents: agent.status 5f22f7f6=failed
+2026-10-14 10:26:41.932 ERROR   portfolio-astro_7953 - strix.core.runner: Strix scan portfolio-astro_7953 failed
+Traceback (most recent call last):
+  File "litellm/llms/custom_httpx/llm_http_handler.py", line 334, in _make_common_async_call
+  File "litellm/litellm_core_utils/logging_utils.py", line 336, in async_wrapper
+  File "litellm/llms/custom_httpx/http_handler.py", line 740, in post
+  File "litellm/llms/custom_httpx/http_handler.py", line 498, in _raise_masked_async_error
+litellm.llms.custom_httpx.http_handler.MaskedHTTPStatusError: Client error '402 Payment Required' for url 'https://openrouter.ai/api/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "litellm/main.py", line 648, in acompletion
+  File "litellm/main.py", line 713, in _resolve_dispatched_chat_response
+  File "litellm/llms/custom_httpx/llm_http_handler.py", line 815, in acompletion_stream_function
+  File "litellm/llms/custom_httpx/llm_http_handler.py", line 875, in make_async_call_stream_helper
+  File "litellm/llms/custom_httpx/llm_http_handler.py", line 351, in _make_common_async_call
+  File "litellm/llms/custom_httpx/llm_http_handler.py", line 6019, in _handle_error
+litellm.llms.openrouter.common_utils.OpenRouterException: {"error":{"message":"This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 47636. To increase, visit https://openrouter.ai/workspaces/default/keys/b576e7d41432e5e0a95c3f58f012827228ec1ed5c6a41f7abf6a696181276ac7 and adjust the key's total limit","code":402,"metadata":{"limit_source":"openrouter_key_limit","remedy_hint":"Raise or remove this API key's usage limit at https://openrouter.ai/settings/keys, or use a key without a limit.","provider_name":null,"previous_errors":[{"code":402,"message":"This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 54781. To increase, visit https://openrouter.ai/workspaces/default/keys/b576e7d41432e5e0a95c3f58f012827228ec1ed5c6a41f7abf6a696181276ac7 and adjust the key's total limit"}]}},"user_id":"user_31YfPqberUWqcBcutKeKzvUgsSk"}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "strix/core/runner.py", line 579, in run_strix_scan
+  File "strix/core/execution.py", line 207, in run_agent_loop
+  File "strix/core/execution.py", line 266, in _run_agent_loop
+  File "strix/core/execution.py", line 545, in _run_until_lifecycle
+  File "strix/core/execution.py", line 759, in _run_cycle
+  File "agents/result.py", line 861, in stream_events
+  File "agents/result.py", line 949, in _await_task_safely
+  File "agents/result.py", line 691, in _await_run_and_cleanup
+  File "agents/run_internal/run_loop.py", line 1095, in start_streaming
+  File "agents/run_internal/run_loop.py", line 1584, in run_single_turn_streamed
+  File "agents/models/_run_context.py", line 31, in model_run_context_stream
+  File "agents/run_internal/model_retry.py", line 560, in stream_response_with_retry
+  File "strix/config/models.py", line 363, in stream_response
+  File "strix/config/models.py", line 408, in _with_idle_timeout
+  File "asyncio/tasks.py", line 520, in wait_for
+  File "strix/llm/request_log.py", line 1244, in stream_response
+  File "agents/extensions/models/litellm_model.py", line 387, in stream_response
+  File "agents/extensions/models/litellm_model.py", line 597, in _fetch_response
+  File "litellm/utils.py", line 2076, in wrapper_async
+  File "litellm/utils.py", line 1872, in wrapper_async
+  File "litellm/main.py", line 701, in acompletion
+  File "litellm/litellm_core_utils/exception_mapping_utils.py", line 2675, in exception_type
+  File "litellm/litellm_core_utils/exception_mapping_utils.py", line 2610, in exception_type
+  File "litellm/litellm_core_utils/exception_mapping_utils.py", line 2185, in _map_openrouter_exception
+litellm.exceptions.APIError: litellm.APIError: APIError: OpenrouterException - {"error":{"message":"This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 47636. To increase, visit https://openrouter.ai/workspaces/default/keys/b576e7d41432e5e0a95c3f58f012827228ec1ed5c6a41f7abf6a696181276ac7 and adjust the key's total limit","code":402,"metadata":{"limit_source":"openrouter_key_limit","remedy_hint":"Raise or remove this API key's usage limit at https://openrouter.ai/settings/keys, or use a key without a limit.","provider_name":null,"previous_errors":[{"code":402,"message":"This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 54781. To increase, visit https://openrouter.ai/workspaces/default/keys/b576e7d41432e5e0a95c3f58f012827228ec1ed5c6a41f7abf6a696181276ac7 and adjust the key's total limit"}]}},"user_id":"user_31YfPqberUWqcBcutKeKzvUgsSk"}
+2026-10-14 10:26:41.937 INFO    portfolio-astro_7953 - strix.core.agents: agent.status 5f22f7f6=failed
+2026-10-14 10:26:41.939 INFO    portfolio-astro_7953 - strix.core.runner: Tearing down sandbox session for scan portfolio-astro_7953
+2026-10-14 10:26:42.561 INFO    portfolio-astro_7953 - strix.runtime.session_manager: Cleaned up sandbox session for scan portfolio-astro_7953
+2026-10-14 10:26:42.562 INFO    portfolio-astro_7953 - strix.core.runner: Strix scan portfolio-astro_7953 done
