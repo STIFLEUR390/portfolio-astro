@@ -25,3 +25,24 @@
   élément portant `data-fx-parallax` avec une animation CSS `transform`
   (conflit : l'inline style et l'animation se marchent dessus) — animer un
   enfant (`data-fx-float`) à la place.
+- **HTML Ghost sanitisé au build** : `getAllPosts()` passe `post.html` dans
+  DOMPurify (`isomorphic-dompurify`, options : iframe embeds autorisés +
+  attributs allow/fullscreen). Conséquences : (1) les commentaires
+  `<!--kg-card-begin/end-->` de Ghost disparaissent (cosmétique, sans effet) ;
+  (2) TOUT nouvel embed/HTML brut devra survivre à DOMPurify — si un format
+  Ghost légitime est strippé, étendre `SANITIZE_OPTIONS` dans `src/lib/ghost.ts`,
+  ne pas retirer la sanitisation.
+- **Overrides de dépendances (`package.json` → `overrides`)** : devalue
+  (^5.9.3), source-map-js (^1.2.2) et postcss-selector-parser (^7.1.6) sont
+  forcés au-dessus des pins des parents (astro, @tailwindcss/typography) pour
+  corriger des CVE build-time. `postcss-selector-parser` 7.x fonctionne avec
+  typography 0.5.20 malgré son pin exact "6.0.10" (build vérifié) — si une
+  MAJ de typography casse, regarder d'abord ces overrides.
+- **http-cache-semantics 4.2.0** (CVE-2026-93748) : aucun fix amont, dépendance
+  transitive d'astro, module JAMAIS chargé ici (fetcher d'images distantes
+  uniquement, pas utilisé) — non traitable, ignoré volontairement (scan Strix
+  du 14/10/2026, finding INFO prouvé non-exploitable).
+- **Strix** : config dans `~/.strix/cli-config.json` + vars `.bashrc`
+  (`STRIX_LLM="openai/<modèle>"`, `LLM_API_BASE` local ocx). Piège : les vars
+  d'env de la shell priment sur le fichier — une session ouverte avant un
+  changement de config écrasera la nouvelle config.
