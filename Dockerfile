@@ -11,7 +11,11 @@ RUN bun install --frozen-lockfile
 
 COPY . .
 RUN bun run build
+# dist/.prerender holds the server-side prerender chunks (they read build-time
+# secrets via astro:env). They must never be served by nginx.
+RUN rm -rf /app/dist/.prerender
 
 FROM nginx:alpine AS runtime
+COPY docker/nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=build /app/dist /usr/share/nginx/html
 EXPOSE 80
