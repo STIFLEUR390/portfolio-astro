@@ -1,10 +1,12 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getPosts } from '../../lib/ghost';
+import { getAllPosts } from '../../lib/ghost';
 
 export async function getStaticPaths() {
   const PAGE_SIZE = 6;
-  const allPosts = await getPosts({ page: 1, limit: 200 });
+  // Single fetch of every public post (paginated server-side); Ghost returns
+  // posts sorted by publication date, newest first.
+  const allPosts = await getAllPosts();
   const totalPages = Math.ceil(allPosts.length / PAGE_SIZE);
   const paths = [];
 
@@ -21,12 +23,11 @@ export async function getStaticPaths() {
 
   // Pages 2..N (listing)
   for (let i = 2; i <= totalPages; i++) {
-    const posts = await getPosts({ page: i, limit: PAGE_SIZE });
     paths.push({
       params: { slug: String(i) },
       props: {
         type: 'listing' as const,
-        posts,
+        posts: allPosts.slice((i - 1) * PAGE_SIZE, i * PAGE_SIZE),
         currentPage: i,
         totalPages,
       },
@@ -36,13 +37,17 @@ export async function getStaticPaths() {
   // Individual articles
   for (let i = 0; i < allPosts.length; i++) {
     const post = allPosts[i];
+    // Newest first: index i-1 is the chronologically *next* post, index i+1
+    // the previous one.
+    const older = i < allPosts.length - 1 ? allPosts[i + 1] : null;
+    const newer = i > 0 ? allPosts[i - 1] : null;
     paths.push({
       params: { slug: post.slug },
       props: {
         type: 'article' as const,
         post,
-        prevPost: i > 0 ? { slug: allPosts[i - 1].slug, title: allPosts[i - 1].title } : null,
-        nextPost: i < allPosts.length - 1 ? { slug: allPosts[i + 1].slug, title: allPosts[i + 1].title } : null,
+        prevPost: older ? { slug: older.slug, title: older.title } : null,
+        nextPost: newer ? { slug: newer.slug, title: newer.title } : null,
       },
     });
   }

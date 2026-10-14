@@ -9,7 +9,9 @@ const techCount = Object.values(skills).flat().length;
 
 let latestPosts: any[] = [];
 try {
-  latestPosts = (await getPosts()).slice(0, 3);
+  // Homepage must not break if Ghost is unreachable: fail silently to an
+  // empty "latest posts" section.
+  latestPosts = await getPosts({ limit: 3 });
 } catch {}
 ---
 

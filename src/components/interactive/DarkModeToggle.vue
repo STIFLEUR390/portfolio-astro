@@ -1,18 +1,24 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import { Sun, Moon } from '@lucide/vue'
 
 const isDark = ref(false)
+let observer: MutationObserver | null = null
 
 onMounted(() => {
   const stored = localStorage.getItem('theme')
   isDark.value = stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches)
 
   // Sync with BaseLayout init script
-  const observer = new MutationObserver(() => {
+  observer = new MutationObserver(() => {
     isDark.value = document.documentElement.classList.contains('dark')
   })
   observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] })
+})
+
+onUnmounted(() => {
+  observer?.disconnect()
+  observer = null
 })
 
 function toggle() {

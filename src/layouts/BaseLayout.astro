@@ -33,8 +33,8 @@ const pageDescription = description ?? site.description;
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url.href} />
     <meta property="og:image" content={images.og} />
-    <meta property="og:image:width" content="1600" />
-    <meta property="og:image:height" content="900" />
+    <meta property="og:image:width" content="2048" />
+    <meta property="og:image:height" content="1152" />
     <meta property="og:image:type" content="image/webp" />
 
     <!-- Twitter -->
@@ -69,7 +69,9 @@ const pageDescription = description ?? site.description;
     </main>
     <Footer />
     <script>
-      // Scroll reveal observer
+      // Scroll reveal observer. Every page is fully prerendered and there is
+      // no <ClientRouter /> (view transitions), so a plain page load is enough
+      // to observe the elements once.
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
@@ -82,11 +84,6 @@ const pageDescription = description ?? site.description;
         { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
       );
       document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
-
-      // Re-observe after Astro page transitions
-      document.addEventListener('astro:page-load', () => {
-        document.querySelectorAll('.reveal:not(.revealed)').forEach((el) => observer.observe(el));
-      });
     </script>
   </body>
 </html>

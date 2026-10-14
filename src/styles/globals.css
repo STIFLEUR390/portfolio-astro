@@ -2,7 +2,9 @@
 @import "tw-animate-css";
 @plugin "@tailwindcss/typography";
 
-@custom-variant dark (&:is(.dark *));
+/* Tailwind v4 docs: include the .dark root element itself, and :where() keeps
+   the variant specificity at zero. */
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
   --background: oklch(0.99 0.002 240);
