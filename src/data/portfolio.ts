@@ -107,6 +107,7 @@ export const skills = {
     "Laravel",
     "PHP",
     "Nuxt / Vue.js",
+    "Rust",
     "JavaScript",
     "TypeScript",
     "HTML5",
